@@ -1,11 +1,10 @@
 import React from "react";
 
-
-const Home = () => {
+const SortMenu = () => {
     return (
         <>
         </>
     )
 }
 
-export default Home;
+export default SortMenu;

@@ -1,11 +1,10 @@
 import React from "react";
 
-
-const Profile = () => {
+const RecipeList = () => {
     return (
         <>
         </>
     )
 }
 
-export default Profile;
+export default RecipeList;

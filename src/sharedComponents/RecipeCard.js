@@ -1,11 +1,10 @@
 import React from "react";
 
-
-const Search = () => {
+const RecipeCard = () => {
     return (
         <>
         </>
     )
 }
 
-export default Search;
+export default RecipeCard;
