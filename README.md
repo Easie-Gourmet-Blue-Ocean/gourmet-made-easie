@@ -1,7 +1,6 @@
 # gourmet-made-easie
 
 ## API Documentation
-- break down into 2 parts –– users related and recipes related
 
 ### Users Related Endpoints
 #### ```GET /user/:userId```
