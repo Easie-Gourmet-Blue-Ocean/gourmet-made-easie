@@ -1,14 +1,24 @@
 import React from "react";
-import { hot } from 'react-hot-loader/root';
+import { hot } from "react-hot-loader/root";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar.js";
+import Search from "./components/pages/Search.js";
+import Profile from "./components/pages/Profile.js";
+import Home from "./components/pages/Home.js";
 
 const App = () => {
-    return (
-        <>
-        <h1>
-            Hello World
-        </h1>
-        </>
-    )
-}
+  return (
+    <Router>
+      <>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </>
+    </Router>
+  );
+};
 
 export default hot(App);
