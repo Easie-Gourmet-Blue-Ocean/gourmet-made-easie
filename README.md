@@ -6,7 +6,7 @@
 #### ```GET /user/:userId```
 - Description: get a user's info
 - Status:  ``` 200 OK```
-- Response:
+- Response Example:
 ``` javascript
 {
 	userId: 1,
@@ -18,7 +18,7 @@
 #### ```GET /user/:userId/favorites```
 - Description: get a user's favorite recipes
 - Status:  ``` 200 OK```
-- Response:
+- Response Example:
 ``` javascript
 [
   {
@@ -34,7 +34,7 @@
 #### ```GET /user/:userId/recipes```
 - Description: get a user's recipes
 - Status:  ``` 200 OK```
-- Response:
+- Response Example:
 ``` javascript
 [
   {
@@ -76,7 +76,7 @@
 #### ```GET /recipe/:recipeId```
 - Description: Get full detailed recipe
 - Status:  ``` 200 OK```
-- Response Body Example:
+- Response Example:
 ```javascript
 {
   recipeId: 1,
@@ -124,7 +124,7 @@
 }
 
 ```
-- Response body Example:
+- Response Example:
 ```javascript
 [
   {
@@ -155,7 +155,7 @@
 |  protein | [String] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 | servingSize | Integer | - |
 
-- Request body Example:
+- Request Body Example:
 ```javascript
 {
 	recipeName: "chicken and rice",
