@@ -117,9 +117,9 @@
 - Request body Example:
 ```javascript
 {
-	mealType: [ ‘lunch’],  // default []
-	protein: [ ‘chicken’ ], // default []
-	sort: ‘newest’, // default to relevant
+	mealType: [ "lunch"],  // default []
+	protein: [ "chicken" ], // default []
+	sort: "newest", // default to relevant
 	amount: 10   // default to 10 (Ask about this)
 }
 
