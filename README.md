@@ -110,8 +110,8 @@
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-|  mealType | [ String ] | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
-|  protein | [ String ] | defaulted to empty array; full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
+|  mealType | [String] | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
+|  protein | [String] | defaulted to empty array; full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 |  sort | String  | defaulted to "relavent"; other options are "newest" and "favorite" |
 | count | Integer | defaulted to 10; specify the number of results that will be fetched |
 
@@ -150,10 +150,10 @@
 | activeTime | Integer | time needed to actively cook |
 | totalTime | Integer | total time required for this recipe |
 | photo | String | a link to the photo |
-| instructions | [ String ] | a list of instructions in order |
-| ingredients | [ Object ] | an array of object, each object has properties "ingredientName", "amount" and "measurementUnit" |
-|  mealType | [ String ] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
-|  protein | [ String ] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
+| instructions | [String] | a list of instructions in order |
+| ingredients | [Object] | an array of object, each object has properties "ingredientName", "amount" and "measurementUnit" |
+|  mealType | [String] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
+|  protein | [String] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 | servingSize | Integer | - |
 
 - Request body Example:
