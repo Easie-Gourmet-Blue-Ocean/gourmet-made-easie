@@ -8,16 +8,18 @@ import Home from "./components/pages/Home.js";
 
 const App = () => {
   return (
-    <Router>
-      <>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </>
-    </Router>
+    <div className="app">
+      <Router>
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </>
+      </Router>
+    </div>
   );
 };
 
