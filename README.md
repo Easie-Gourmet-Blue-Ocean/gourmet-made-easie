@@ -1,6 +1,18 @@
 # gourmet-made-easie
 
 ## API Documentation
+### Summary
+- users related endpoints
+  - GET /user/:userId
+  - GET /user/:userId/favorites
+  - GET /user/:userId/recipes
+  - POST /user (**need investigation**)
+  - PATCH /user/:userId/favorites/:recipeId
+  - DELETE /user/:userId/favorites/:recipeId
+- recipe related endpoints
+  - GET /recipe/:recipeId
+  - GET /recipe/cards
+  - POST /recipe
 
 ### Users Related Endpoints
 #### ```GET /user/:userId```
@@ -172,7 +184,25 @@
 }
 
 ```
+## Note
+- data representation for protein and meal type in the db
+```bash
+  mealType
+  0: breakfast,
+  1: brunch,
+  2: lunch,
+  3: appetizer,
+  4: dinner,
+  5: dessert 
 
+ protein
+ 0: poultry,
+ 1: beef,
+ 2: pork,
+ 3: seafood,
+ 4: vegetarian,
+ 5: vegan 
+```
 
 ## Instructions
 First install dependencies:
