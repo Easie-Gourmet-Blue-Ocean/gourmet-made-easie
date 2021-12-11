@@ -2,19 +2,19 @@
 
 ## API Documentation
 ### Summary
-- users related endpoints
+- users related routes
   - GET /user/:userId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
   - POST /user (**need investigation**)
   - PATCH /user/:userId/favorites/:recipeId
   - DELETE /user/:userId/favorites/:recipeId
-- recipe related endpoints
+- recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
   - POST /recipe
 
-### Users Related Endpoints
+### Users Related Routes
 #### ```GET /user/:userId```
 - Description: get a user's info
 - Status:  ``` 200 OK```
@@ -84,7 +84,7 @@
 - Description: Remove a recipe from favorites
 - Status:  ``` 200 OK```
 
-### Recipe Related Endpoints
+### Recipe Related Routes
 #### ```GET /recipe/:recipeId```
 - Description: Get full detailed recipe
 - Status:  ``` 200 OK```
