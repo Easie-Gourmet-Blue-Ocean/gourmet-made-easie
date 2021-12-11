@@ -165,7 +165,7 @@
 	totalTime: 30,
 	photo: "http://photo",
 	instructions: ["add water", "heat up water"],
-	ingredients: [ { ingredientName: "salt", amount: 1, measurementUnit: "table spoon"} ]
+	ingredients: [ { ingredientName: "salt", amount: 1, measurementUnit: "table spoon"} ],
 	mealType: ["lunch’, ‘brunch"],
 	protein: [ "beef", "pork" ],
 	servingSize: 3
