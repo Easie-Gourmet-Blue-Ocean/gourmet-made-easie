@@ -1,10 +1,15 @@
 const express = require('express')
-const app = express()
-const router = express.Router()
+const app = express();
 const port = 3000
+
+const db  = require('../database/config.js');
+
+const recipeRouter = require('./routes/recipeRouter') 
 
 app.use(express.json())
 app.use(express.static(__dirname + '/../dist'))
+
+app.use('/recipe', recipeRouter);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
