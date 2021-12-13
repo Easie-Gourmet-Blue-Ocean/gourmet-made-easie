@@ -2,8 +2,6 @@ const express = require('express')
 const app = express();
 const port = 3000
 
-const db  = require('../database/config.js');
-
 const recipeRouter = require('./routes/recipeRouter') 
 
 app.use(express.json())

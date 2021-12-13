@@ -6,10 +6,14 @@ POST /recipe
 const recipeModel = require('../models/recipe')
 
 const getDetailedRecipes = (req, res) => {
-  recipeModel.addRecipe
+  let recipeId = req.params.recipeId
+  recipeModel.findRecipe(recipeId)
 }
 
 const getRecipeCards = (req, res) => {
+  if (req.body.count === null) {
+    return everything
+  }
   
 }
 

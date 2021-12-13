@@ -1,6 +1,7 @@
-const db = require('../../database/config');
+const db = require('../../database');
 
-const addRecipe = (ingredents) => {
-  let querySting = 'Select * from users WHERE user.id = $1';
-  db.query(querySting, ingredents)
+const findRecipe = (recipeId) => {
+    const queryString = `SELECT recipe_id, user_id, favorited_amt, recipe_name, description, active_time, total_time, photo, instructions, meal_type, protein, serving_size, created_at
+	FROM base_schema.recipes`;
+    db.query(queryString, recipeId)
 }
