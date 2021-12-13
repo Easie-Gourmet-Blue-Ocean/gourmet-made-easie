@@ -163,7 +163,7 @@
 | photo | String | a link to the photo |
 | instructions | [String] | a list of instructions in order |
 | ingredients | [Object] | an array of object, each object has properties "ingredientName", "amount" and "measurementUnit" |
-|  mealType | [Ingteger] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
+|  mealType | [Integer] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
 |  protein | [Integer] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 | servingSize | Integer | - |
 
@@ -178,8 +178,8 @@
 	photo: "http://photo",
 	instructions: ["add water", "heat up water"],
 	ingredients: [ { ingredientName: "salt", amount: 1, measurementUnit: "table spoon"} ],
-	mealType: ["lunch’, ‘brunch"],
-	protein: [ "beef", "pork" ],
+	mealType: [0, 1, 1, 0, 0, 0], // lunch, brunch
+	protein: [0, 1, 1, 0, 0, 0], // beef pork
 	servingSize: 3
 }
 
