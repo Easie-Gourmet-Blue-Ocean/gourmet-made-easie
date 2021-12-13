@@ -164,7 +164,7 @@
 | instructions | [String] | a list of instructions in order |
 | ingredients | [Object] | an array of object, each object has properties "ingredientName", "amount" and "measurementUnit" |
 |  mealType | [Ingteger] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
-|  protein | [String] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
+|  protein | [Integer] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 | servingSize | Integer | - |
 
 - Request Body Example:
