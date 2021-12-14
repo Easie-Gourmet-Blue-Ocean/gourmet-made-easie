@@ -124,7 +124,7 @@
 |  mealType | [String] | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
 |  protein | [String] | defaulted to empty array; full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 |  sort | String  | defaulted to "relavent"; other options are "newest" and "favorite" |
-| count | Integer [optional] | defaulted to 10; specify the number of results that will be fetched |
+| count | Integer | optional; specify the number of results that will be fetched |
 
 - Request body Example:
 ```javascript
