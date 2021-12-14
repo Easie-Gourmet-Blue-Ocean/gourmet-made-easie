@@ -1,18 +1,66 @@
 # gourmet-made-easie
 
-## API Documentation
+## Frontend Facing API Documentation
 ### Summary
+- auth related routes
+  - POST /auth/signup
+  - POST /auth/login
+  - POST /auth/logout
 - users related routes
   - GET /user/:userId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
-  - POST /user (**need investigation**)
   - PATCH /user/:userId/favorites/:recipeId
   - DELETE /user/:userId/favorites/:recipeId
 - recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
   - POST /recipe
+
+### Auth Related Routes
+#### ```POST /auth/signup```
+- Description: signup by providing your email, name (preferrably real name) and password
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Already Exists``` if failed and redirect to "/signup"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  userName | String | user's name that the user prefers to be called |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  userName: 'Alex',
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/login```
+- Description: user login
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Forbidden``` if failed and redirect to "/login"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/logout```
+- Description: user logout
+- Status: ```200 OK``` if success and redirect to "/login"
 
 ### Users Related Routes
 #### ```GET /user/:userId```
@@ -59,23 +107,6 @@
 ]
 ```
 
-#### ```POST /user ``` *!!! need investigate*
-- Description: Create an user account
-- Status:  ``` 201 Created```
-- Request Body Parameters:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-|  userName | String | - |
-|  email | String | - |
-
-- Request Body Example:
-```javascript
-{
-	userName: "tester",
-	email: "me@me.com"
-}
-```
 #### ``` PATCH /user/:userId/favorites/:recipeId```
 - Description: Add a recipe to favorites
 - Status:  ``` 200 OK```

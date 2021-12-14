@@ -3,7 +3,6 @@ const app = express();
 const port = 3000
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
-const models = require('./models');
 const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
 
