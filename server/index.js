@@ -4,7 +4,7 @@ const port = 3000
 
 const db  = require('../database/config.js');
 
-const recipeRouter = require('./routes/recipeRouter') 
+const recipeRouter = require('./routes/recipeRouter')
 
 app.use(express.json())
 app.use(express.static(__dirname + '/../dist'))
