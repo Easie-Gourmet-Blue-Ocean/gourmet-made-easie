@@ -1,2 +1,2 @@
 module.exports.Session = require('./session');
-// module.exports.User = require('./user');
+module.exports.User = require('./user');

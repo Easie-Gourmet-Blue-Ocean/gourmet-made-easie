@@ -5,6 +5,14 @@ const getUserById = (userId) => {
   return db.query(query, [userId]);
 };
 
+const getUserByEmail = (email) => {
+
+};
+
+const createUser = (username, email, password) => {
+
+};
+
 // const getUserFavorites = () => {
 // };
 
@@ -12,7 +20,9 @@ const getUserById = (userId) => {
 // };
 
 module.exports = {
-  findUserById,
+  getUserById,
+  createUser,
+  getUserByEmail
   // getUserFavorites,
   // getUserRecipes
 }
