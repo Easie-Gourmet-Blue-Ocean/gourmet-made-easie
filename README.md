@@ -132,7 +132,7 @@
 	mealType: [ "lunch"],  // default []
 	protein: [ "chicken" ], // default []
 	sort: "newest", // default to relevant
-	count: 10  (optional)
+	count: 10  // optional
 }
 
 ```
