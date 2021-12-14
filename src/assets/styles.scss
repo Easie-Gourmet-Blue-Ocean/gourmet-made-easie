@@ -4,8 +4,9 @@ $yellow: #F8D848;
 $grey: #333333;
 $ltgrey: #999999;
 
-html {
+html, body {
   font-family: Trebuchet;
+  min-height: 100%;
 }
 
 *  {
@@ -42,10 +43,10 @@ html {
 }
 
 footer{
-  position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  position: relative;
   background: $grey;
   height: auto;
   width: auto;
@@ -89,6 +90,22 @@ footer{
   }
 }
 
+
+.home-container {
+  position:relative;
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: scale-down;
+    object-position: 100% 0;
+    position:inherit;
+    }
+  .color-box {
+    width: 60%;
+    height: 2000px;
+    background-color: $green;
+  }
+}
 
 
 
