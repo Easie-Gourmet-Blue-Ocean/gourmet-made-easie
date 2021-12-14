@@ -22,7 +22,7 @@
 ``` javascript
 {
 	userId: 1,
-	userName: "tester",
+	username: "tester",
 	email: "me@me.com"
 }
 ```
@@ -35,7 +35,7 @@
 [
   {
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -51,7 +51,7 @@
 [
   {
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -66,13 +66,13 @@
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-|  userName | String | - |
+|  username | String | - |
 |  email | String | - |
 
 - Request Body Example:
 ```javascript
 {
-	userName: "tester",
+	username: "tester",
 	email: "me@me.com"
 }
 ```
@@ -124,7 +124,7 @@
 |  mealType | [String] | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
 |  protein | [String] | defaulted to empty array; full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 |  sort | String  | defaulted to "relavent"; other options are "newest" and "favorite" |
-| count | Integer | defaulted to 10; specify the number of results that will be fetched |
+| count | Integer [optional] | defaulted to 10; specify the number of results that will be fetched |
 
 - Request body Example:
 ```javascript
@@ -141,7 +141,7 @@
 [
   {
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "this is a great dish that I make after the gym",
     photo: "http://photo"
   }
@@ -171,7 +171,7 @@
 ```javascript
 {
 	recipeName: "chicken and rice",
-	userName: "tester1",
+	username: "tester1",
 	description: "this is a great dish that I make after the gym",
 	activeTime: 10,
 	totalTime: 30,
