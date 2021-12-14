@@ -1,8 +1,7 @@
-const express = require('express')
+const express = require('express');
 const app = express();
-const port = 3000
-
-const db  = require('../database/config.js');
+const port = 3000;
+const path = require('path');
 
 const recipeRouter = require('./routes/recipeRouter')
 
