@@ -91,21 +91,46 @@ footer{
 }
 
 
-.home-container {
-  position:relative;
+.header-container {
+  // position:relative;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  .home-search-container {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    background-color: $grey;
+    padding: 20px;
+    .search-title {
+      background-color: $white;
+      color: $grey;
+      padding: 10px;
+    }
+    .searchbar-container {
+      background-color: $white;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      .searchbar {
+        width: 75%
+      }
+    }
+    .random-recipe-button {
+      background-color: $white;
+      padding: 10px;
+    }
+  }
   img {
     width: 100%;
     height: auto;
     object-fit: scale-down;
     object-position: 100% 0;
-    position:inherit;
     }
-  .color-box {
-    width: 60%;
-    height: 2000px;
-    background-color: $green;
-  }
 }
+
+
 
 
 
