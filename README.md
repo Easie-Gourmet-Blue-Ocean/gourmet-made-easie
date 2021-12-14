@@ -11,7 +11,7 @@
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
   - PATCH /user/:userId/favorites/:recipeId
-  - DELETE /user/:userId/favorites/:recipeId
+  - DELETE /user/:userId/favorites/:recipeId ***!!!currently delete not supported***
 - recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
@@ -111,8 +111,7 @@
 - Description: Add a recipe to favorites
 - Status:  ``` 200 OK```
 
-#### ``` DELETE /user/:userId/favorites/:recipeId```
-- Description: Remove a recipe from favorites
+#### ``` DELETE /user/:userId/favorites/:recipeId``` ***!!!currently delete not supported***
 - Status:  ``` 200 OK```
 
 ### Recipe Related Routes
