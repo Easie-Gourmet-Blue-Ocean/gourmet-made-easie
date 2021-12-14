@@ -1,10 +1,10 @@
 import React from "react";
 
 const Home = () => {
-    return (
-        <>
-        </>
-    )
-}
+  return (
+    <div className="home-container">
+    </div>
+  );
+};
 
 export default Home;

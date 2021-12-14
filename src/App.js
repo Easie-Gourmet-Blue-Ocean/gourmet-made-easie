@@ -12,14 +12,14 @@ const App = () => {
     <div className="app">
       <Router>
         <>
+            <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
-        </>
-            <Navbar />
             <Footer />
+        </>
       </Router>
     </div>
   );

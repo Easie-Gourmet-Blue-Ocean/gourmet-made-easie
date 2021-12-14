@@ -25,8 +25,11 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="search">
+        <Link to="/login">
+          <li>Login</li>
+        </Link>
         <Link to="/search">
-          <FontAwesomeIcon icon={faSearch}></ FontAwesomeIcon>
+          <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </Link>
       </div>
     </div>

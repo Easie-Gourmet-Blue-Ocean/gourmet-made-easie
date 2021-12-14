@@ -1,8 +1,17 @@
 $white: #FFFFFF;
 $green: #819C92;
 $yellow: #F8D848;
-$grey: #353431;
+$grey: #333333;
+$ltgrey: #999999;
 
+html {
+  font-family: Trebuchet;
+}
+
+*  {
+  margin: 0;
+  padding: 0;
+}
 
 .navbar {
   color: $grey;
@@ -11,17 +20,9 @@ $grey: #353431;
   padding: 20px;
   justify-content: space-between;
   position: relative;
-  ul {
-    margin: 0;
-    padding: 0;
-    justify-self: flex-start;
-  }
   li {
     display: inline;
     padding-right: 20px;
-  }
-  .search a {
-    padding-left: 20px;
   }
   a, a:visited {
     text-decoration: none;
@@ -29,44 +30,63 @@ $grey: #353431;
     color: $grey
   }
   a:hover {
-    color: $green
+    color: $ltgrey;
+    transition: .2s;
   }
- .logo a {
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%, -50%);
+ .logo {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
   }
-
 }
 
-
-
-
-// .navbar * {
-// }
-
-// .navbar {
-//   display: flex;
-//   align-items: center;
-//   flex-direction: row;
-// }
-
-// .navlinks {
-//   display: flex;
-//   flex-direction: row;
-// }
-
-.footer{
+footer{
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   background: $grey;
   height: auto;
-  width: 100vw;
-  padding-top: 40px;
-  color: $grey;
+  width: auto;
+  padding: .5%;
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    color: $white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: .5%;
+    li {
+      width: auto;
+      display: flex;
+      justify-content: center;
+      padding-left: 1.5%;
+      padding-right: 1.5%;
+    }
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    padding: .5%;
+  }
+  .divider {
+    width: 95%;
+    margin: .5%;
+  }
+  .socials {
+    color: $white;
+  }
+  a, li, li:visited {
+    text-decoration: none;
+    list-style-type: none;
+    color: $white
+  }
+  a:hover, li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
 
 
@@ -81,13 +101,6 @@ $grey: #353431;
 
 
 
-
-
-// .navlinks a, .search a, .logo a {
-//   list-style-type: none;
-//   color: $grey;
-//   text-decoration: none;
-// }
 
 
 
