@@ -1,3 +1,7 @@
+/**
+ * Hashing uses SHA256, 
+ * Hash value is 256 bits, 32 bytes, 64 hex digits
+ */
 const { createHash, randomBytes} = require('crypto');
 
 const createSHA256Hash = (data, salt = '') => {
@@ -9,7 +13,7 @@ const compareHash = (attempted, stored, salt) => {
 }
 
 const createRandom256BitInHex = () => { 
-  // 256 bits = 32 bytes => 64 hex digits
+  /* used to generate salt as well as new hash*/
   return randomBytes(32).toString('hex');
 }
 

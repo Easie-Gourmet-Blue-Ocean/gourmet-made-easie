@@ -19,11 +19,6 @@ app.get('/test', (req, res) => {
 
 app.get('/*', function(req, res) {
   res.redirect('/');
-  // res.sendFile(path.join(__dirname, '/../dist/index.html'), function(err) {
-  //   if (err) {
-  //     res.status(500).send(err)
-  //   }
-  // })
 })
 
 app.listen(port, () => {

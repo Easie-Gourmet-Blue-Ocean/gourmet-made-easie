@@ -1,6 +1,18 @@
 const db = require('../../database');
 
-const findUserById = () => {
+const getUserById = (userId) => {
+  let query = `SELECT * FROM base_schema.users WHERE user_id = $1`;
+  return db.query(query, [userId]);
 };
 
-const
+// const getUserFavorites = () => {
+// };
+
+// const getUserRecipes = () => {
+// };
+
+module.exports = {
+  findUserById,
+  // getUserFavorites,
+  // getUserRecipes
+}

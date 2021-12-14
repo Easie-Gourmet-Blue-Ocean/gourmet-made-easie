@@ -1,4 +1,5 @@
 const db = require('../../database');
+const { createRandom256BitInHex } = require('../lib/hashUtils')
 /*
 find session by hash
 => success => next
@@ -9,12 +10,13 @@ const findSessionByHash = (hash) => {
   return db.query(query, [hash]);
 }
 
-const createSessionWithNewHash = (hash) => {
-  let query = 'INSERT INTO base_schema.sessions(hash) VALUES ($1)';
+const createSessionWithNewHash = () => {
+  let query = 'INSERT INTO base_schema.sessions(hash) VALUES ($1) RETURNING hash';
+  let hash = createRandom256BitInHex();
   return db.query(query, [hash]);
 }
 
-const updateSessionWithNewUserId = (hash, userId) => {
+const updateSessionByHashWithNewUserId = (hash, userId) => {
   let query = `UPDATE base_schema.sessions SET user_id = $1 WHERE hash = $2`;
   return db.query(query, [userId, hash]);
 }
@@ -27,7 +29,7 @@ const deleteSessionByHash = (hash) => {
 module.exports = {
   findSessionByHash,
   createSessionWithNewHash,
-  updateSessionWithNewUserId,
+  updateSessionByHashWithNewUserId,
   deleteSessionByHash
 }
 
