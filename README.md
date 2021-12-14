@@ -156,7 +156,7 @@
 | Parameter | Type | Description |
 | --- | --- | --- |
 | recipeName | String | - |
-| userName | String | - |
+| username | String | - |
 | description | String | a description of the recipe |
 | activeTime | Integer | time needed to actively cook |
 | totalTime | Integer | total time required for this recipe |
