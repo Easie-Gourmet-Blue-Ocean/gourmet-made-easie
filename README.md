@@ -1,18 +1,66 @@
 # gourmet-made-easie
 
-## API Documentation
+## Frontend Facing API Documentation
 ### Summary
+- auth related routes
+  - POST /auth/signup
+  - POST /auth/login
+  - POST /auth/logout
 - users related routes
   - GET /user/:userId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
-  - POST /user (**need investigation**)
   - PATCH /user/:userId/favorites/:recipeId
   - DELETE /user/:userId/favorites/:recipeId
 - recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
   - POST /recipe
+
+### Auth Related Routes
+#### ```POST /auth/signup```
+- Description: signup by providing your email, name (preferrably real name) and password
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Already Exists``` if failed and redirect to "/signup"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  userName | String | user's name that the user prefers to be called |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  userName: 'Alex',
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/login```
+- Description: user login
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Forbidden``` if failed and redirect to "/login"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/logout```
+- Description: user logout
+- Status: ```200 OK``` if success and redirect to "/login"
 
 ### Users Related Routes
 #### ```GET /user/:userId```
@@ -22,7 +70,7 @@
 ``` javascript
 {
 	userId: 1,
-	username: "tester",
+	userName: "tester",
 	email: "me@me.com"
 }
 ```
@@ -35,7 +83,7 @@
 [
   {
     recipeName: "chicken and rice",
-    username: "tester1",
+    userName: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -51,7 +99,7 @@
 [
   {
     recipeName: "chicken and rice",
-    username: "tester1",
+    userName: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -59,23 +107,6 @@
 ]
 ```
 
-#### ```POST /user ``` *!!! need investigate*
-- Description: Create an user account
-- Status:  ``` 201 Created```
-- Request Body Parameters:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-|  username | String | - |
-|  email | String | - |
-
-- Request Body Example:
-```javascript
-{
-	username: "tester",
-	email: "me@me.com"
-}
-```
 #### ``` PATCH /user/:userId/favorites/:recipeId```
 - Description: Add a recipe to favorites
 - Status:  ``` 200 OK```
@@ -124,7 +155,7 @@
 |  mealType | [String] | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
 |  protein | [String] | defaulted to empty array; full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 |  sort | String  | defaulted to "relavent"; other options are "newest" and "favorite" |
-| count | Integer | optional; specify the number of results that will be fetched |
+| count | Integer | defaulted to 10; specify the number of results that will be fetched |
 
 - Request body Example:
 ```javascript
@@ -132,7 +163,7 @@
 	mealType: [ "lunch"],  // default []
 	protein: [ "chicken" ], // default []
 	sort: "newest", // default to relevant
-	count: 10  // optional
+	amount: 10   // default to 10 (Ask about this)
 }
 
 ```
@@ -141,7 +172,7 @@
 [
   {
     recipeName: "chicken and rice",
-    username: "tester1",
+    userName: "tester1",
     description: "this is a great dish that I make after the gym",
     photo: "http://photo"
   }
@@ -156,7 +187,7 @@
 | Parameter | Type | Description |
 | --- | --- | --- |
 | recipeName | String | - |
-| username | String | - |
+| userName | String | - |
 | description | String | a description of the recipe |
 | activeTime | Integer | time needed to actively cook |
 | totalTime | Integer | total time required for this recipe |
@@ -171,7 +202,7 @@
 ```javascript
 {
 	recipeName: "chicken and rice",
-	username: "tester1",
+	userName: "tester1",
 	description: "this is a great dish that I make after the gym",
 	activeTime: 10,
 	totalTime: 30,
