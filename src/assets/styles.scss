@@ -1,6 +1,219 @@
-$primary-color: white;
-$bg: black;
-h1 {
-  color: $primary-color;
-  background-color: $bg;
+$white: #ffffff;
+$green: #819c92;
+$yellow: #f8d848;
+$grey: #333333;
+$ltgrey: #999999;
+
+html,
+body {
+  font-family: Trebuchet;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  color: $grey;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between;
+  position: relative;
+  li {
+    display: inline;
+    padding-right: 20px;
+  }
+  a,
+  a:visited {
+    text-decoration: none;
+    list-style-type: none;
+    color: $grey;
+  }
+  a:hover {
+    color: $ltgrey;
+    transition: 0.2s;
+  }
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+footer {
+  // display: block;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $grey;
+  width: auto;
+  padding: 0.5%;
+  ul {
+    text-decoration: none;
+    list-style-type: none;
+    color: $white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0.5%;
+    li {
+      width: auto;
+      display: flex;
+      justify-content: center;
+      padding-left: 1.5%;
+      padding-right: 1.5%;
+    }
+  }
+  .logo {
+    display: flex;
+    justify-content: center;
+    padding: 0.5%;
+  }
+  .divider {
+    width: 95%;
+    margin: 0.5%;
+  }
+  .socials {
+    color: $white;
+  }
+  a,
+  li,
+  li:visited {
+    text-decoration: none;
+    list-style-type: none;
+    color: $white;
+  }
+  a:hover,
+  li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+.home {
+  .header-container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    .home-search-container {
+      position: absolute;
+      width: 40%;
+      height: auto;
+      background-color: $grey;
+      padding: 20px;
+      margin-left: 4%;
+      .search-title {
+        background-color: $white;
+        color: $grey;
+        padding: 10px;
+      }
+      .searchbar-container {
+        background-color: $white;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        .searchbar {
+          width: 75%;
+        }
+      }
+      .bottom-buttons {
+        background-color: $white;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: 100%;
+    }
+  }
+  .top-recipes-container {
+    padding: 20px;
+    color: $grey;
+    background-color: $white;
+    width: auto;
+    .tr-list {
+      display: grid;
+      grid-column: 1;
+      grid-template-columns: auto auto;
+      grid-row: auto auto;
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+    }
+    .tr-type {
+      flex-direction: column;
+      background-color: $white;
+      color: $grey;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .title-button-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        h3 {
+          margin-top: 0;
+          margin-bottom: 0;
+          padding: 10px;
+          font-size: 50;
+        }
+        button {
+          height: 20px;
+        }
+      }
+    }
+    .tr-title {
+      display: flex;
+      justify-content: center;
+      align: center;
+      color: $grey;
+      margin: 0;
+      a {
+        text-align: center;
+      }
+    }
+    .tr-name {
+      text-align: center;
+      color: $grey;
+    }
+  }
+  .recipe-card {
+    width: 80%;
+    background-color: $green;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: $grey;
+    border: solid;
+    border-width: 1px;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    text-align: center;
+    align-items: center;
+    .rc-image {
+      grid-area: 1 / 1 / 2 / 2;
+      color: $grey;
+      border-right: 1px solid;
+      background-color: white;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .rc-name {
+      grid-area: 1 / 2 / 2 / 4;
+      color: $grey;
+    }
+  }
 }
