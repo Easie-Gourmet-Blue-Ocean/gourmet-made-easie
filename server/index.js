@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
+const userRouter = require('./routes/userRouter');
 
 app.use(morgan('dev'));
 app.use(express.json())
@@ -14,7 +15,7 @@ app.use(authentication.createSession); // create session for incoming request
 
 
 app.use('/auth', authRouter); // signup, login, logout
-
+app.use('/user', userRouter);
 
 app.get('/test', (req, res) => {
   console.log(req.cookies);
