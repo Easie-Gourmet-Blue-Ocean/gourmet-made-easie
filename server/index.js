@@ -25,9 +25,10 @@ app.get('/test', (req, res) => {
 /************************************************************/
 // catch all route
 /************************************************************/
-app.get('/*', function(req, res) {
-  res.redirect('/');
-})
+// app.get('/*', function(req, res) {
+//   res.redirect('/'); 
+//   // ideally it should redirect to "page not found" page
+// })
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)

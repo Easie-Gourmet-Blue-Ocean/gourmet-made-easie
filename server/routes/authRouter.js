@@ -1,9 +1,8 @@
 const authRouter = require('express').Router()
+const {handleSignup} = require('../controllers/auth')
 
+authRouter.post('/signup', handleSignup);
 
-authRouter.post('/signup', (req, res, next) => {
-
-});
 authRouter.post('/login', (req, res, next) => {
 
 });

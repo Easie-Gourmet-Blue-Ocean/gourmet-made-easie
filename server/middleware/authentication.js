@@ -45,7 +45,7 @@ module.exports = {
   createSession,
   verifySession
 }
-/*
+/* NOTE
 - no cookie:
   - [case 1] previosly signout => session destroyed => create session => no req.session.userId
   - [case 2] manually deleted cookie on client side => create session => no req.session.userId

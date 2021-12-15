@@ -34,7 +34,7 @@ const getUserPrivateInfoByEmail = (email) => {
 const createUser = (username, email, password) => {
   /* Internal use */
   let query = `INSERT INTO base_schema.users(username, email, password, salt)
-               VALUES ($1, $2, $3, $4)`;
+               VALUES ($1, $2, $3, $4) RETURNING password, id`;
   let salt = createRandom256BitInHex();
   let hashedPassword = createSHA256Hash(password, salt);
 
