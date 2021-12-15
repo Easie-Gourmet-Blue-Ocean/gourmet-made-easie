@@ -1,4 +1,5 @@
 const models = require('../models/index');
+const { snakeToCamelCase } = require('../lib/formatUtils');
 
 /*
 GET /user/:userId
@@ -6,13 +7,14 @@ GET /user/session/:sessionId
 GET /user/:userId/favorites
 GET /user/:userId/recipes
 PATCH /user/:userId/favorites/:recipeId
-DELETE /user/:userId/favorites/:recipeId (not supported)
+DELETE /user/:userId/favorites/:recipeId 
 */
 
 const getUserPublicInfoById = (req, res) => {
   models.User.getUserPublicInfoById(req.params.userId)
     .then(userInfo => {
-      res.status(200).send(userInfo.rows);
+      let result = snakeToCamelCase(userInfo.rows[0]);
+      res.status(200).send(result);
     })
     .catch(err => {
       res.status(404).send(err);
@@ -22,7 +24,8 @@ const getUserPublicInfoById = (req, res) => {
 const getUserPublicInfoBySession = (req, res) => {
   models.User.getUserPublicInfoBySession(req.params.sessionId)
     .then(userInfo => {
-      res.status(200).send(userInfo.rows);
+      let result = snakeToCamelCase(userInfo.rows[0]);
+      res.status(200).send(result);
     })
     .catch(err => {
       res.status(404).send(err);
@@ -32,6 +35,9 @@ const getUserPublicInfoBySession = (req, res) => {
 const getUserFavorites = (req, res) => {
   models.User.getUserFavorites(req.params.userId)
     .then(result => {
+      for (var i = 0; i < result.rows.length; i++) {
+        result.rows[i] = snakeToCamelCase(result.rows[i]);
+      }
       res.status(200).send(result.rows);
     })
     .catch(err => {
@@ -46,6 +52,9 @@ const getUserFavorites = (req, res) => {
 const getUserRecipes = (req, res) => {
   models.User.getUserRecipes(req.params.userId)
     .then(result => {
+      for (var i = 0; i < result.rows.length; i++) {
+        result.rows[i] = snakeToCamelCase(result.rows[i]);
+      }
       res.status(200).send(result.rows);
     })
     .catch(err => {

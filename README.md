@@ -70,7 +70,7 @@
 ``` javascript
 {
 	userId: 1,
-	userName: "tester",
+	username: "tester",
 	email: "me@me.com"
 }
 ```
@@ -82,8 +82,9 @@
 ``` javascript
 [
   {
+    recipeId: 1,
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -98,8 +99,9 @@
 ``` javascript
 [
   {
+    recipeId: 1,
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }

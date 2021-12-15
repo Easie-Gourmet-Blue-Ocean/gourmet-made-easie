@@ -3,12 +3,15 @@ const { createRandom256BitInHex, createSHA256Hash } = require('../lib/hashUtils'
 
 const getUserPrivateInfoById = (userId) => {
   /* Sensitive query: Internal*/
-  let query = `SELECT * FROM base_schema.users WHERE id = $1`;
+  let query = `
+  SELECT username, email, id as user_id, password, salt, favorites
+  FROM base_schema.users WHERE id = $1
+  `;
   return db.query(query, [userId]);
 };
 
 const getUserPublicInfoById = (userId) => {
-  let query = `SELECT username, email, id FROM base_schema.users WHERE id = $1`;
+  let query = `SELECT username, email, id as user_id FROM base_schema.users WHERE id = $1`;
   return db.query(query, [userId]);
 };
 
@@ -40,7 +43,7 @@ const createUser = (username, email, password) => {
 const getUserFavorites = (userId) => {
   /* need to catch error if favorites is empty*/
   let query = `
-SELECT recipe_name, username, description, photo, fav_recipe_id
+SELECT recipe_name, username, description, photo, fav_recipe_id as recipe_id
   FROM (
     SELECT * 
       FROM(SELECT DISTINCT unnest AS fav_recipe_id 
@@ -59,7 +62,7 @@ SELECT recipe_name, username, description, photo, fav_recipe_id
 const getUserRecipes = (userId) => {
   let query = `
   select
-  recipe_name, username, description, photo
+  recipe_name, username, description, photo, t2.id as recipe_id
   from (SELECT * FROM base_schema.users WHERE id = $1) as t1, base_schema.recipes as t2
   WHERE t1.id = t2.user_id
   `;
