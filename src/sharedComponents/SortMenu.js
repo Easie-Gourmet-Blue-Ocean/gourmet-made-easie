@@ -1,10 +1,10 @@
 import React from "react";
 
-const Profile = () => {
+const SortMenu = () => {
     return (
         <>
         </>
     )
 }
 
-export default Profile;
+export default SortMenu;

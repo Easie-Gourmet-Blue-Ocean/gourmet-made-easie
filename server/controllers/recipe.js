@@ -53,11 +53,11 @@ const getDetailedRecipes = (req, res) => {
       return meals
     }, []);
 
-    detailedRecipe.protein = detailedRecipe.protein.reduce((protiens, protein, index) => {
+    detailedRecipe.protein = detailedRecipe.protein.reduce((proteins, protein, index) => {
       if (protein === true) {
-        protiens.push(proteinType[index])
+        proteins.push(proteinType[index])
       }
-      return protiens
+      return proteins
     }, []);
 
     getDetailedRecipesResult.rows.forEach(recipe => {
@@ -74,21 +74,21 @@ const getDetailedRecipes = (req, res) => {
 const getRecipeCards = (req, res) => {
   let mealTypeFilter = [0, 0, 0, 0, 0, 0]
   let protienTypeFilter = [0, 0, 0, 0, 0, 0]
-  let sort = req.body.sort || 'relevant'
-  let count = req.body.count
+  let sort = req.query.sort || 'relevant'
+  let count = req.query.count
   
-  if (req.body.mealType ) {
+  if (req.query.mealType ) {
     for(let key in mealType) {
-      req.body.mealType.forEach(meal => {
+      req.query.mealType.forEach(meal => {
         if (mealType[key] === meal) {
           mealTypeFilter[key] = 1
         }
       })
     }
   }
-  if (req.body.protein) {
+  if (req.query.protein) {
     for(let key in proteinType) {
-      req.body.protein.forEach(protein => {
+      req.query.protein.forEach(protein => {
         if (proteinType[key] === protein) {
           protienTypeFilter[key] = 1
         }
@@ -98,7 +98,7 @@ const getRecipeCards = (req, res) => {
  
   recipeModel.findRecipeCards(mealTypeFilter, protienTypeFilter, sort, count)
   .then(recipeCards => {
-  res.status(200).send(recipeCards.rows)
+  res.status(200).send(recipeCards.rows) // TODO: shape of data need to match
   })
   .catch(err => {
     res.status(404).send(err)
@@ -106,20 +106,11 @@ const getRecipeCards = (req, res) => {
 }
 
 
-// const postRecipe = (req, res) => {
-//   let recipeName = req.body.recipeName;
-//   let username = req.body.username;
-//   let description = req.body.description;
-//   let activeTime = req.body.activeTime;
-//   let totalTime = req.body.totalTime;
-//   let photo = req.body.photo;
-//   let instructions = req.body.instructions;
-//   let ingredients = req.body.ingredients;
-//   let mealType = req.body.mealType;
-//   let protein = req.body.protein;
-//   let serveringSize = req.body.servingSize
+const postRecipe = (req, res) => {
+  const {recipeName, userId, description, activeTime, totalTime, 
+         photo, instructions, ingredients, mealType, protein, servingSize} = req.body;
   
-// }
+}
 
 const getRandomRecipe = (req, res) => {
   recipeModel.getRecipeCount()
@@ -129,7 +120,6 @@ const getRandomRecipe = (req, res) => {
     getDetailedRecipes(req, res)
   })
 }
-//TODO: ASK LOGAN
 
 module.exports = {
   getDetailedRecipes,

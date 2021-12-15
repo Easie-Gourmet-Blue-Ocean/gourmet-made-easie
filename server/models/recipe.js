@@ -1,4 +1,4 @@
-const db = require('../../database');
+const db = require("../../database");
 
 const findRecipe = (recipeId) => {
   const queryString = `
@@ -37,127 +37,62 @@ const findRecipe = (recipeId) => {
                 SELECT user_id, username FROM base_schema.users
             ) AS user_name
     WHERE detailed_recipe.user_id = user_name.user_id`;
-    return db.query(queryString, [recipeId])
-}
+  return db.query(queryString, [recipeId]);
+};
 
 const findRecipeCards = (mealType, protien, orderBy, count) => {
-    if (count) {
-        if (orderBy === 'newest') {
-            const queryString = `
-            SELECT recipe_name, username, description, photo FROM (SELECT *
-              FROM base_schema.recipes, (
-                  SELECT 
-                  user_id,
-                  username 
-                  FROM base_schema.users) AS user_name
-                  WHERE base_schema.recipes.user_id = user_name.user_id) AS full_recipe
-              WHERE full_recipe.meal_type = $1::boolean[]
-              AND full_recipe.protein = $2::boolean[]
-              ORDER BY created_at DESC
-              LIMIT $3
-              `;
-              return db.query(queryString, [mealType, protien, count])
-        } else if (orderBy === 'favorite') {
-            const queryString = `
-            SELECT recipe_name, username, description, photo FROM (SELECT *
-              FROM base_schema.recipes, (
-                  SELECT 
-                  user_id,
-                  username 
-                  FROM base_schema.users) AS user_name
-                  WHERE base_schema.recipes.user_id = user_name.user_id) AS full_recipe
-              WHERE full_recipe.meal_type = $1::boolean[]
-              AND full_recipe.protein = $2::boolean[]
-              ORDER BY favorited_amt DESC
-              LIMIT $3
-              `;
-              return db.query(queryString, [mealType, protien, count])
-        } else {
-            const queryString = `
-            SELECT recipe_name, username, description, photo FROM (SELECT *
-              FROM base_schema.recipes, (
-                  SELECT 
-                  user_id,
-                  username 
-                  FROM base_schema.users) AS user_name
-                  WHERE base_schema.recipes.user_id = user_name.user_id) AS full_recipe
-              WHERE full_recipe.meal_type = $1::boolean[]
-              AND full_recipe.protein = $2::boolean[]
-              ORDER BY RANDOM()
-              LIMIT $3
-              `;
-              return db.query(queryString, [mealType, protien, count])
-        }
-    } else {
-        if (orderBy === 'newest') {
-            const queryString = `
-            SELECT recipe_name, username, description, photo FROM (SELECT *
-              FROM base_schema.recipes, (
-                  SELECT 
-                  user_id,
-                  username 
-                  FROM base_schema.users) AS user_name
-                  WHERE base_schema.recipes.user_id = user_name.user_id) AS full_recipe
-              WHERE full_recipe.meal_type = $1::boolean[]
-              AND full_recipe.protein = $2::boolean[]
-              ORDER BY created_at DESC
-              `;
-              return db.query(queryString, [mealType, protien])
-        } else if (orderBy === 'favorite') {
-            const queryString = `
-            SELECT recipe_name, username, description, photo FROM (SELECT *
-              FROM base_schema.recipes, (
-                  SELECT 
-                  user_id,
-                  username 
-                  FROM base_schema.users) AS user_name
-                  WHERE base_schema.recipes.user_id = user_name.user_id) AS full_recipe
-              WHERE full_recipe.meal_type = $1::boolean[]
-              AND full_recipe.protein = $2::boolean[]
-              ORDER BY favorited_amt DESC
-              `;
-              return db.query(queryString, [mealType, protien])
-        } else {
-            const queryString = `
-            SELECT recipe_name, username, description, photo FROM (SELECT *
-              FROM base_schema.recipes, (
-                  SELECT 
-                  user_id,
-                  username 
-                  FROM base_schema.users) AS user_name
-                  WHERE base_schema.recipes.user_id = user_name.user_id) AS full_recipe
-              WHERE full_recipe.meal_type = $1::boolean[]
-              AND full_recipe.protein = $2::boolean[]
-              ORDER BY RANDOM()
-              `;
-              return db.query(queryString, [mealType, protien])
-        }
-    }
-}
+  let orderStr = '';
+  let limitStr = count ? 'LIMIT $3' : '';
 
+  switch (orderBy) {
+    case "newest":
+      orderStr = "ORDER BY created_at DESC";
+      break;
+    case "favorite":
+      orderStr = "ORDER BY favorited_amt DESC";
+      break;
+    case "relavent":
+      orderStr = "ORDER BY RANDOM()";
+  }
+
+  let queryString = `
+    SELECT id as recipe_id, recipe_name, username, description, photo FROM (SELECT *
+        FROM base_schema.recipes, (
+            SELECT 
+            id as uid,
+            username 
+            FROM base_schema.users) AS user_name
+            WHERE base_schema.recipes.user_id = user_name.uid) AS full_recipe
+        WHERE full_recipe.meal_type = $1::boolean[]
+        AND full_recipe.protein = $2::boolean[]
+        ${orderStr} 
+        ${limitStr}
+    `;
+
+  if (count) {
+    return db.query(queryString, [mealType, protien, count]);
+  } else {
+    return db.query(queryString, [mealType, protien]);
+  }
+};
 
 const getRecipeCount = () => {
-    const queryString = `SELECT count(*) FROM base_schema.recipes`;
-    return db.query(queryString)
-}
+  const queryString = `SELECT count(*) FROM base_schema.recipes`;
+  return db.query(queryString);
+};
 
 const addRecipe = () => {
+};
 
-}
+const addIngredients = () => {};
 
-const addIngredients = () => {
-
-}
-
-const addToIngredientList = () => {
-
-}
+const addToIngredientList = () => {};
 
 module.exports = {
-    findRecipe,
-    findRecipeCards,
-    getRecipeCount,
-    addRecipe,
-    addIngredients,
-    addToIngredientList
-}
+  findRecipe,
+  findRecipeCards,
+  getRecipeCount,
+  addRecipe,
+  addIngredients,
+  addToIngredientList,
+};
