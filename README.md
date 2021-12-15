@@ -8,6 +8,7 @@
   - POST /auth/logout
 - users related routes
   - GET /user/:userId
+  - GET /user/:userId/session/:sessionId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
   - PATCH /user/:userId/favorites/:recipeId
@@ -65,6 +66,18 @@
 ### Users Related Routes
 #### ```GET /user/:userId```
 - Description: get a user's info
+- Status:  ``` 200 OK```
+- Response Example:
+``` javascript
+{
+	userId: 1,
+	username: "tester",
+	email: "me@me.com"
+}
+```
+
+####```GET /user/:userId/session/:sessionId```
+- Description: get a user's info by using sessionId in the cookie
 - Status:  ``` 200 OK```
 - Response Example:
 ``` javascript
