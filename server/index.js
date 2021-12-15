@@ -17,9 +17,9 @@ app.use(authentication.createSession); // create session for incoming request
 app.use('/auth', authRouter); // signup, login, logout
 app.use('/user', userRouter);
 
-app.get('/test', (req, res) => {
+app.get('/login', (req, res) => {
   console.log(req.cookies);
-  res.send('Hello, World!')
+  res.send('this is a login page...');
 });
 
 /************************************************************/

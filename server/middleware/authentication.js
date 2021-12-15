@@ -38,7 +38,11 @@ const createSession = (req, res, next) => {
 
 const verifySession = (req, res, next) => {
   // verily req.session.userId
-
+  if (!!req.session.userId) {
+    res.redirect('/login');
+  } else {
+    next();
+  }
 }
 
 module.exports = {

@@ -1,7 +1,7 @@
 const models = require('../models/index');
 const { compareHash } = require('../lib/hashUtils')
 /*
-POST /auth/signup -> create user
+POST /auth/signup 
 POST /auth/login
 POST /auth/logout
 */
@@ -71,7 +71,7 @@ const handleLogout = (req, res) => {
     .then(() => {
       res.clearCookie('boid');
       console.log('logout success');
-      res.redirect('/'); // TODO: redirect to login
+      res.redirect('/login');
     })
     .catch(err => {
       res.status(500).send(err);
