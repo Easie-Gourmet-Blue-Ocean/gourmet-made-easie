@@ -6,6 +6,7 @@ const { getUserPublicInfoById,
         addToUserFavorites,
         removeRecipeFromUserFavorites
  } = require('../controllers/user');
+ const {verifySession} = require('../middleware/authentication');
 
 /*
 GET /user/:userId
@@ -18,9 +19,9 @@ DELETE /user/:userId/favorites/:recipeId
 
 userRouter.get('/:userId', getUserPublicInfoById);
 userRouter.get('/session/:sessionId', getUserPublicInfoBySession);
-userRouter.get('/:userId/favorites', getUserFavorites);
-userRouter.get('/:userId/recipes', getUserRecipes);
-userRouter.patch('/:userId/favorites/:recipeId', addToUserFavorites);
-userRouter.delete('/:userId/favorites/:recipeId', removeRecipeFromUserFavorites);
+userRouter.get('/:userId/favorites', verifySession, getUserFavorites);
+userRouter.get('/:userId/recipes', verifySession, getUserRecipes);
+userRouter.patch('/:userId/favorites/:recipeId', verifySession, addToUserFavorites);
+userRouter.delete('/:userId/favorites/:recipeId', verifySession, removeRecipeFromUserFavorites);
 
 module.exports = userRouter;
