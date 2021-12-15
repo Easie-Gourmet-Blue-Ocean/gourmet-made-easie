@@ -232,4 +232,6 @@ const AddRecipe = () => {
       </div>
     </form>
   )
+};
+
 export default AddRecipe;
