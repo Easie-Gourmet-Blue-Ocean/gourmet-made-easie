@@ -39,7 +39,8 @@ const createSession = (req, res, next) => {
 const verifySession = (req, res, next) => {
   // verily req.session.userId
   console.log('verifying...');
-  if (!req.session.user_Id) {
+  console.log(req.session);
+  if (!req.session.user_id) {
     console.log('bye');
     res.redirect('/login');
   } else {

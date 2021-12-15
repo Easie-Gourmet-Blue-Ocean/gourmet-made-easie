@@ -16,7 +16,6 @@ GET /user/:userId/recipes
 PATCH /user/:userId/favorites/:recipeId
 DELETE /user/:userId/favorites/:recipeId
 */
-
 userRouter.get('/:userId', getUserPublicInfoById);
 userRouter.get('/session/:sessionId', getUserPublicInfoBySession);
 userRouter.get('/:userId/favorites', verifySession, getUserFavorites);

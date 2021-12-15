@@ -33,6 +33,7 @@ const getUserPublicInfoBySession = (req, res) => {
 }
 
 const getUserFavorites = (req, res) => {
+  console.log('get user fav');
   models.User.getUserFavorites(req.params.userId)
     .then(result => {
       for (var i = 0; i < result.rows.length; i++) {
