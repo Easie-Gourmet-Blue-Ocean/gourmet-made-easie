@@ -81,7 +81,8 @@ const getRecipeCount = () => {
   return db.query(queryString);
 };
 
-const addRecipe = () => {};
+const addRecipe = () => {
+};
 
 const addIngredients = () => {};
 

@@ -106,20 +106,11 @@ const getRecipeCards = (req, res) => {
 }
 
 
-// const postRecipe = (req, res) => {
-//   let recipeName = req.body.recipeName;
-//   let username = req.body.username;
-//   let description = req.body.description;
-//   let activeTime = req.body.activeTime;
-//   let totalTime = req.body.totalTime;
-//   let photo = req.body.photo;
-//   let instructions = req.body.instructions;
-//   let ingredients = req.body.ingredients;
-//   let mealType = req.body.mealType;
-//   let protein = req.body.protein;
-//   let serveringSize = req.body.servingSize
+const postRecipe = (req, res) => {
+  const {recipeName, userId, description, activeTime, totalTime, 
+         photo, instructions, ingredients, mealType, protein, servingSize} = req.body;
   
-// }
+}
 
 const getRandomRecipe = (req, res) => {
   recipeModel.getRecipeCount()
