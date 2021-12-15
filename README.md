@@ -76,7 +76,7 @@
 }
 ```
 
-####```GET /user/:userId/session/:sessionId```
+#### ```GET /user/:userId/session/:sessionId```
 - Description: get a user's info by using sessionId in the cookie
 - Status:  ``` 200 OK```
 - Response Example:
