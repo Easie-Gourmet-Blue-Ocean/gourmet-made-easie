@@ -8,10 +8,11 @@
   - POST /auth/logout
 - users related routes
   - GET /user/:userId
+  - GET /user/:userId/session/:sessionId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
   - PATCH /user/:userId/favorites/:recipeId
-  - DELETE /user/:userId/favorites/:recipeId ***!!!currently delete not supported***
+  - DELETE /user/:userId/favorites/:recipeId
 - recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
@@ -34,7 +35,7 @@
 - Request Body Example:
 ```javascript
 {
-  userName: 'Alex',
+  username: 'Alex',
   email: 'me@me.com',
   password: 'password'
 }
@@ -70,7 +71,19 @@
 ``` javascript
 {
 	userId: 1,
-	userName: "tester",
+	username: "tester",
+	email: "me@me.com"
+}
+```
+
+####```GET /user/:userId/session/:sessionId```
+- Description: get a user's info by using sessionId in the cookie
+- Status:  ``` 200 OK```
+- Response Example:
+``` javascript
+{
+	userId: 1,
+	username: "tester",
 	email: "me@me.com"
 }
 ```
@@ -82,8 +95,9 @@
 ``` javascript
 [
   {
+    recipeId: 1,
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -98,8 +112,9 @@
 ``` javascript
 [
   {
+    recipeId: 1,
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -111,7 +126,8 @@
 - Description: Add a recipe to favorites
 - Status:  ``` 200 OK```
 
-#### ``` DELETE /user/:userId/favorites/:recipeId``` ***!!!currently delete not supported***
+#### ``` DELETE /user/:userId/favorites/:recipeId```
+- Description: Remove a recipe from favorites
 - Status:  ``` 200 OK```
 
 ### Recipe Related Routes
