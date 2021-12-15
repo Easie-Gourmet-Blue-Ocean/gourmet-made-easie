@@ -28,14 +28,14 @@
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-|  userName | String | user's name that the user prefers to be called |
+|  username | String | user's name that the user prefers to be called |
 |  email | String | email will be unique and will server the identifier of an user |
 |  password | String | - |
 
 - Request Body Example:
 ```javascript
 {
-  userName: 'Alex',
+  username: 'Alex',
   email: 'me@me.com',
   password: 'password'
 }

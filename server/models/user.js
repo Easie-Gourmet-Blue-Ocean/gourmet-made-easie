@@ -90,10 +90,10 @@ const removeRecipeFromUserFavorites = (userId, recipeId) => {
 }
 
 module.exports = {
-  getUserPrivateInfoById,
+  getUserPrivateInfoById, // internal use
   getUserPublicInfoById,
-  getUserPrivateInfoByEmail,
-  createUser,
+  getUserPrivateInfoByEmail, // internal use
+  createUser, // internal use
   getUserFavorites,
   getUserRecipes,
   addToUserFavorites,
