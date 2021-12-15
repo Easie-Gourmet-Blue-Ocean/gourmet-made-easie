@@ -74,21 +74,21 @@ const getDetailedRecipes = (req, res) => {
 const getRecipeCards = (req, res) => {
   let mealTypeFilter = [0, 0, 0, 0, 0, 0]
   let protienTypeFilter = [0, 0, 0, 0, 0, 0]
-  let sort = req.body.sort || 'relevant'
-  let count = req.body.count
+  let sort = req.query.sort || 'relevant'
+  let count = req.query.count
   
-  if (req.body.mealType ) {
+  if (req.query.mealType) {
     for(let key in mealType) {
-      req.body.mealType.forEach(meal => {
+      req.query.mealType.forEach(meal => {
         if (mealType[key] === meal) {
           mealTypeFilter[key] = 1
         }
       })
     }
   }
-  if (req.body.protein) {
+  if (req.query.protein) {
     for(let key in proteinType) {
-      req.body.protein.forEach(protein => {
+      req.query.protein.forEach(protein => {
         if (proteinType[key] === protein) {
           protienTypeFilter[key] = 1
         }
