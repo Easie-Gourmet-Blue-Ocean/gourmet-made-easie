@@ -1,18 +1,67 @@
 # gourmet-made-easie
 
-## API Documentation
+## Frontend Facing API Documentation
 ### Summary
+- auth related routes
+  - POST /auth/signup
+  - POST /auth/login
+  - POST /auth/logout
 - users related routes
   - GET /user/:userId
+  - GET /user/:userId/session/:sessionId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
-  - POST /user (**need investigation**)
   - PATCH /user/:userId/favorites/:recipeId
   - DELETE /user/:userId/favorites/:recipeId
 - recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
   - POST /recipe
+
+### Auth Related Routes
+#### ```POST /auth/signup```
+- Description: signup by providing your email, name (preferrably real name) and password
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Already Exists``` if failed and redirect to "/signup"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  username | String | user's name that the user prefers to be called |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  username: 'Alex',
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/login```
+- Description: user login
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Forbidden``` if failed and redirect to "/login"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/logout```
+- Description: user logout
+- Status: ```200 OK``` if success and redirect to "/login"
 
 ### Users Related Routes
 #### ```GET /user/:userId```
@@ -22,7 +71,19 @@
 ``` javascript
 {
 	userId: 1,
-	userName: "tester",
+	username: "tester",
+	email: "me@me.com"
+}
+```
+
+####```GET /user/:userId/session/:sessionId```
+- Description: get a user's info by using sessionId in the cookie
+- Status:  ``` 200 OK```
+- Response Example:
+``` javascript
+{
+	userId: 1,
+	username: "tester",
 	email: "me@me.com"
 }
 ```
@@ -34,8 +95,9 @@
 ``` javascript
 [
   {
+    recipeId: 1,
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -50,8 +112,9 @@
 ``` javascript
 [
   {
+    recipeId: 1,
     recipeName: "chicken and rice",
-    userName: "tester1",
+    username: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -59,23 +122,6 @@
 ]
 ```
 
-#### ```POST /user ``` *!!! need investigate*
-- Description: Create an user account
-- Status:  ``` 201 Created```
-- Request Body Parameters:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-|  userName | String | - |
-|  email | String | - |
-
-- Request Body Example:
-```javascript
-{
-	userName: "tester",
-	email: "me@me.com"
-}
-```
 #### ``` PATCH /user/:userId/favorites/:recipeId```
 - Description: Add a recipe to favorites
 - Status:  ``` 200 OK```
@@ -163,8 +209,8 @@
 | photo | String | a link to the photo |
 | instructions | [String] | a list of instructions in order |
 | ingredients | [Object] | an array of object, each object has properties "ingredientName", "amount" and "measurementUnit" |
-|  mealType | [String] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
-|  protein | [String] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
+|  mealType | [Integer] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
+|  protein | [Integer] | possible entries are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 | servingSize | Integer | - |
 
 - Request Body Example:
@@ -178,8 +224,8 @@
 	photo: "http://photo",
 	instructions: ["add water", "heat up water"],
 	ingredients: [ { ingredientName: "salt", amount: 1, measurementUnit: "table spoon"} ],
-	mealType: ["lunch’, ‘brunch"],
-	protein: [ "beef", "pork" ],
+	mealType: [0, 1, 1, 0, 0, 0], // lunch, brunch
+	protein: [0, 1, 1, 0, 0, 0], // beef pork
 	servingSize: 3
 }
 
