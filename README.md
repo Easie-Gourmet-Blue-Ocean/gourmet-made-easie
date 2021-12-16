@@ -16,6 +16,7 @@
 - recipe related routes
   - GET /recipe/:recipeId
   - GET /recipe/cards
+  - GET /recipe
   - POST /recipe
 
 ### Auth Related Routes
@@ -194,6 +195,34 @@
   // ...
 ]
 ```
+#### ```GET /recipe```
+- Description: Get recipe cards that are filted by a search result
+- Status: ```200 OK```
+- Request body parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  search | String | defaulted to empty string and on search will filter recipes containing the string you searched for |
+- Request body Example:
+```javascript
+{
+	search: "chicken", 
+}
+
+```
+- Response Example:
+```javascript
+[
+  {
+    recipeName: "chicken and rice",
+    userName: "tester1",
+    description: "this is a great dish that I make after the gym",
+    photo: "http://photo"
+  }
+  // ...
+]
+```
+
 #### ``` POST /recipe```
 - Description: Post a recipe
 - Status: ```201 Created```
