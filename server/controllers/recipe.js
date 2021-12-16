@@ -3,9 +3,8 @@ GET /recipe/:recipeId
 GET /recipe/cards
 POST /recipe
 */
-
-const e = require('express')
-const recipeModel = require('../models/recipe')
+const recipeModel = require('../models/recipe');
+const { snakeToCamelCase } = require('../lib/formatUtils');
 
 const mealType = {
   0: 'breakfast',
@@ -23,6 +22,20 @@ const proteinType = {
   3: 'seafood',
   4: 'vegetarian',
   5: 'vegan'   
+}
+
+const getRecipeBySearchString = (req, res) => {
+  // let searchStirng = `%${req.body.search}%`;
+  recipeModel.recipeSearch(req.body.search)
+  .then(response => {
+    for (var i = 0; i < response.rows.length; i++) {
+      response.rows[i] = snakeToCamelCase(response.rows[i]);
+    }
+    res.status(200).send(response.rows)
+  })
+  .catch(error => {
+    res.status(404).send(error)
+  })
 }
 
 const getDetailedRecipes = (req, res) => {
@@ -53,11 +66,11 @@ const getDetailedRecipes = (req, res) => {
       return meals
     }, []);
 
-    detailedRecipe.protein = detailedRecipe.protein.reduce((protiens, protein, index) => {
+    detailedRecipe.protein = detailedRecipe.protein.reduce((proteins, protein, index) => {
       if (protein === true) {
-        protiens.push(proteinType[index])
+        proteins.push(proteinType[index])
       }
-      return protiens
+      return proteins
     }, []);
 
     getDetailedRecipesResult.rows.forEach(recipe => {
@@ -67,6 +80,7 @@ const getDetailedRecipes = (req, res) => {
     res.status(200).send(detailedRecipe)
   })
   .catch(err => {
+    
     res.status(404).send(err)
   })
 }
@@ -98,7 +112,10 @@ const getRecipeCards = (req, res) => {
  
   recipeModel.findRecipeCards(mealTypeFilter, protienTypeFilter, sort, count)
   .then(recipeCards => {
-  res.status(200).send(recipeCards.rows)
+    for (var i = 0; i < recipeCards.rows.length; i++) {
+      recipeCards.rows[i] = snakeToCamelCase(recipeCards.rows[i]);
+    }
+    res.status(200).send(recipeCards.rows) // TODO: shape of data need to match
   })
   .catch(err => {
     res.status(404).send(err)
@@ -106,34 +123,60 @@ const getRecipeCards = (req, res) => {
 }
 
 
-// const postRecipe = (req, res) => {
-//   let recipeName = req.body.recipeName;
-//   let username = req.body.username;
-//   let description = req.body.description;
-//   let activeTime = req.body.activeTime;
-//   let totalTime = req.body.totalTime;
-//   let photo = req.body.photo;
-//   let instructions = req.body.instructions;
-//   let ingredients = req.body.ingredients;
-//   let mealType = req.body.mealType;
-//   let protein = req.body.protein;
-//   let serveringSize = req.body.servingSize
-  
-// }
+const postRecipe = (req, res) => {
+  const {recipeName, userId, description, activeTime, totalTime, photo, instructions, ingredients, mealType, protein, servingSize} = req.body;
+  let promises = []
+  ingredients.forEach(ingredient => {
+    promises.push(recipeModel.addMacroIngredient(ingredient["ingredientName"])
+    .catch(() => {
+      return
+    })
+    .then(()=> {
+      return recipeModel.searchIngredients(ingredient["ingredientName"])
+    })
+    )
+  })
+  recipeModel.addRecipe(userId, recipeName, description, activeTime, totalTime, photo, instructions, mealType, protein, servingSize)
+  .then(recipeId => {
+    Promise.all(promises)
+    .then(result => {
+      result.forEach((item, index) => {
+        recipeModel.addIngredients(recipeId.rows[0].id, ingredients[index].amount, ingredients[index].measurementUnit, item.rows[0].macro_ingredient_id)
+        .then(() => {
+          res.status(201).send()
+        })
+        .catch(error => {
+          res.status(400).send(error)
+        })
+      })
+    })
+    .catch(err => {
+      res.status(400).send(err)
+    })
+  })
+  .catch(err => {
+    res.status(400).send(err)
+  })
+}
 
 const getRandomRecipe = (req, res) => {
   recipeModel.getRecipeCount()
   .then(randomRecipe => {
-    let randomRecipeId = Math.floor(Math.random() * ((parseInt(randomRecipe.rows[0].count) + 1) - 1) + 1)
-    req.params.recipeId = randomRecipeId
+    // TODO: need better way to do this => could hit empty row
+    // id start at 1 for recipeId
+    let randomRecipeId = Math.floor(Math.random() * ((parseInt(randomRecipe.rows[0].count)) - 1) + 1)
+    req.params['recipeId'] = randomRecipeId
     getDetailedRecipes(req, res)
   })
+  .catch(error => {
+    res.status(400).send(error)
+  })
 }
-//TODO: ASK LOGAN
 
 module.exports = {
   getDetailedRecipes,
   getRecipeCards,
-  // postRecipe,
+  postRecipe,
+  getRecipeBySearchString,
   getRandomRecipe
 }
