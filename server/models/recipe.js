@@ -132,6 +132,7 @@ const addIngredients = (recipeId, amount, measurementUnit, macroIngredientId) =>
 }
 
 const recipeSearch = (searchString) => {
+  searchString = '%' + searchString + '%';
   const queryString = `
   SELECT id as recipe_id, 
   recipe_name, 
@@ -151,6 +152,24 @@ const recipeSearch = (searchString) => {
     return db.query(queryString, [searchString])
 }
 
+const increaseRecipeFavoriteCount = (recipeId) => {
+  const queryString = `
+  UPDATE base_schema.recipes
+	SET favorited_amt = favorited_amt + 1
+	WHERE id = $1;
+  `;
+  return db.query(queryString, [recipeId]);
+}
+
+const decreaseRecipeFavoriteCount = (recipeId) => {
+  const queryString = `
+  UPDATE base_schema.recipes
+	SET favorited_amt = favorited_amt - 1
+	WHERE id = $1;
+  `;
+  return db.query(queryString, [recipeId]);
+}
+
 module.exports = {
   findRecipe,
   findRecipeCards,
@@ -159,5 +178,8 @@ module.exports = {
   searchIngredients,
   recipeSearch,
   addIngredients,
-  addRecipe
+  addRecipe,
+  increaseRecipeFavoriteCount, // internal
+  decreaseRecipeFavoriteCount // internal
+
 };

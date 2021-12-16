@@ -17,6 +17,7 @@
   - GET /recipe/:recipeId
   - GET /recipe/random
   - GET /recipe/cards
+  - GET /recipe/search
   - POST /recipe
 
 ### Auth Related Routes
@@ -124,10 +125,16 @@
 ```
 
 #### ``` PATCH /user/:userId/favorites/:recipeId```
+- ***!!! NOTE***
+  - protected route: login required
+  - [***very important***] frontend needs to ensure that a user can only favorite a recipeId exactly 1 time if the user have not favorited it before
 - Description: Add a recipe to favorites and increase favorite count for that recipe
 - Status:  ``` 200 OK```
 
-#### ``` DELETE /user/:userId/favorites/:recipeId```
+#### ``` DELETE /user/:userId/favorites/:recipeId```  ***!!! NOTE***
+- ***!!! NOTE***
+  - protected route: login required
+  - [***very important***] frontend needs to ensure that a user cannot unfavorite a recipeId more than 1 time if the user has previously favorited the recipe
 - Description: Remove a recipe from favorites
 - Status:  ``` 200 OK```
 
@@ -145,7 +152,7 @@
   description: "this is a great dish that I make after the gym",
   activeTime: 10,
   totalTime: 30,
-  photo: "http://someRandomPhoto",
+  photo: "http://someRandomPhoto", // or null
   instructions: [
     "clean rice", "unfreeze chicken", "salt chicken", "cook chicken"
   ],
@@ -156,7 +163,7 @@
   mealType: [‘lunch’, ‘dinner’],
   protein: [‘poultry’],
   servingSize: 2,
-  createdAt: "2021-12-06 09:07:26"
+  createdAt: "2021-12-11T17:05:12.795Z"
 }
 
 

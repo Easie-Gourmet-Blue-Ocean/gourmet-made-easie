@@ -20,7 +20,7 @@ userRouter.get('/:userId', getUserPublicInfoById);
 userRouter.get('/session/:sessionId', getUserPublicInfoBySession);
 userRouter.get('/:userId/favorites', getUserFavorites);
 userRouter.get('/:userId/recipes', getUserRecipes);
-userRouter.patch('/:userId/favorites/:recipeId', verifySession, addToUserFavorites);
+userRouter.patch('/:userId/favorites/:recipeId', verifySession, addToUserFavorites); // TODO: potential issue when verified user patch other user's
 userRouter.delete('/:userId/favorites/:recipeId', verifySession, removeRecipeFromUserFavorites);
 
 module.exports = userRouter;

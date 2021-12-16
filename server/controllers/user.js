@@ -66,7 +66,10 @@ const getUserRecipes = (req, res) => {
 const addToUserFavorites = (req, res) => {
   models.User.addToUserFavorites(req.params.userId, req.params.recipeId)
     .then(result => {
-      res.status(200).send(result.rows);
+      return models.Recipe.increaseRecipeFavoriteCount(req.params.recipeId);
+    })
+    .then(() => {
+      res.status(200).send();
     })
     .catch(err => {
       res.status(400).send(err);
@@ -76,6 +79,9 @@ const addToUserFavorites = (req, res) => {
 const removeRecipeFromUserFavorites = (req, res) => {
   models.User.removeRecipeFromUserFavorites(req.params.userId, req.params.recipeId)
   .then(result => {
+    return models.Recipe.decreaseRecipeFavoriteCount(req.params.recipeId);
+  })
+  .then(() => {
     res.status(200).send();
   })
   .catch(err => {

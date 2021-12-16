@@ -23,9 +23,9 @@ const proteinType = {
   5: 'vegan'   
 }
 
-const getRecipe = (req, res) => {
-  let searchStirng = `%${req.body.search}%`;
-  recipeModel.recipeSearch(searchStirng)
+const getRecipeBySearchString = (req, res) => {
+  // let searchStirng = `%${req.body.search}%`;
+  recipeModel.recipeSearch(req.body.search)
   .then(response => {
     res.status(200).send(response.rows)
   })
@@ -168,6 +168,6 @@ module.exports = {
   getDetailedRecipes,
   getRecipeCards,
   postRecipe,
-  getRecipe,
+  getRecipeBySearchString,
   getRandomRecipe
 }
