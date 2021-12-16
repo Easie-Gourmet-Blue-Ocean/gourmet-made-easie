@@ -19,24 +19,24 @@ app.use('/auth', authRouter); // signup, login, logout
 app.use('/user', userRouter);
 app.use('/recipe', recipeRouter);
 
-app.get('/login', (req, res) => {
-  console.log(req.cookies);
-  res.send('this is a login page...');
-});
+// app.get('/login', (req, res) => {
+//   console.log(req.cookies);
+//   res.send('this is a login page...');
+// });
 
-app.get('/signup', (req, res) => {
-  console.log(req.cookies);
-  res.send('this is a signup page...');
-});
+// app.get('/signup', (req, res) => {
+//   console.log(req.cookies);
+//   res.send('this is a signup page...');
+// });
 
 
 /************************************************************/
 // catch all route
 /************************************************************/
-// app.get('/*', function(req, res) {
-//   res.redirect('/'); 
-//   // ideally it should redirect to "page not found" page
-// })
+app.get('/*', function(req, res) {
+  res.redirect('/'); 
+  // ideally it should redirect to "page not found" page
+})
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)

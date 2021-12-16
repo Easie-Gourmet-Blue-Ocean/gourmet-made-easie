@@ -6,6 +6,8 @@ import Search from "./pages/Search/index.js";
 import Profile from "./pages/Profile/index.js";
 import Home from "./pages/Home/index.js";
 import Footer from "./sharedComponents/Footer.js";
+import Login from "./pages/Login/Login.jsx";
+import Signup from "./pages/Signup/Signup.jsx"
 
 const App = () => {
   return (
@@ -13,11 +15,13 @@ const App = () => {
       <Router>
         <>
             <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/search" element={<Search />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </Routes>
             <Footer />
         </>
       </Router>
