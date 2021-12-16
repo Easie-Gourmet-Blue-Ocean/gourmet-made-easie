@@ -8,13 +8,14 @@
   - POST /auth/logout
 - users related routes
   - GET /user/:userId
-  - GET /user/:userId/session/:sessionId
+  - GET /user/session/:sessionId
   - GET /user/:userId/favorites
   - GET /user/:userId/recipes
   - PATCH /user/:userId/favorites/:recipeId
   - DELETE /user/:userId/favorites/:recipeId
 - recipe related routes
   - GET /recipe/:recipeId
+  - GET /recipe/random
   - GET /recipe/cards
   - POST /recipe
 
@@ -76,7 +77,7 @@
 }
 ```
 
-#### ```GET /user/:userId/session/:sessionId```
+#### ```GET /user/session/:sessionId```
 - Description: get a user's info by using sessionId in the cookie
 - Status:  ``` 200 OK```
 - Response Example:
@@ -123,7 +124,7 @@
 ```
 
 #### ``` PATCH /user/:userId/favorites/:recipeId```
-- Description: Add a recipe to favorites
+- Description: Add a recipe to favorites and increase favorite count for that recipe
 - Status:  ``` 200 OK```
 
 #### ``` DELETE /user/:userId/favorites/:recipeId```
@@ -202,7 +203,7 @@
 | Parameter | Type | Description |
 | --- | --- | --- |
 | recipeName | String | - |
-| userName | String | - |
+| userId | Integer | - |
 | description | String | a description of the recipe |
 | activeTime | Integer | time needed to actively cook |
 | totalTime | Integer | total time required for this recipe |
@@ -217,7 +218,7 @@
 ```javascript
 {
 	recipeName: "chicken and rice",
-	userName: "tester1",
+	userId: 1,
 	description: "this is a great dish that I make after the gym",
 	activeTime: 10,
 	totalTime: 30,
