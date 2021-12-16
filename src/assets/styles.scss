@@ -19,8 +19,15 @@ body {
   padding: 20px;
   justify-content: space-between;
   position: relative;
+  ul {
+    margin: 0;
+    padding-left: 20px;
+  }
   li {
     display: inline;
+    padding-right: 20px;
+  }
+  .search {
     padding-right: 20px;
   }
   a,
@@ -90,11 +97,15 @@ footer {
     cursor: pointer;
     text-decoration: underline;
   }
+  h3 {
+    margin: 5px;
+  }
 }
 
 .home {
   .header-container {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -129,7 +140,7 @@ footer {
     img {
       width: 100%;
       height: auto;
-      object-fit: cover;
+      object-fit: scale-down;
       object-position: 100%;
     }
   }
@@ -142,7 +153,7 @@ footer {
       display: grid;
       grid-column: 1;
       grid-template-columns: auto auto;
-      grid-row: auto auto;
+      grid-row: fit;
       grid-column-gap: 20px;
       grid-row-gap: 20px;
     }
@@ -150,11 +161,11 @@ footer {
       flex-direction: column;
       background-color: $white;
       color: $grey;
-      margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      height: 100%;
       .title-button-row {
         display: flex;
         flex-direction: row;
@@ -185,8 +196,8 @@ footer {
       color: $grey;
     }
   }
-  .recipe-card {
-    width: 80%;
+  .recipe-card-container {
+    width: 400px;
     background-color: $green;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -211,9 +222,57 @@ footer {
       justify-content: center;
       align-items: center;
     }
-    .rc-name {
+    .rc-info {
       grid-area: 1 / 2 / 2 / 4;
-      color: $grey;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      color:$grey;
+      align-items: center;
+      justify-items: left;
+      height: max-content;
+      margin-inline: 10px;
+      margin-top: 10px;
     }
+    .rc-info-top {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    .rc-info-bottom {
+      grid-area: 2 / 1 / 4 / 2;
+    }
+  }
+}
+
+.refine-results-container {
+  padding: 20px;
+  color: $grey;
+  width:fit-content;
+  display:grid;
+  justify-content: left;
+  h5 {
+    padding: 10px;
+    margin: 0;
+  }
+  h3 {
+    padding: 0;
+    padding-top: 5px;
+    margin: 0;
+  }
+  .refine-mealtype, .refine-protein {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .r-type {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+    margin-left: 30px;
+  }
+  label {
+    font-size: 15px;
   }
 }

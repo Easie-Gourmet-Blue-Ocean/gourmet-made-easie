@@ -6,6 +6,7 @@ import Search from "./pages/Search/index.js";
 import Profile from "./pages/Profile/index.js";
 import Home from "./pages/Home/index.js";
 import Footer from "./sharedComponents/Footer.js";
+import RefineResults from "../src/sharedComponents/RefineResults.js"
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Router>
         <>
             <Navbar />
+            <RefineResults />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
