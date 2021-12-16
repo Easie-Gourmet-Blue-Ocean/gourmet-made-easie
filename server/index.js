@@ -1,11 +1,11 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const path = require('path');
 const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const recipeRouter = require('./routes/recipeRouter');
-
 const app = express();
 const port = 3000
 
@@ -20,13 +20,11 @@ app.use('/user', userRouter);
 app.use('/recipe', recipeRouter);
 
 // app.get('/login', (req, res) => {
-//   console.log(req.cookies);
-//   res.send('this is a login page...');
+//   res.redirect('/login');
 // });
 
 // app.get('/signup', (req, res) => {
-//   console.log(req.cookies);
-//   res.send('this is a signup page...');
+//   res.redirect('/signup');
 // });
 
 
@@ -34,8 +32,11 @@ app.use('/recipe', recipeRouter);
 // catch all route
 /************************************************************/
 app.get('/*', function(req, res) {
-  res.redirect('/'); 
-  // ideally it should redirect to "page not found" page
+  res.sendFile(path.join(__dirname, '/../dist/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
 })
 
 app.listen(port, () => {
