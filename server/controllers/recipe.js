@@ -26,7 +26,7 @@ const proteinType = {
 
 const getRecipeBySearchString = (req, res) => {
   // let searchStirng = `%${req.body.search}%`;
-  recipeModel.recipeSearch(req.body.search)
+  recipeModel.recipeSearch(req.query.search)
   .then(response => {
     for (var i = 0; i < response.rows.length; i++) {
       response.rows[i] = snakeToCamelCase(response.rows[i]);
