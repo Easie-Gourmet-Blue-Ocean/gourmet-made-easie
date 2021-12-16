@@ -195,14 +195,14 @@
   // ...
 ]
 ```
-#### ```GET /recipe/cards```
-- Description: Get recipe cards that are filted and sorted in ways defined by body parameters
+#### ```GET /recipe```
+- Description: Get recipe cards that are filted by a search result
 - Status: ```200 OK```
 - Request body parameters:
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-|  search | String | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
+|  search | String | defaulted to empty string and on search will filter recipes containing the string you searched for |
 - Request body Example:
 ```javascript
 {
