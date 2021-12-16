@@ -6,7 +6,7 @@
   - POST /auth/signup
   - POST /auth/login
   - POST /auth/logout
-- users related routes
+- user related routes
   - GET /user/:userId
   - GET /user/session/:sessionId
   - GET /user/:userId/favorites
@@ -14,11 +14,12 @@
   - PATCH /user/:userId/favorites/:recipeId
   - DELETE /user/:userId/favorites/:recipeId
 - recipe related routes
-  - GET /recipe/:recipeId
-  - GET /recipe/random
-  - GET /recipe/cards
-  - GET /recipe/search
   - POST /recipe
+  - GET /recipe/:recipeId
+  - GET /recipe/cards
+  - GET /recipe/random
+  - GET /recipe/search
+
 
 ### Auth Related Routes
 #### ```POST /auth/signup```
@@ -139,69 +140,6 @@
 - Status:  ``` 200 OK```
 
 ### Recipe Related Routes
-#### ```GET /recipe/:recipeId```
-- Description: Get full detailed recipe
-- Status:  ``` 200 OK```
-- Response Example:
-```javascript
-{
-  recipeId: 1,
-  username: "bestBaker123",
-  favoritedCount: 10,
-  recipeName: "chicken and rice",
-  description: "this is a great dish that I make after the gym",
-  activeTime: 10,
-  totalTime: 30,
-  photo: "http://someRandomPhoto", // or null
-  instructions: [
-    "clean rice", "unfreeze chicken", "salt chicken", "cook chicken"
-  ],
-  ingredients: [
-    { ingredientName: "chicken", amount: 1, measurementUnit: "lb"},
-    { ingredientName: "rice", amount: ½, measurementUnit: "cup"}
-  ],
-  mealType: [‘lunch’, ‘dinner’],
-  protein: [‘poultry’],
-  servingSize: 2,
-  createdAt: "2021-12-11T17:05:12.795Z"
-}
-
-
-```
-#### ```GET /recipe/cards```
-- Description: Get recipe cards that are filted and sorted in ways defined by body parameters
-- Status: ```200 OK```
-- Request body parameters:
-
-| Parameter | Type | Description |
-| --- | --- | --- |
-|  mealType | [String] | defaulted to empty array; full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
-|  protein | [String] | defaulted to empty array; full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
-|  sort | String  | defaulted to "relavent"; other options are "newest" and "favorite" |
-| count | Integer | defaulted to 10; specify the number of results that will be fetched |
-
-- Request body Example:
-```javascript
-{
-	mealType: [ "lunch"],  // default []
-	protein: [ "chicken" ], // default []
-	sort: "newest", // default to relevant
-	amount: 10   // default to 10 (Ask about this)
-}
-
-```
-- Response Example:
-```javascript
-[
-  {
-    recipeName: "chicken and rice",
-    userName: "tester1",
-    description: "this is a great dish that I make after the gym",
-    photo: "http://photo"
-  }
-  // ...
-]
-```
 #### ``` POST /recipe```
 - Description: Post a recipe
 - Status: ```201 Created```
@@ -214,7 +152,7 @@
 | description | String | a description of the recipe |
 | activeTime | Integer | time needed to actively cook |
 | totalTime | Integer | total time required for this recipe |
-| photo | String | a link to the photo |
+| photo | String or null | a link to the photo |
 | instructions | [String] | a list of instructions in order |
 | ingredients | [Object] | an array of object, each object has properties "ingredientName", "amount" and "measurementUnit" |
 |  mealType | [Integer] | possible entries are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
@@ -224,20 +162,180 @@
 - Request Body Example:
 ```javascript
 {
-	recipeName: "chicken and rice",
-	userId: 1,
-	description: "this is a great dish that I make after the gym",
-	activeTime: 10,
-	totalTime: 30,
-	photo: "http://photo",
-	instructions: ["add water", "heat up water"],
-	ingredients: [ { ingredientName: "salt", amount: 1, measurementUnit: "table spoon"} ],
-	mealType: [0, 1, 1, 0, 0, 0], // lunch, brunch
-	protein: [0, 1, 1, 0, 0, 0], // beef pork
-	servingSize: 3
+    "recipeName": "Alex Type of meal",
+    "userId": 4,
+    "description": "This is a meal designed for Alex specifically",
+    "activeTime": 5,
+    "totalTime": 10,
+    "photo": null,
+    "instructions": [
+        "add yogurt", "add berries", "add granola"
+    ],
+    "ingredients": [
+        {"ingredientName": "fage yogurt", "amount": 1, "measurementUnit": "cup"},
+        {"ingredientName": "berries mix", "amount": 1, "measurementUnit": "cup"},
+        {"ingredientName": "granola", "amount": 1, "measurementUnit": "cup"}
+    ],
+    "mealType": [1, 1, 0, 0, 0, 0],
+    "protein": [0, 0, 0, 0, 1, 0],
+    "servingSize": 1
 }
-
 ```
+#### ```GET /recipe/:recipeId```
+- Description: Get full detailed recipe
+- Status:  ``` 200 OK```
+- Response Example:
+```javascript
+{
+    "recipeId": 2,
+    "username": "Morris",
+    "favoritedCount": 0,
+    "recipeName": "Alex Type of meal",
+    "description": "This is a meal designed for Alex specifically",
+    "activeTime": 5,
+    "totalTime": 10,
+    "photo": null,
+    "instructions": [
+        "add yogurt",
+        "add berries",
+        "add granola"
+    ],
+    "ingredients": [
+        {
+            "ingredientName": "fage yogurt",
+            "amount": 1,
+            "measurementUnit": "cup"
+        },
+        {
+            "ingredientName": "berries mix",
+            "amount": 1,
+            "measurementUnit": "cup"
+        },
+        {
+            "ingredientName": "granola",
+            "amount": 1,
+            "measurementUnit": "cup"
+        }
+    ],
+    "mealType": [
+        "breakfast",
+        "brunch"
+    ],
+    "protein": [
+        "vegetarian"
+    ],
+    "servingSize": 1,
+    "createdAt": "2021-12-16T08:38:39.422Z"
+}
+```
+
+
+#### ```GET /recipe/cards```
+- Description: Get recipe cards that are filted and sorted in ways defined by query parameters (accessed by req.query in express)
+- Status: ```200 OK```
+- Request body parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  mealType | [String] | full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
+|  protein | [String] | full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
+|  sort | String  | defaulted to "relavent" if not provided; other options are "newest" and "favorite" |
+| count | Integer | defaulted to maximum value (every recipe) if not provided; specify the number of results that will be fetched |
+
+- Request body Example:
+```javascript
+{
+    "mealType": ["breakfast", "brunch"], // will find exact match
+    "protein": ["vegetarian"], // will find exact match
+    "amount": 10, // default to max
+    "sort": "relevant" // default to relevant
+}
+```
+- Response Example:
+```javascript
+[
+    {
+        "recipeId": 2,
+        "recipeName": "Alex Type of meal",
+        "username": "Morris",
+        "description": "This is a meal designed for Alex specifically",
+        "photo": null
+    }
+    //...
+]
+```
+#### `GET /recipe/random`
+- Description: get a random detailed recipe
+- Status: ```200 OK```
+- Response Example:
+```javascript
+{
+    "recipeId": 1,
+    "username": "Morris",
+    "favoritedCount": 1,
+    "recipeName": "Alex Yogurt",
+    "description": "This is a meal designed for Alex specifically",
+    "activeTime": 5,
+    "totalTime": 10,
+    "photo": null,
+    "instructions": [
+        "add yogurt",
+        "add berries",
+        "add granola"
+    ],
+    "ingredients": [
+        {
+            "ingredientName": "fage yogurt",
+            "amount": 1,
+            "measurementUnit": "cup"
+        },
+        {
+            "ingredientName": "berries mix",
+            "amount": 1,
+            "measurementUnit": "cup"
+        },
+        {
+            "ingredientName": "granola",
+            "amount": 1,
+            "measurementUnit": "cup"
+        }
+    ],
+    "mealType": [
+        "breakfast",
+        "brunch"
+    ],
+    "protein": [
+        "vegetarian"
+    ],
+    "servingSize": 1,
+    "createdAt": "2021-12-16T09:37:39.848Z"
+}
+```
+
+#### `GET /recipe/search`
+- Description: search a recipe by its name using a search string in lower or upper case; it is type insensitive. 
+- Status: ```200 OK```
+- Request Body Example:
+```javascript
+{
+    "search": "yoGurt"
+}
+```
+- Response Example
+```javascript
+[
+    {
+        "recipe_id": 1,
+        "recipe_name": "Alex Yogurt",
+        "username": "Morris",
+        "description": "This is a meal designed for Alex specifically",
+        "photo": null
+    }
+    //...
+]
+```
+
+
 ## Note
 - data representation for protein and meal type in the db
 ```bash

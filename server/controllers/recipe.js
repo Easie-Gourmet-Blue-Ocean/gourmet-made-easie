@@ -3,7 +3,8 @@ GET /recipe/:recipeId
 GET /recipe/cards
 POST /recipe
 */
-const recipeModel = require('../models/recipe')
+const recipeModel = require('../models/recipe');
+const { snakeToCamelCase } = require('../lib/formatUtils');
 
 const mealType = {
   0: 'breakfast',
@@ -108,7 +109,10 @@ const getRecipeCards = (req, res) => {
  
   recipeModel.findRecipeCards(mealTypeFilter, protienTypeFilter, sort, count)
   .then(recipeCards => {
-  res.status(200).send(recipeCards.rows) // TODO: shape of data need to match
+    for (var i = 0; i < recipeCards.rows.length; i++) {
+      recipeCards.rows[i] = snakeToCamelCase(recipeCards.rows[i]);
+    }
+    res.status(200).send(recipeCards.rows) // TODO: shape of data need to match
   })
   .catch(err => {
     res.status(404).send(err)
@@ -155,7 +159,9 @@ const postRecipe = (req, res) => {
 const getRandomRecipe = (req, res) => {
   recipeModel.getRecipeCount()
   .then(randomRecipe => {
-    let randomRecipeId = Math.floor(Math.random() * ((parseInt(randomRecipe.rows[0].count) + 1) - 1) + 1)
+    // TODO: need better way to do this => could hit empty row
+    // id start at 1 for recipeId
+    let randomRecipeId = Math.floor(Math.random() * ((parseInt(randomRecipe.rows[0].count)) - 1) + 1)
     req.params['recipeId'] = randomRecipeId
     getDetailedRecipes(req, res)
   })
