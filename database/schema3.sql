@@ -5,7 +5,7 @@
 -- Dumped from database version 14.1
 -- Dumped by pg_dump version 14.1
 
--- Started on 2021-12-15 15:15:20 CST
+-- Started on 2021-12-16 03:53:46 CST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,7 +20,7 @@ SET row_security = off;
 
 DROP DATABASE easie_gourmet_blue_ocean;
 --
--- TOC entry 3642 (class 1262 OID 16384)
+-- TOC entry 3642 (class 1262 OID 16725)
 -- Name: easie_gourmet_blue_ocean; Type: DATABASE; Schema: -; Owner: -
 --
 
@@ -41,30 +41,15 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 6 (class 2615 OID 16385)
+-- TOC entry 6 (class 2615 OID 16726)
 -- Name: base_schema; Type: SCHEMA; Schema: -; Owner: -
 --
 
 CREATE SCHEMA base_schema;
 
 
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
 --
--- TOC entry 210 (class 1259 OID 16386)
--- Name: ingredient_list; Type: TABLE; Schema: base_schema; Owner: -
---
-
-CREATE TABLE base_schema.ingredient_list (
-    macro_ingredient_id integer NOT NULL,
-    ingredient_name character varying(255)
-);
-
-
---
--- TOC entry 211 (class 1259 OID 16389)
+-- TOC entry 211 (class 1259 OID 16730)
 -- Name: ingredient_list_macro_ingredient_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -77,17 +62,23 @@ CREATE SEQUENCE base_schema.ingredient_list_macro_ingredient_id_seq
     CACHE 1;
 
 
---
--- TOC entry 3643 (class 0 OID 0)
--- Dependencies: 211
--- Name: ingredient_list_macro_ingredient_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
---
+SET default_tablespace = '';
 
-ALTER SEQUENCE base_schema.ingredient_list_macro_ingredient_id_seq OWNED BY base_schema.ingredient_list.macro_ingredient_id;
-
+SET default_table_access_method = heap;
 
 --
--- TOC entry 212 (class 1259 OID 16390)
+-- TOC entry 210 (class 1259 OID 16727)
+-- Name: ingredient_list; Type: TABLE; Schema: base_schema; Owner: -
+--
+
+CREATE TABLE base_schema.ingredient_list (
+    macro_ingredient_id integer DEFAULT nextval('base_schema.ingredient_list_macro_ingredient_id_seq'::regclass) NOT NULL,
+    ingredient_name character varying(255)
+);
+
+
+--
+-- TOC entry 212 (class 1259 OID 16731)
 -- Name: ingredients; Type: TABLE; Schema: base_schema; Owner: -
 --
 
@@ -101,7 +92,7 @@ CREATE TABLE base_schema.ingredients (
 
 
 --
--- TOC entry 213 (class 1259 OID 16393)
+-- TOC entry 213 (class 1259 OID 16734)
 -- Name: ingredients_ingredient_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -115,7 +106,7 @@ CREATE SEQUENCE base_schema.ingredients_ingredient_id_seq
 
 
 --
--- TOC entry 3644 (class 0 OID 0)
+-- TOC entry 3643 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: ingredients_ingredient_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
 --
@@ -124,7 +115,7 @@ ALTER SEQUENCE base_schema.ingredients_ingredient_id_seq OWNED BY base_schema.in
 
 
 --
--- TOC entry 214 (class 1259 OID 16394)
+-- TOC entry 214 (class 1259 OID 16735)
 -- Name: ingredients_macro_ingredient_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -138,7 +129,7 @@ CREATE SEQUENCE base_schema.ingredients_macro_ingredient_id_seq
 
 
 --
--- TOC entry 3645 (class 0 OID 0)
+-- TOC entry 3644 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: ingredients_macro_ingredient_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
 --
@@ -147,7 +138,7 @@ ALTER SEQUENCE base_schema.ingredients_macro_ingredient_id_seq OWNED BY base_sch
 
 
 --
--- TOC entry 215 (class 1259 OID 16395)
+-- TOC entry 215 (class 1259 OID 16736)
 -- Name: ingredients_recipe_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -161,7 +152,7 @@ CREATE SEQUENCE base_schema.ingredients_recipe_id_seq
 
 
 --
--- TOC entry 3646 (class 0 OID 0)
+-- TOC entry 3645 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: ingredients_recipe_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
 --
@@ -170,7 +161,7 @@ ALTER SEQUENCE base_schema.ingredients_recipe_id_seq OWNED BY base_schema.ingred
 
 
 --
--- TOC entry 216 (class 1259 OID 16396)
+-- TOC entry 216 (class 1259 OID 16737)
 -- Name: recipes; Type: TABLE; Schema: base_schema; Owner: -
 --
 
@@ -192,7 +183,7 @@ CREATE TABLE base_schema.recipes (
 
 
 --
--- TOC entry 217 (class 1259 OID 16402)
+-- TOC entry 217 (class 1259 OID 16743)
 -- Name: recipes_recipe_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -206,7 +197,7 @@ CREATE SEQUENCE base_schema.recipes_recipe_id_seq
 
 
 --
--- TOC entry 3647 (class 0 OID 0)
+-- TOC entry 3646 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: recipes_recipe_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
 --
@@ -215,7 +206,7 @@ ALTER SEQUENCE base_schema.recipes_recipe_id_seq OWNED BY base_schema.recipes.id
 
 
 --
--- TOC entry 218 (class 1259 OID 16403)
+-- TOC entry 218 (class 1259 OID 16744)
 -- Name: recipes_user_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -229,7 +220,7 @@ CREATE SEQUENCE base_schema.recipes_user_id_seq
 
 
 --
--- TOC entry 3648 (class 0 OID 0)
+-- TOC entry 3647 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: recipes_user_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
 --
@@ -238,7 +229,7 @@ ALTER SEQUENCE base_schema.recipes_user_id_seq OWNED BY base_schema.recipes.user
 
 
 --
--- TOC entry 221 (class 1259 OID 16468)
+-- TOC entry 219 (class 1259 OID 16745)
 -- Name: sessions; Type: TABLE; Schema: base_schema; Owner: -
 --
 
@@ -250,7 +241,7 @@ CREATE TABLE base_schema.sessions (
 
 
 --
--- TOC entry 222 (class 1259 OID 16473)
+-- TOC entry 220 (class 1259 OID 16748)
 -- Name: sessions_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -265,22 +256,7 @@ ALTER TABLE base_schema.sessions ALTER COLUMN id ADD GENERATED BY DEFAULT AS IDE
 
 
 --
--- TOC entry 219 (class 1259 OID 16404)
--- Name: users; Type: TABLE; Schema: base_schema; Owner: -
---
-
-CREATE TABLE base_schema.users (
-    id integer NOT NULL,
-    favorites integer[] DEFAULT ARRAY[]::integer[] NOT NULL,
-    username character varying(100) NOT NULL,
-    email character varying(100) NOT NULL,
-    password character varying(64) NOT NULL,
-    salt character varying(64) NOT NULL
-);
-
-
---
--- TOC entry 220 (class 1259 OID 16409)
+-- TOC entry 222 (class 1259 OID 16755)
 -- Name: users_user_id_seq; Type: SEQUENCE; Schema: base_schema; Owner: -
 --
 
@@ -294,24 +270,22 @@ CREATE SEQUENCE base_schema.users_user_id_seq
 
 
 --
--- TOC entry 3649 (class 0 OID 0)
--- Dependencies: 220
--- Name: users_user_id_seq; Type: SEQUENCE OWNED BY; Schema: base_schema; Owner: -
+-- TOC entry 221 (class 1259 OID 16749)
+-- Name: users; Type: TABLE; Schema: base_schema; Owner: -
 --
 
-ALTER SEQUENCE base_schema.users_user_id_seq OWNED BY base_schema.users.id;
-
-
---
--- TOC entry 3455 (class 2604 OID 16458)
--- Name: ingredient_list macro_ingredient_id; Type: DEFAULT; Schema: base_schema; Owner: -
---
-
-ALTER TABLE ONLY base_schema.ingredient_list ALTER COLUMN macro_ingredient_id SET DEFAULT nextval('base_schema.ingredient_list_macro_ingredient_id_seq'::regclass);
+CREATE TABLE base_schema.users (
+    id integer DEFAULT nextval('base_schema.users_user_id_seq'::regclass) NOT NULL,
+    favorites integer[] DEFAULT ARRAY[]::integer[] NOT NULL,
+    username character varying(100) NOT NULL,
+    email character varying(100) NOT NULL,
+    password character varying(64) NOT NULL,
+    salt character varying(64) NOT NULL
+);
 
 
 --
--- TOC entry 3456 (class 2604 OID 16459)
+-- TOC entry 3456 (class 2604 OID 16757)
 -- Name: ingredients ingredient_id; Type: DEFAULT; Schema: base_schema; Owner: -
 --
 
@@ -319,7 +293,7 @@ ALTER TABLE ONLY base_schema.ingredients ALTER COLUMN ingredient_id SET DEFAULT 
 
 
 --
--- TOC entry 3457 (class 2604 OID 16460)
+-- TOC entry 3457 (class 2604 OID 16758)
 -- Name: ingredients recipe_id; Type: DEFAULT; Schema: base_schema; Owner: -
 --
 
@@ -327,7 +301,7 @@ ALTER TABLE ONLY base_schema.ingredients ALTER COLUMN recipe_id SET DEFAULT next
 
 
 --
--- TOC entry 3458 (class 2604 OID 16461)
+-- TOC entry 3458 (class 2604 OID 16759)
 -- Name: ingredients macro_ingredient_id; Type: DEFAULT; Schema: base_schema; Owner: -
 --
 
@@ -335,7 +309,7 @@ ALTER TABLE ONLY base_schema.ingredients ALTER COLUMN macro_ingredient_id SET DE
 
 
 --
--- TOC entry 3460 (class 2604 OID 16462)
+-- TOC entry 3460 (class 2604 OID 16760)
 -- Name: recipes id; Type: DEFAULT; Schema: base_schema; Owner: -
 --
 
@@ -343,7 +317,7 @@ ALTER TABLE ONLY base_schema.recipes ALTER COLUMN id SET DEFAULT nextval('base_s
 
 
 --
--- TOC entry 3461 (class 2604 OID 16463)
+-- TOC entry 3461 (class 2604 OID 16761)
 -- Name: recipes user_id; Type: DEFAULT; Schema: base_schema; Owner: -
 --
 
@@ -351,90 +325,74 @@ ALTER TABLE ONLY base_schema.recipes ALTER COLUMN user_id SET DEFAULT nextval('b
 
 
 --
--- TOC entry 3462 (class 2604 OID 16464)
--- Name: users id; Type: DEFAULT; Schema: base_schema; Owner: -
---
-
-ALTER TABLE ONLY base_schema.users ALTER COLUMN id SET DEFAULT nextval('base_schema.users_user_id_seq'::regclass);
-
-
---
--- TOC entry 3624 (class 0 OID 16386)
+-- TOC entry 3624 (class 0 OID 16727)
 -- Dependencies: 210
 -- Data for Name: ingredient_list; Type: TABLE DATA; Schema: base_schema; Owner: -
 --
 
-INSERT INTO base_schema.ingredient_list VALUES (1, 'Chicken');
-INSERT INTO base_schema.ingredient_list VALUES (2, 'Rice');
-INSERT INTO base_schema.ingredient_list VALUES (3, 'Salt');
-INSERT INTO base_schema.ingredient_list VALUES (4, 'Pepper');
-INSERT INTO base_schema.ingredient_list VALUES (6, 'ice');
-INSERT INTO base_schema.ingredient_list VALUES (7, 'chocolate ice cream');
+INSERT INTO base_schema.ingredient_list (macro_ingredient_id, ingredient_name) VALUES (2, 'fage yogurt');
+INSERT INTO base_schema.ingredient_list (macro_ingredient_id, ingredient_name) VALUES (3, 'berries mix');
+INSERT INTO base_schema.ingredient_list (macro_ingredient_id, ingredient_name) VALUES (4, 'granola');
 
 
 --
--- TOC entry 3626 (class 0 OID 16390)
+-- TOC entry 3626 (class 0 OID 16731)
 -- Dependencies: 212
 -- Data for Name: ingredients; Type: TABLE DATA; Schema: base_schema; Owner: -
 --
 
-INSERT INTO base_schema.ingredients VALUES (1, 1, 1, 'lb', 1);
-INSERT INTO base_schema.ingredients VALUES (2, 1, 2, 'cup', 2);
-INSERT INTO base_schema.ingredients VALUES (3, 1, 1, 'tsp', 3);
-INSERT INTO base_schema.ingredients VALUES (4, 1, 1, 'tbsp', 4);
-INSERT INTO base_schema.ingredients VALUES (5, 2, 5, 'lb', 1);
-INSERT INTO base_schema.ingredients VALUES (6, 2, 1, 'cup', 2);
+INSERT INTO base_schema.ingredients (ingredient_id, recipe_id, amount_int, measurement_unit, macro_ingredient_id) VALUES (1, 1, 1, 'cup', 2);
+INSERT INTO base_schema.ingredients (ingredient_id, recipe_id, amount_int, measurement_unit, macro_ingredient_id) VALUES (2, 1, 1, 'cup', 3);
+INSERT INTO base_schema.ingredients (ingredient_id, recipe_id, amount_int, measurement_unit, macro_ingredient_id) VALUES (3, 1, 1, 'cup', 4);
 
 
 --
--- TOC entry 3630 (class 0 OID 16396)
+-- TOC entry 3630 (class 0 OID 16737)
 -- Dependencies: 216
 -- Data for Name: recipes; Type: TABLE DATA; Schema: base_schema; Owner: -
 --
 
-INSERT INTO base_schema.recipes VALUES (1, 2, 0, 'Testerman''s Chicken and Rice', 'Matthew''s chicken is Dry so try this recipe instead!', 30, 90, NULL, '{"Don''t be Matthew","Cook chicken","eat rice"}', '{f,f,t,f,t,f}', '{t,f,f,f,f,f}', 5, '2021-12-11 11:05:12.795652-06');
-INSERT INTO base_schema.recipes VALUES (2, 1, 0, 'Matthew''s Chicken and Rice', 'I make Dry chicken. Now you know.', 5, 180, 'http://3.bp.blogspot.com/_CZo9BuHHfqE/S9CGyVM7mII/AAAAAAAAFJw/oX9DmYNJQe8/s1600/Popcorn+chicken+scenes+002.jpg', '{"Overcook Chicken","Make dry rice","on your way to bland town"}', '{f,f,t,f,t,f}', '{t,f,f,f,f,f}', 2, '2021-12-11 11:12:42.733574-06');
+INSERT INTO base_schema.recipes (id, user_id, favorited_amt, recipe_name, description, active_time, total_time, photo, instructions, meal_type, protein, serving_size, created_at) VALUES (1, 2, 1, 'Alex Yogurt', 'This is a meal designed for Alex specifically', 5, 10, NULL, '{"add yogurt","add berries","add granola"}', '{t,t,f,f,f,f}', '{f,f,f,f,t,f}', 1, '2021-12-16 03:37:39.848008-06');
 
 
 --
--- TOC entry 3635 (class 0 OID 16468)
--- Dependencies: 221
+-- TOC entry 3633 (class 0 OID 16745)
+-- Dependencies: 219
 -- Data for Name: sessions; Type: TABLE DATA; Schema: base_schema; Owner: -
 --
 
+INSERT INTO base_schema.sessions (id, hash, user_id) VALUES (44, 'e36e77dd919c5f2ae7f52e5742c2466511254311db63bc5247e0f29350a394bb', 2);
 
 
 --
--- TOC entry 3633 (class 0 OID 16404)
--- Dependencies: 219
+-- TOC entry 3635 (class 0 OID 16749)
+-- Dependencies: 221
 -- Data for Name: users; Type: TABLE DATA; Schema: base_schema; Owner: -
 --
 
-INSERT INTO base_schema.users VALUES (1, '{}', 'Patrick', 'patrick@gmail.com', 'a96d9b28613b742f54d9e923eca87dc9a7de66551f3793f64d89ed91e6d60d53', 'd0486686afff6c1ef072b20ba0fd05830547e0751db01435003759c1963d1a99');
-INSERT INTO base_schema.users VALUES (2, '{}', 'Sam', 'sam@gmail.com', 'd72b0f4c6857546bf9348f21498f8e983175502a402a8db3b66f169787b602f1', 'dbf4c506bfd9efbf00515a84a643fe48e1e95ab2cf7975acc5e75690337a6155');
-INSERT INTO base_schema.users VALUES (3, '{}', 'Matthew', 'matt@gmail.com', '23d1e04aba6e9c97ecf2e0872486fea579ef4b033d9cbcf61bd1f7582d4b1794', '2b2cfe0453f2d1437c8a9f1d27cf9a65164dc286c915c91db99360a7d18e8e1c');
+INSERT INTO base_schema.users (id, favorites, username, email, password, salt) VALUES (2, '{1}', 'Morris', 'morris@gmail.com', 'fa2565b3a5fe7bdaf9e0fd1179a7f73679e728241f52207b55f3f14579d0139f', '5eb1848fcb1a8794318644cd580c2e0341cf0e6197b69de819c732b7219edb9d');
 
 
 --
--- TOC entry 3650 (class 0 OID 0)
+-- TOC entry 3648 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: ingredient_list_macro_ingredient_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
 
-SELECT pg_catalog.setval('base_schema.ingredient_list_macro_ingredient_id_seq', 7, true);
+SELECT pg_catalog.setval('base_schema.ingredient_list_macro_ingredient_id_seq', 4, true);
 
 
 --
--- TOC entry 3651 (class 0 OID 0)
+-- TOC entry 3649 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: ingredients_ingredient_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
 
-SELECT pg_catalog.setval('base_schema.ingredients_ingredient_id_seq', 1, false);
+SELECT pg_catalog.setval('base_schema.ingredients_ingredient_id_seq', 3, true);
 
 
 --
--- TOC entry 3652 (class 0 OID 0)
+-- TOC entry 3650 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: ingredients_macro_ingredient_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
@@ -443,7 +401,7 @@ SELECT pg_catalog.setval('base_schema.ingredients_macro_ingredient_id_seq', 1, f
 
 
 --
--- TOC entry 3653 (class 0 OID 0)
+-- TOC entry 3651 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: ingredients_recipe_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
@@ -452,16 +410,16 @@ SELECT pg_catalog.setval('base_schema.ingredients_recipe_id_seq', 1, false);
 
 
 --
--- TOC entry 3654 (class 0 OID 0)
+-- TOC entry 3652 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: recipes_recipe_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
 
-SELECT pg_catalog.setval('base_schema.recipes_recipe_id_seq', 1, false);
+SELECT pg_catalog.setval('base_schema.recipes_recipe_id_seq', 1, true);
 
 
 --
--- TOC entry 3655 (class 0 OID 0)
+-- TOC entry 3653 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: recipes_user_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
@@ -470,25 +428,25 @@ SELECT pg_catalog.setval('base_schema.recipes_user_id_seq', 1, false);
 
 
 --
--- TOC entry 3656 (class 0 OID 0)
--- Dependencies: 222
+-- TOC entry 3654 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: sessions_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
 
-SELECT pg_catalog.setval('base_schema.sessions_id_seq', 43, true);
+SELECT pg_catalog.setval('base_schema.sessions_id_seq', 44, true);
 
 
 --
--- TOC entry 3657 (class 0 OID 0)
--- Dependencies: 220
+-- TOC entry 3655 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: base_schema; Owner: -
 --
 
-SELECT pg_catalog.setval('base_schema.users_user_id_seq', 3, true);
+SELECT pg_catalog.setval('base_schema.users_user_id_seq', 2, true);
 
 
 --
--- TOC entry 3475 (class 2606 OID 16467)
+-- TOC entry 3479 (class 2606 OID 16764)
 -- Name: users email; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -497,7 +455,7 @@ ALTER TABLE ONLY base_schema.users
 
 
 --
--- TOC entry 3479 (class 2606 OID 16475)
+-- TOC entry 3475 (class 2606 OID 16766)
 -- Name: sessions hash; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -506,7 +464,7 @@ ALTER TABLE ONLY base_schema.sessions
 
 
 --
--- TOC entry 3465 (class 2606 OID 16418)
+-- TOC entry 3465 (class 2606 OID 16768)
 -- Name: ingredient_list ingredient_list_ingredient_name_key; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -515,7 +473,7 @@ ALTER TABLE ONLY base_schema.ingredient_list
 
 
 --
--- TOC entry 3467 (class 2606 OID 16420)
+-- TOC entry 3467 (class 2606 OID 16770)
 -- Name: ingredient_list ingredient_list_ingredient_name_key1; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -524,7 +482,7 @@ ALTER TABLE ONLY base_schema.ingredient_list
 
 
 --
--- TOC entry 3469 (class 2606 OID 16422)
+-- TOC entry 3469 (class 2606 OID 16772)
 -- Name: ingredient_list ingredient_list_pkey; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -533,7 +491,7 @@ ALTER TABLE ONLY base_schema.ingredient_list
 
 
 --
--- TOC entry 3471 (class 2606 OID 16424)
+-- TOC entry 3471 (class 2606 OID 16774)
 -- Name: ingredients ingredients_pkey; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -542,7 +500,7 @@ ALTER TABLE ONLY base_schema.ingredients
 
 
 --
--- TOC entry 3473 (class 2606 OID 16426)
+-- TOC entry 3473 (class 2606 OID 16776)
 -- Name: recipes recipes_pkey; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -551,7 +509,7 @@ ALTER TABLE ONLY base_schema.recipes
 
 
 --
--- TOC entry 3481 (class 2606 OID 16472)
+-- TOC entry 3477 (class 2606 OID 16778)
 -- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -560,7 +518,7 @@ ALTER TABLE ONLY base_schema.sessions
 
 
 --
--- TOC entry 3477 (class 2606 OID 16428)
+-- TOC entry 3481 (class 2606 OID 16780)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -569,7 +527,7 @@ ALTER TABLE ONLY base_schema.users
 
 
 --
--- TOC entry 3482 (class 2606 OID 16429)
+-- TOC entry 3482 (class 2606 OID 16781)
 -- Name: ingredients ingredients_macro_ingredient_id_fkey; Type: FK CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -578,7 +536,7 @@ ALTER TABLE ONLY base_schema.ingredients
 
 
 --
--- TOC entry 3483 (class 2606 OID 16434)
+-- TOC entry 3483 (class 2606 OID 16786)
 -- Name: ingredients ingredients_recipe_id_fkey; Type: FK CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -587,7 +545,7 @@ ALTER TABLE ONLY base_schema.ingredients
 
 
 --
--- TOC entry 3484 (class 2606 OID 16484)
+-- TOC entry 3484 (class 2606 OID 16791)
 -- Name: recipes user_id_fk; Type: FK CONSTRAINT; Schema: base_schema; Owner: -
 --
 
@@ -595,7 +553,7 @@ ALTER TABLE ONLY base_schema.recipes
     ADD CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES base_schema.users(id) NOT VALID;
 
 
--- Completed on 2021-12-15 15:15:20 CST
+-- Completed on 2021-12-16 03:53:46 CST
 
 --
 -- PostgreSQL database dump complete
