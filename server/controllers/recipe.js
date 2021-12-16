@@ -3,8 +3,6 @@ GET /recipe/:recipeId
 GET /recipe/cards
 POST /recipe
 */
-
-const e = require('express')
 const recipeModel = require('../models/recipe')
 
 const mealType = {
@@ -23,6 +21,17 @@ const proteinType = {
   3: 'seafood',
   4: 'vegetarian',
   5: 'vegan'   
+}
+
+const getRecipe = (req, res) => {
+  let searchStirng = `%${req.body.search}%`;
+  recipeModel.recipeSearch(searchStirng)
+  .then(response => {
+    res.status(200).send(response.rows)
+  })
+  .catch(error => {
+    res.status(404).send(error)
+  })
 }
 
 const getDetailedRecipes = (req, res) => {
@@ -67,6 +76,7 @@ const getDetailedRecipes = (req, res) => {
     res.status(200).send(detailedRecipe)
   })
   .catch(err => {
+    
     res.status(404).send(err)
   })
 }
@@ -74,21 +84,21 @@ const getDetailedRecipes = (req, res) => {
 const getRecipeCards = (req, res) => {
   let mealTypeFilter = [0, 0, 0, 0, 0, 0]
   let protienTypeFilter = [0, 0, 0, 0, 0, 0]
-  let sort = req.query.sort || 'relevant'
-  let count = req.query.count
+  let sort = req.body.sort || 'relevant'
+  let count = req.body.count
   
-  if (req.query.mealType ) {
+  if (req.body.mealType ) {
     for(let key in mealType) {
-      req.query.mealType.forEach(meal => {
+      req.body.mealType.forEach(meal => {
         if (mealType[key] === meal) {
           mealTypeFilter[key] = 1
         }
       })
     }
   }
-  if (req.query.protein) {
+  if (req.body.protein) {
     for(let key in proteinType) {
-      req.query.protein.forEach(protein => {
+      req.body.protein.forEach(protein => {
         if (proteinType[key] === protein) {
           protienTypeFilter[key] = 1
         }
@@ -107,23 +117,57 @@ const getRecipeCards = (req, res) => {
 
 
 const postRecipe = (req, res) => {
-  const {recipeName, userId, description, activeTime, totalTime, 
-         photo, instructions, ingredients, mealType, protein, servingSize} = req.body;
-  
+  const {recipeName, userId, description, activeTime, totalTime, photo, instructions, ingredients, mealType, protein, servingSize} = req.body;
+  let promises = []
+  ingredients.forEach(ingredient => {
+    promises.push(recipeModel.addMacroIngredient(ingredient["ingredientName"])
+    .catch(() => {
+      return
+    })
+    .then(()=> {
+      return recipeModel.searchIngredients(ingredient["ingredientName"])
+    })
+    )
+  })
+  recipeModel.addRecipe(userId, recipeName, description, activeTime, totalTime, photo, instructions, mealType, protein, servingSize)
+  .then(recipeId => {
+    Promise.all(promises)
+    .then(result => {
+      result.forEach((item, index) => {
+        recipeModel.addIngredients(recipeId.rows[0].id, ingredients[index].amount, ingredients[index].measurementUnit, item.rows[0].macro_ingredient_id)
+        .then(() => {
+          res.status(201).send()
+        })
+        .catch(error => {
+          res.status(400).send(error)
+        })
+      })
+    })
+    .catch(err => {
+      res.status(400).send(err)
+    })
+  })
+  .catch(err => {
+    res.status(400).send(err)
+  })
 }
 
 const getRandomRecipe = (req, res) => {
   recipeModel.getRecipeCount()
   .then(randomRecipe => {
     let randomRecipeId = Math.floor(Math.random() * ((parseInt(randomRecipe.rows[0].count) + 1) - 1) + 1)
-    req.params.recipeId = randomRecipeId
+    req.params['recipeId'] = randomRecipeId
     getDetailedRecipes(req, res)
+  })
+  .catch(error => {
+    res.status(400).send(error)
   })
 }
 
 module.exports = {
   getDetailedRecipes,
   getRecipeCards,
-  // postRecipe,
+  postRecipe,
+  getRecipe,
   getRandomRecipe
 }
