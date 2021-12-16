@@ -24,8 +24,15 @@ ul, li, a, a:visited {
   padding: 20px;
   justify-content: space-between;
   position: relative;
+  ul {
+    margin: 0;
+    padding-left: 20px;
+  }
   li {
     display: inline;
+    padding-right: 20px;
+  }
+  .search {
     padding-right: 20px;
   }
   a,
@@ -89,11 +96,15 @@ footer {
     cursor: pointer;
     text-decoration: underline;
   }
+  h3 {
+    margin: 5px;
+  }
 }
 
 .home {
   .header-container {
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -128,7 +139,7 @@ footer {
     img {
       width: 100%;
       height: auto;
-      object-fit: cover;
+      object-fit: scale-down;
       object-position: 100%;
     }
   }
@@ -141,7 +152,7 @@ footer {
       display: grid;
       grid-column: 1;
       grid-template-columns: auto auto;
-      grid-row: auto auto;
+      grid-row: fit;
       grid-column-gap: 20px;
       grid-row-gap: 20px;
     }
@@ -149,11 +160,11 @@ footer {
       flex-direction: column;
       background-color: $white;
       color: $grey;
-      margin-bottom: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      height: 100%;
       .title-button-row {
         display: flex;
         flex-direction: row;
@@ -184,35 +195,58 @@ footer {
       color: $grey;
     }
   }
-  .recipe-card {
-    width: 80%;
-    background-color: $green;
-    margin-bottom: 5px;
-    margin-top: 5px;
+  .recipe-card-container {
+    width: 400px;
+    height: auto;
+  }
+}
+
+.recipe-card-container {
+  width: inherit;
+  background-color: $green;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  color: $grey;
+  border: solid;
+  border-width: 1px;
+  height: 30%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  .rc-image {
+    grid-area: 1 / 1 / 2 / 2;
     color: $grey;
-    border: solid;
-    border-width: 1px;
-    height: 120px;
+    max-width: 80%;
+    height: auto;
+    img {
+      width:100%;
+      height: auto;
+    }
+  }
+  .rc-info {
+    grid-area: 1 / 2 / 2 / 4;
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    text-align: center;
+    color:$grey;
     align-items: center;
-    .rc-image {
-      grid-area: 1 / 1 / 2 / 2;
-      color: $grey;
-      border-right: 1px solid;
-      background-color: white;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .rc-name {
-      grid-area: 1 / 2 / 2 / 4;
-      color: $grey;
-    }
+    justify-items: left;
+    height: 100%;
+    margin-inline: 1%;
+    margin-top: 1%;
+    text-align: left;
+  }
+  .rc-info-top {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .rc-info-bottom {
+    grid-area: 2 / 1 / 4 / 2;
   }
 }

@@ -1,42 +1,82 @@
 import React, { useState } from "react";
 
-const mealType = {
-    0: 'breakfast',
-    1: 'brunch',
-    2: 'lunch',
-    3: 'appetizer',
-    4: 'dinner',
-    5: 'dessert'
-  }
-
-  const proteinType = {
-    0: 'poultry',
-    1: 'beef',
-    2: 'pork',
-    3: 'seafood',
-    4: 'vegetarian',
-    5: 'vegan'
-  }
-
 const RefineResults = () => {
+  const [selectByMealType, setSelectByMealType] = useState([]);
+  const [selectByProtein, setSelectByProtein] = useState([]);
 
-    const [selectByMealType, setSelectByMealType] = useState[[]];
-    const [selectByProtein, setSelectByProtein] = useState[[]];
+  return (
+    <div className="refine-results-container">
 
-    return (
-       <div className="refine-results-container">
+      <h3>Refine Results</h3>
 
-           <div className="meal-type-filter">
+        <div className="refine-mealtype">
 
-           </div>
+          <h5>Meal Type: </h5>
 
-            <div className="protein-filter">
-
+            <div className="r-type">
+              <input type="radio" id="Appetizers" value="Appetizers"></input>
+              <label>Appetizers</label>
             </div>
 
+            <div className="r-type">
+              <input type="radio" id="Breakfast" value="Breakfast"></input>
+              <label>Breakfast</label>
+            </div>
 
-       </div>
-    )
-}
+            <div className="r-type">
+              <input type="radio" id="Lunch" value="Lunch"></input>
+              <label>Lunch</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Dinner" value="Dinner"></input>
+              <label>Dinner</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Dessert" value="Dessert"></input>
+              <label>Dessert</label>
+            </div>
+        </div>
+
+        <div className="refine-protein">
+
+          <h5>Protein Type </h5>
+
+            <div className="r-type">
+              <input type="radio" id="Chicken" value="Chicken"></input>
+              <label>Chicken</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Beef" value="Beef"></input>
+              <label>Beef</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Pork" value="Pork"></input>
+              <label>Pork</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Seafood" value="Seafood"></input>
+              <label>Seafood</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Vegetarian" value="Vegetarian"></input>
+              <label>Vegetarian</label>
+            </div>
+
+            <div className="r-type">
+              <input type="radio" id="Vegan" value="Vegan"></input>
+              <label>Vegan</label>
+            </div>
+
+        </div>
+
+    </div>
+  );
+};
 
 export default RefineResults;
