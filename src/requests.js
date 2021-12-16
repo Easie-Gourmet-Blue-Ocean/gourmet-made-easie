@@ -1,24 +1,45 @@
 import axios from 'axios';
 
+//Product Requests
 
-const getRecipeTiles = (body) => {
-  return axios.get('/recipe/cards', {params: body})
+//Confirmed exact filter required
+// WILL NEED TO REVISIT OR ADD IN GOOD DUMMY DATA FOR HOME PAGE
+const homeCardFilter = (mealString) => {
+  // let mealFilter = {
+  //   mealType: [mealString],
+  //   count: 2,
+  //   protein: [],
+  //   sort:'relevant'
+
+  // }
+  return axios.get('/recipe/cards', {params: mealString})
   .then(recipeTiles => {
-    recipeTiles.data
+    return recipeTiles.data
   })
   .catch(error => {
     console.error(error)
   })
 }
 
+//confirmed
+const getRecipeTilesSearch = (searchString = '') => {
+  return axios.get('/recipe/search', {params: {search: searchString}})
+  .then(recipeTiles => {
+    return recipeTiles.data;
+  })
+  .catch(err => {
+    console.error(error)
+  })
+}
 
+//confirmed
 const getRecipe = (id) => {
   return axios.get(`/recipe/${id}`)
   .then(recipe => {
-    recipe.data
+    return recipe.data
   })
   .catch(error => {
-    error
+    console.error(error)
   })
 }
 
@@ -29,16 +50,26 @@ const getRandomRecipe = () => {
      return randomRecipe.data
   })
   .catch(error => {
-    error
+    console.error(error)
   })
 }
 
-// getRandomRecipe();
+// pending login to test
+const postRecipe = (body) => {
+  return axios.post('/recipe', {body: body})
+  .then(result => {
+    console.log('recipe posted')
+  })
+  .catch(err => {
+    console.error(err);
+  })
+}
 
 const routes = {
-  getRecipeTiles,
+  homeCardFilter,
   getRecipe,
-  getRandomRecipe
+  getRandomRecipe,
+  getRecipeTilesSearch
 }
 
 export default routes;
