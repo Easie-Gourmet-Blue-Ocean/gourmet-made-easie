@@ -198,81 +198,56 @@ footer {
   }
   .recipe-card-container {
     width: 400px;
-    background-color: $green;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    color: $grey;
-    border: solid;
-    border-width: 1px;
-    height: 120px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    text-align: center;
-    align-items: center;
-    .rc-image {
-      grid-area: 1 / 1 / 2 / 2;
-      color: $grey;
-      border-right: 1px solid;
-      background-color: white;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .rc-info {
-      grid-area: 1 / 2 / 2 / 4;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
-      grid-column-gap: 0px;
-      grid-row-gap: 0px;
-      color:$grey;
-      align-items: center;
-      justify-items: left;
-      height: max-content;
-      margin-inline: 10px;
-      margin-top: 10px;
-    }
-    .rc-info-top {
-      grid-area: 1 / 1 / 2 / 2;
-    }
-    .rc-info-bottom {
-      grid-area: 2 / 1 / 4 / 2;
-    }
+    height: auto;
   }
 }
 
-.refine-results-container {
-  padding: 20px;
+.recipe-card-container {
+  width: inherit;
+  background-color: $green;
+  margin-bottom: 1%;
+  margin-top: 1%;
   color: $grey;
-  width:fit-content;
-  display:grid;
-  justify-content: left;
-  h5 {
-    padding: 10px;
-    margin: 0;
+  border: solid;
+  border-width: 1px;
+  height: 30%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  text-align: center;
+  align-items: center;
+  justify-items: center;
+  .rc-image {
+    grid-area: 1 / 1 / 2 / 2;
+    color: $grey;
+    max-width: 80%;
+    height: auto;
+    img {
+      width:100%;
+      height: auto;
+    }
   }
-  h3 {
-    padding: 0;
-    padding-top: 5px;
-    margin: 0;
-  }
-  .refine-mealtype, .refine-protein {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-  .r-type {
-    display: flex;
-    flex-direction: row;
+  .rc-info {
+    grid-area: 1 / 2 / 2 / 4;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    color:$grey;
     align-items: center;
-    margin: 5px;
-    margin-left: 30px;
+    justify-items: left;
+    height: 100%;
+    margin-inline: 1%;
+    margin-top: 1%;
+    text-align: left;
   }
-  label {
-    font-size: 15px;
+  .rc-info-top {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .rc-info-bottom {
+    grid-area: 2 / 1 / 4 / 2;
   }
 }
