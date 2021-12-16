@@ -6,6 +6,7 @@ import Search from "./pages/Search/index.js";
 import Profile from "./pages/Profile/index.js";
 import Home from "./pages/Home/index.js";
 import Footer from "./sharedComponents/Footer.js";
+import RecipePage from "./pages/Recipe/index.js";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
+          <RecipePage />
             <Footer />
         </>
       </Router>

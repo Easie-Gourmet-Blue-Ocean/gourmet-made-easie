@@ -4,11 +4,11 @@ const Ingredients = ({ingredients}) => {
 
   return (
     <div>
-      <div>Ingredients</div>
-      <ul style={{listStyleType: 'none'}}>
+      <div className="rp-ingredients-title">Ingredients</div>
+      <ul className="rp-ingredients-list">
         {ingredients.map((value, index) => {
           return (
-            <li key={index} style={{listStyleType: 'none'}}>
+            <li key={index}>
               <label>
               <input
                 type='checkbox'

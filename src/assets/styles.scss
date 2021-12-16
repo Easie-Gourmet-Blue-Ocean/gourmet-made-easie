@@ -12,6 +12,11 @@ body {
   padding: 0;
 }
 
+ul, li, a, a:visited {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 .navbar {
   color: $grey;
   display: flex;
@@ -25,8 +30,6 @@ body {
   }
   a,
   a:visited {
-    text-decoration: none;
-    list-style-type: none;
     color: $grey;
   }
   a:hover {
@@ -51,8 +54,6 @@ footer {
   width: auto;
   padding: 0.5%;
   ul {
-    text-decoration: none;
-    list-style-type: none;
     color: $white;
     display: flex;
     flex-direction: row;
@@ -81,8 +82,6 @@ footer {
   a,
   li,
   li:visited {
-    text-decoration: none;
-    list-style-type: none;
     color: $white;
   }
   a:hover,

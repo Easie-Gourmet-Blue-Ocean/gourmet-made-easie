@@ -4,7 +4,7 @@ const Instructions = ({instructions}) => {
 
   return (
     <div>
-      <div>Instructions</div>
+      <div className="rp-instructions-title">Instructions</div>
       <ol>
         {instructions.map((value, index) => {
           return(
