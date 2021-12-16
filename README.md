@@ -162,23 +162,23 @@
 - Request Body Example:
 ```javascript
 {
-    "recipeName": "Alex Type of meal",
-    "userId": 4,
-    "description": "This is a meal designed for Alex specifically",
-    "activeTime": 5,
-    "totalTime": 10,
-    "photo": null,
-    "instructions": [
+    recipeName: "Alex Type of meal",
+    userId: 4,
+    description: "This is a meal designed for Alex specifically",
+    activeTime: 5,
+    totalTime: 10,
+    photo: null,
+    instructions: [
         "add yogurt", "add berries", "add granola"
     ],
     "ingredients": [
-        {"ingredientName": "fage yogurt", "amount": 1, "measurementUnit": "cup"},
-        {"ingredientName": "berries mix", "amount": 1, "measurementUnit": "cup"},
-        {"ingredientName": "granola", "amount": 1, "measurementUnit": "cup"}
+        {ingredientName: "fage yogurt", amount: 1, measurementUnit: "cup"},
+        {ingredientName: "berries mix", amount: 1, measurementUnit: "cup"},
+        {ingredientName: "granola", amount: 1, measurementUni": "cup"}
     ],
-    "mealType": [1, 1, 0, 0, 0, 0],
-    "protein": [0, 0, 0, 0, 1, 0],
-    "servingSize": 1
+    mealType: [1, 1, 0, 0, 0, 0],
+    protein: [0, 0, 0, 0, 1, 0],
+    servingSize: 1
 }
 ```
 #### ```GET /recipe/:recipeId```
@@ -187,45 +187,45 @@
 - Response Example:
 ```javascript
 {
-    "recipeId": 2,
-    "username": "Morris",
-    "favoritedCount": 0,
-    "recipeName": "Alex Type of meal",
-    "description": "This is a meal designed for Alex specifically",
-    "activeTime": 5,
-    "totalTime": 10,
-    "photo": null,
-    "instructions": [
+    recipeId: 2,
+    username: "Morris",
+    favoritedCount: 0,
+    recipeName: "Alex Type of meal",
+    description: "This is a meal designed for Alex specifically",
+    activeTime: 5,
+    totalTime: 10,
+    photo: null,
+    instructions: [
         "add yogurt",
         "add berries",
         "add granola"
     ],
-    "ingredients": [
+    ingredients: [
         {
-            "ingredientName": "fage yogurt",
-            "amount": 1,
-            "measurementUnit": "cup"
+            ingredientName: "fage yogurt",
+            amount: 1,
+            measurementUnit: "cup"
         },
         {
-            "ingredientName": "berries mix",
-            "amount": 1,
-            "measurementUnit": "cup"
+            ingredientName: "berries mix",
+            amount: 1,
+            measurementUnit: "cup"
         },
         {
-            "ingredientName": "granola",
-            "amount": 1,
-            "measurementUnit": "cup"
+            ingredientName: "granola",
+            amount: 1,
+            measurementUnit: "cup"
         }
     ],
-    "mealType": [
+    mealType: [
         "breakfast",
         "brunch"
     ],
-    "protein": [
+    protein: [
         "vegetarian"
     ],
-    "servingSize": 1,
-    "createdAt": "2021-12-16T08:38:39.422Z"
+    servingSize: 1,
+    createdAt: "2021-12-16T08:38:39.422Z"
 }
 ```
 
@@ -245,21 +245,21 @@
 - Request body Example:
 ```javascript
 {
-    "mealType": ["breakfast", "brunch"], // will find exact match
-    "protein": ["vegetarian"], // will find exact match
-    "amount": 10, // default to max
-    "sort": "relevant" // default to relevant
+    mealType: ["breakfast", "brunch"], // will find exact match
+    protein: ["vegetarian"], // will find exact match
+    amount: 10, // default to max
+    sort: "relevant" // default to relevant
 }
 ```
 - Response Example:
 ```javascript
 [
     {
-        "recipeId": 2,
-        "recipeName": "Alex Type of meal",
-        "username": "Morris",
-        "description": "This is a meal designed for Alex specifically",
-        "photo": null
+        recipeId: 2,
+        recipeName: "Alex Type of meal",
+        username: "Morris",
+        description: "This is a meal designed for Alex specifically",
+        photo: null
     }
     //...
 ]
@@ -315,21 +315,26 @@
 #### `GET /recipe/search`
 - Description: search a recipe by its name using a search string in lower or upper case; it is type insensitive. 
 - Status: ```200 OK```
+- Request body parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  search | String | if empty string is provided it is equivalent to GET /recipe/cards (get all cards); on search will filter recipes containing the string you searched for |
 - Request Body Example:
 ```javascript
 {
-    "search": "yoGurt"
+    search: "yoGurt"
 }
 ```
 - Response Example
 ```javascript
 [
     {
-        "recipeId": 1,
-        "recipeName": "Alex Yogurt",
-        "username": "Morris",
-        "description": "This is a meal designed for Alex specifically",
-        "photo": null
+        recipeId: 1,
+        recipeName: "Alex Yogurt",
+        username: "Morris",
+        description: "This is a meal designed for Alex specifically",
+        photo: null
     }
     // ...
 ]
