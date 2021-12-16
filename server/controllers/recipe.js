@@ -28,6 +28,9 @@ const getRecipeBySearchString = (req, res) => {
   // let searchStirng = `%${req.body.search}%`;
   recipeModel.recipeSearch(req.body.search)
   .then(response => {
+    for (var i = 0; i < response.rows.length; i++) {
+      response.rows[i] = snakeToCamelCase(response.rows[i]);
+    }
     res.status(200).send(response.rows)
   })
   .catch(error => {

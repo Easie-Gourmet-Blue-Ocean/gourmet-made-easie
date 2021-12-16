@@ -325,13 +325,13 @@
 ```javascript
 [
     {
-        "recipe_id": 1,
-        "recipe_name": "Alex Yogurt",
+        "recipeId": 1,
+        "recipeName": "Alex Yogurt",
         "username": "Morris",
         "description": "This is a meal designed for Alex specifically",
         "photo": null
     }
-    //...
+    // ...
 ]
 ```
 
