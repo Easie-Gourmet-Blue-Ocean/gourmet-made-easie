@@ -140,7 +140,9 @@
 - Status:  ``` 200 OK```
 
 ### Recipe Related Routes
-#### ``` POST /recipe```
+#### ``` POST /recipe``` ***!!! NOTE***
+- ***!!! NOTE***
+  - protected route: login required
 - Description: Post a recipe
 - Status: ```201 Created```
 - Request body parameters:
