@@ -150,7 +150,6 @@
 | Parameter | Type | Description |
 | --- | --- | --- |
 | recipeName | String | - |
-| userId | Integer | - |
 | description | String | a description of the recipe |
 | activeTime | Integer | time needed to actively cook |
 | totalTime | Integer | total time required for this recipe |
@@ -165,7 +164,6 @@
 ```javascript
 {
     recipeName: "Alex Type of meal",
-    userId: 4,
     description: "This is a meal designed for Alex specifically",
     activeTime: 5,
     totalTime: 10,
