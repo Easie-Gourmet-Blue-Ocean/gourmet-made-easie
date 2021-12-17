@@ -8,14 +8,14 @@ import UserContext from '../UserContext';
 
 const NavbarLoggedIn = () => {
 
-  const {username, setUsername} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
 
   let navigate = useNavigate();
 
   let onLogout = (e) => {
     axios.post('/auth/logout')
       .then(response => {
-        setUsername('');
+        setUser({});
         navigate('/');
       })
   }
@@ -41,7 +41,7 @@ const NavbarLoggedIn = () => {
         </Link>
       </div>
       <div className="search">
-          <li>Hello, {username}</li>
+          <li>Hello, {user.username}</li>
           <li><a onClick={onLogout}>Logout</a></li>
         <Link to="/search">
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>

@@ -9,7 +9,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
-  const {username, setUsername} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
 
 
   let onEmailChange = (e) => {
@@ -29,7 +29,7 @@ const Signup = () => {
     axios.post('auth/signup', {username: name, email, password})
       .then(response => {
         if (response.status === 200) {
-          setUsername(null);
+          setUser({email: ''})
           navigate('/');
         }
       })
