@@ -13,7 +13,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-	  <li><a href=" ## Frontend Facing API Documentation ">Frontend Design</a></li>
+	  <li><a href=" ## Frontend Design ">Frontend Design</a></li>
     <li>
       <a href=" ## Frontend Facing API Documentation ">API Documentation</a>
 	          <ul>
