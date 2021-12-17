@@ -7,6 +7,7 @@ const RecipeCard = (recipe) => {
     let recipeName = recipe.value.recipeName?.charAt(0).toUpperCase() + recipe.value.recipeName?.slice(1);;
     let username = recipe.value.username?.charAt(0).toUpperCase() + recipe.value.username?.slice(1);
     let description = recipe.value.description?.charAt(0).toUpperCase() + recipe.value.description?.slice(1);
+    description.length >= 150 ? description=`${description.substring(0, 150)} ...` : null;
     let id= recipe.value.recipeId || 0;
 
     return (
