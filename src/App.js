@@ -15,30 +15,31 @@ import UserContext from './UserContext';
 
 
 const App = () => {
-  const [username, setUsername] = useState(null); // user can be '', null or 'some name'
-  const providerValue = useMemo(() => ({ username, setUsername}), [username, setUsername]);
+  
+  const [user, setUser] = useState({}); // user can be {}, {userId, username, email}
+  const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
 
   useEffect(() => {
     axios.get(`/user/session/${getSession()}`)
       .then(userResponse => {
         if (userResponse.data.username) {
-          setUsername(userResponse.data.username);
+          setUser(userResponse.data);
         } else {
           throw err;
         }
       })
       .catch(err => { // catch when the session does not have an user
-        setUsername('');
+        setUser({});
       })
-  });
+  }, [user.email]);
 
-  return (username === null)?
+  return (user === null)?
     (<div></div>):
     (<div className="app">
       <Router>
         <UserContext.Provider value={providerValue}>
           {
-            (username === '')? <Navbar/> : <NavbarLoggedIn/>
+            (Object.keys(user).length === 0)? <Navbar/> : <NavbarLoggedIn/>
           }
           <Routes>
             <Route path="/" element={<Home />} />

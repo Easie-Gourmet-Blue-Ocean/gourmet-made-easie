@@ -7,7 +7,7 @@ const Login = () => {
   let navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const {username, setUsername} = useContext(UserContext);
+  const {user, setUser} = useContext(UserContext);
 
   let onEmailInputChange = (e) => {
     setEmail(e.target.value);
@@ -22,7 +22,7 @@ const Login = () => {
     axios.post('/auth/login', {email, password})
       .then(response => {
         if (response.status === 200) {
-          setUsername(null);
+          setUser({email: ''})
           navigate('/');
         }
       })
