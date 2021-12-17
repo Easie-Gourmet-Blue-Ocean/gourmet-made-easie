@@ -65,7 +65,7 @@ UI Owner/Software Engineer
 
 <img src="ReadmeImages/RebekahCruz.jpg" alt="Rebekah Cruz headshot" width="210">
 
-[![linkedin-shield]][rebekah-linkedin]
+[![linkedin-shield]][Matthew-linkedin]
 [![github-shield]][rebekah-github]
 
 <br>
