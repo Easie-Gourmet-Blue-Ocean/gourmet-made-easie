@@ -247,7 +247,7 @@
 {
     mealType: ["breakfast", "brunch"], // will find exact match
     protein: ["vegetarian"], // will find exact match
-    amount: 10, // default to max
+    count: 10, // default to max
     sort: "relevant" // default to relevant
 }
 ```
