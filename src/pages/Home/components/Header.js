@@ -12,10 +12,10 @@ const Header = () => {
         <Searchbar />
         <div className="bottom-buttons">
           <div className="advanced-search-button">
-          <button>Advanced search</button>
+          <button className="button-class">Advanced search</button>
           </div>
           <div className="random-recipe-button">
-            <button>Random recipe</button>
+            <button className="button-class">Random recipe</button>
           </div>
         </div>
       </div>
