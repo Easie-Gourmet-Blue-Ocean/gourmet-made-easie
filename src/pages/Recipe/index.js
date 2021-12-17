@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import Title from './components/title.js';
-import Instructions from './components/instructions.js';
-import Ingredients from './components/ingredients.js';
-import Description from './components/description.js'
+import React, { useState } from "react";
+import Title from "./components/title.js";
+import Instructions from "./components/instructions.js";
+import Ingredients from "./components/ingredients.js";
+import Description from "./components/description.js";
 
 const RecipePage = () => {
 
@@ -26,26 +26,21 @@ const RecipePage = () => {
   })
 
   return (
-    <div>
-      <Title
-        recipeName={recipe.recipeName}
-        activeTime={recipe.activeTime}
-        totalTime={recipe.totalTime}
-        servingSize={recipe.servingSize}
-      />
-      <Instructions
-        instructions={recipe.instructions}
-      />
-      {/* CURRENTLY IN LINED STYLE TO GET RID OF DOTS FOR UNORDERED LIST */}
-      <Ingredients
-        ingredients={recipe.ingredients}
-      />
-      <Description
-        description={recipe.description}
-      />
+    <div className="recipe-page-container">
+        <Title
+          recipeName={recipe.recipeName}
+          activeTime={recipe.activeTime}
+          totalTime={recipe.totalTime}
+          servingSize={recipe.servingSize}
+        />
+        <div className="rp-bottom">
+      <Instructions instructions={recipe.instructions} />
+      <Ingredients ingredients={recipe.ingredients} />
+      </div>
+      {/* </div> */}
+      {/* // <Description description={recipe.description} /> */}
     </div>
+  );
+};
 
-  )
-}
-
-export default RecipePage
+export default RecipePage;
