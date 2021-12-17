@@ -3,13 +3,20 @@ $green: #819c92;
 $yellow: #f8d848;
 $grey: #333333;
 $ltgrey: #999999;
+$lttgrey: #dbdbdb;
+$bg: #f5f5f7;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
 
 html,
 body {
-  font-family: Trebuchet;
-  min-height: 100%;
-  margin: 0;
+  font-family: 'Nanum Myeongjo', serif;  margin: 0;
   padding: 0;
+  background-color: $bg;
+}
+
+div {
+  font-size: 20px;
 }
 
 ul,
@@ -21,6 +28,13 @@ a:visited {
   list-style-type: none;
 }
 
+.searchbar-container{
+  display: flex;
+  flex-direction: row;
+  .searchbar {
+    width: inherit;
+  }
+}
 .navbar {
   color: $grey;
   display: flex;
@@ -28,6 +42,9 @@ a:visited {
   padding: 20px;
   justify-content: space-between;
   position: relative;
+  background-color: $white;
+  height: 40px;
+  box-shadow: 2px 4px 12px #00000014;
   ul {
     margin: 0;
     padding-left: 20px;
@@ -52,6 +69,7 @@ a:visited {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    font-size: 100%;
   }
 }
 
@@ -108,8 +126,8 @@ footer {
 
 .home {
   .header-container {
-    padding-left: 20px;
-    padding-right: 20px;
+    // padding-left: 20px;
+    // padding-right: 20px;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -117,16 +135,16 @@ footer {
       position: absolute;
       width: 40%;
       height: auto;
-      background-color: $grey;
       padding: 20px;
       margin-left: 4%;
       .search-title {
-        background-color: $white;
-        color: $grey;
+        font-size: 30px;
+        background-color: #33333300;
+        color: $white;
         padding: 10px;
       }
       .searchbar-container {
-        background-color: $white;
+        background-color: #33333300;
         padding: 10px;
         display: flex;
         flex-direction: row;
@@ -135,7 +153,7 @@ footer {
         }
       }
       .bottom-buttons {
-        background-color: $white;
+        background-color: #33333300;
         padding: 10px;
         display: flex;
         flex-direction: row;
@@ -149,9 +167,11 @@ footer {
     }
   }
   .top-recipes-container {
+    margin-left: 5%;
+    margin-right: 5%;
     padding: 20px;
     color: $grey;
-    background-color: $white;
+    background-color: $bg;
     width: auto;
     .tr-list {
       display: grid;
@@ -159,17 +179,18 @@ footer {
       grid-template-columns: auto auto;
       grid-row: fit;
       grid-column-gap: 20px;
-      grid-row-gap: 20px;
+      grid-row-gap: 0px;
+      background-color: $bg;
     }
     .tr-type {
       flex-direction: column;
-      background-color: $white;
+      background-color: $bg;
       color: $grey;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      height: 100%;
+      // height: 100%;
       .title-button-row {
         display: flex;
         flex-direction: row;
@@ -201,20 +222,18 @@ footer {
     }
   }
   .recipe-card-container {
-    width: 400px;
-    height: auto;
+    width: 600px;
+    height: 200px;
+    margin-bottom: 20px;
   }
 }
 
 .recipe-card-container {
   width: inherit;
-  background-color: $green;
-  margin-bottom: 1%;
-  margin-top: 1%;
+  padding: 2%;
   color: $grey;
-  border: solid;
-  border-width: 1px;
-  height: 30%;
+  background-color: $white;
+  height: auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
@@ -223,6 +242,10 @@ footer {
   text-align: center;
   align-items: center;
   justify-items: center;
+  border-radius: 5px;
+  box-shadow: rgba(9, 30, 66, 0.135) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  box-shadow: 2px 4px 12px #00000014;
+
   .rc-image {
     grid-area: 1 / 1 / 2 / 2;
     color: $grey;
@@ -263,13 +286,15 @@ footer {
     margin: 0;
     padding: 0;
   }
-  width: 100vw;
+
   color: $grey;
   .rp-title-container {
+
     background-color: $grey;
     color: $white;
     grid-area: 1 / 1 / 2 / 4;
     height: 200px;
+    width: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -315,7 +340,7 @@ footer {
     .rp-ingredients-container {
       grid-area: 1 / 2 / 2 / 3;
       height: 100%;
-      background-color: $green;
+      background-color: $white;
     }
     .rp-instructions-container, .rp-ingredients-container {
       display: grid;
@@ -383,14 +408,14 @@ footer {
 }
 
 .form-input-text {
-  background-color: #edf2f7;
+  background-color: #dfe4e9;
   display: block;
   outline: none;
   border: none;
   border-radius: 0.3rem;
   padding: 0.5rem;
   font-size: 1rem;
-  width: 25%;
+  width: 20%;
   height: 25%;
   margin-top: 1%;
 }
@@ -411,6 +436,7 @@ footer {
   display: block;
   transition: all 100ms ease-out;
   margin: auto;
+  width:20%;
   margin-top: 2%;
   margin-bottom: 1%;
 }
@@ -420,6 +446,191 @@ footer {
   font-size: large;
 }
 
-#crediential-err-login {
 
+.search-page-container {
+
+  margin-top: 40px;
+  .sps{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+  .sp-searchbar {
+    margin-top: 10px;
+    width: fit-content;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+    .searchbar {
+      width: 600px;
+      background: white;
+      box-sizing: border-box;
+      border: 4px solid white;
+    }
+  }
+}
+.sp-list-container {
+
+  height: auto;
+  min-height: 1000px;
+  margin-left: 10%;
+  margin-right: 10%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+
+  .recipe-card-container {
+    width:600px;
+    height: 200px;
+    // border-radius: 20  px
+  }
+  .sp-list {
+      .sp-top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 80px;
+        padding-right: 80px;
+
+      }
+      padding-top: 40px;
+      padding-bottom: 40px;
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 40px;
+
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+// search-page-container
+// sp-search-bar
+// sp-num
+// sp-sort-menu
+// sp-list
+.form {
+  display: flex;
+  padding-left: 20px;
+  margin-left: 35%;
+  .form-recipe-name {
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+  .form-recipe-description {
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
+  .form-time-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+  }
+  .form-select-wrapper {
+    display: inline-flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+  }
+}
+
+.recipe-name-input {
+  width: 100%;
+  height: 30px;
+}
+
+.form-active-time {
+  padding-right: 15px;
+}
+
+.form-meal-type {
+  padding-right: 15px;
+}
+
+.form-protein-type {
+  padding-right: 17px;
+}
+.recipe-desc-input {
+  height: 200px;
+  width: 100%;
+}
+
+.form-add-ingredients {
+  padding-bottom: 10px;
+}
+
+.add-instructions {
+  width: 100%;
+}
+
+.form-add-instructions {
+  padding-bottom: 10px;
+}
+
+.form-photos {
+  padding-bottom: 10px;
+}
+.profile-page {
+  height: 100vh;
+}
+
+.form-submit {
+  margin-bottom: 30px;
+}
+
+.button-class {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #333333;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 2px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-class:hover,
+.button-class:focus {
+  background-color: #333333;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 2px;
+}
+
+.button-class:hover {
+  background-color: #494949;
+}
+
+.button-class:active {
+  background-color: #333333;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
 }

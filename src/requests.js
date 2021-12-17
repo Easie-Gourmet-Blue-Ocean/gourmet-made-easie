@@ -56,7 +56,7 @@ const getRandomRecipe = () => {
 
 // pending login to test
 const postRecipe = (body) => {
-  return axios.post('/recipe', {body: body})
+  return axios.post('/recipe', body)
   .then(result => {
     console.log('recipe posted')
   })
@@ -65,12 +65,21 @@ const postRecipe = (body) => {
   })
 }
 
+const getUserRecipes = (userId) => {
+  return axios.get(`user/${userId}/recipes`)
+  .then(result => {
+    return result.data
+  })
+  .catch(err => console.error(err))
+}
+
 const routes = {
   homeCardFilter,
   getRecipe,
   getRandomRecipe,
   getRecipeTilesSearch,
-  postRecipe
+  postRecipe,
+  getUserRecipes
 }
 
 export default routes;
