@@ -22,7 +22,10 @@ const NavbarLoggedIn = ({name}) => {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/search">
+          <Link
+            to='/search'
+            state={{searchTerm2: ''}}
+            >
             <li>Search</li>
           </Link>
           <Link to="/profile">
