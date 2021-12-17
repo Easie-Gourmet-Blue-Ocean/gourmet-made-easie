@@ -12,6 +12,15 @@ body {
   padding: 0;
 }
 
+ul,
+ol,
+li,
+a,
+a:visited {
+  text-decoration: none;
+  list-style-type: none;
+}
+
 .navbar {
   color: $grey;
   display: flex;
@@ -32,8 +41,6 @@ body {
   }
   a,
   a:visited {
-    text-decoration: none;
-    list-style-type: none;
     color: $grey;
   }
   a:hover {
@@ -56,10 +63,9 @@ footer {
   right: 0;
   background: $grey;
   width: auto;
+  height: auto;
   padding: 0.5%;
   ul {
-    text-decoration: none;
-    list-style-type: none;
     color: $white;
     display: flex;
     flex-direction: row;
@@ -88,8 +94,6 @@ footer {
   a,
   li,
   li:visited {
-    text-decoration: none;
-    list-style-type: none;
     color: $white;
   }
   a:hover,
@@ -225,7 +229,7 @@ footer {
     max-width: 80%;
     height: auto;
     img {
-      width:100%;
+      width: 100%;
       height: auto;
     }
   }
@@ -236,13 +240,105 @@ footer {
     grid-template-rows: repeat(3, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    color:$grey;
+    color: $grey;
     align-items: center;
     justify-items: left;
     height: 100%;
     margin-inline: 1%;
     margin-top: 1%;
     text-align: left;
+  }
+  .rc-info-top {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .rc-info-bottom {
+    grid-area: 2 / 1 / 4 / 2;
+  }
+}
+
+.recipe-page-container {
+  ol,
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  width: 100vw;
+  color: $grey;
+  .rp-title-container {
+    background-color: $grey;
+    color: $white;
+    grid-area: 1 / 1 / 2 / 4;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    place-items: center;
+    text-align: center;
+    .rp-name, .rp-cook-time, .rp-total-time, .rp-serving-size {
+      width: 240px;
+      padding: 15px;
+      background-color: $white;
+      color: $grey;
+      width: 100%;
+    }
+    .rp-name {
+      padding-top: 7%;
+      grid-area: 1 / 2 / 2 / 3;
+      font-size: 250%;
+      background-color: $grey;
+      color: $white;
+    }
+    .rp-cook-time {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    .rp-total-time {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    .rp-serving-size {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+  }
+  .rp-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100%;
+    .rp-instructions-container {
+      grid-area: 1 / 1 / 2 / 2;
+      height: 100%;
+    }
+    .rp-ingredients-container {
+      grid-area: 1 / 2 / 2 / 3;
+      height: 100%;
+      background-color: $green;
+    }
+    .rp-instructions-container, .rp-ingredients-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 5fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      place-items: center;
+      .rp-instructions-title, .rp-ingredients-title {
+        grid-area: 1 / 1 / 2 / 2;
+        font-size: 200%;
+        text-decoration: underline;
+      }
+      .rp-instructions-list, .rp-ingredients-list {
+        grid-area: 2 / 1 / 3 / 2;
+        align-self: start;
+        justify-self: left;
+        padding: 20px;
+        li {
+          padding-bottom: 20px;
+        }
+      }
+    }
   }
   .rc-info-top {
     grid-area: 1 / 1 / 2 / 2;

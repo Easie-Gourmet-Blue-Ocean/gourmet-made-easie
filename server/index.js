@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const path = require('path');
 const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
@@ -20,15 +21,13 @@ app.use('/auth', authRouter); // signup, login, logout
 app.use('/user', userRouter);
 app.use('/recipe', recipeRouter);
 
-app.get('/login', (req, res) => {
-  console.log(req.cookies);
-  res.send('this is a login page...');
-});
+// app.get('/login', (req, res) => {
+//   res.redirect('/login');
+// });
 
-app.get('/signup', (req, res) => {
-  console.log(req.cookies);
-  res.send('this is a signup page...');
-});
+// app.get('/signup', (req, res) => {
+//   res.redirect('/signup');
+// });
 
 
 /************************************************************/
@@ -38,6 +37,7 @@ app.get('/signup', (req, res) => {
 //   res.redirect('/');
 //   // ideally it should redirect to "page not found" page
 // })
+
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/../dist/index.html'), function(err) {
     if (err) {

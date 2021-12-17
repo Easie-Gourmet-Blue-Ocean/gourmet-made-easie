@@ -6,6 +6,7 @@ import Description from './components/description.js';
 import {useLocation} from 'react-router-dom';
 import routes from '../../requests'
 
+
 const RecipePage = () => {
 
   const [recipe, setRecipe] = useState({
@@ -43,26 +44,21 @@ const RecipePage = () => {
   }, [recipeId])
 
   return (
-    <div>
-      <Title
-        recipeName={recipe.recipeName}
-        activeTime={recipe.activeTime}
-        totalTime={recipe.totalTime}
-        servingSize={recipe.servingSize}
-      />
-      <Instructions
-        instructions={recipe.instructions}
-      />
-      {/* CURRENTLY IN LINED STYLE TO GET RID OF DOTS FOR UNORDERED LIST */}
-      <Ingredients
-        ingredients={recipe.ingredients}
-      />
-      <Description
-        description={recipe.description}
-      />
+    <div className="recipe-page-container">
+        <Title
+          recipeName={recipe.recipeName}
+          activeTime={recipe.activeTime}
+          totalTime={recipe.totalTime}
+          servingSize={recipe.servingSize}
+        />
+        <div className="rp-bottom">
+      <Instructions instructions={recipe.instructions} />
+      <Ingredients ingredients={recipe.ingredients} />
+      </div>
+      {/* </div> */}
+      {/* // <Description description={recipe.description} /> */}
     </div>
+  );
+};
 
-  )
-}
-
-export default RecipePage
+export default RecipePage;

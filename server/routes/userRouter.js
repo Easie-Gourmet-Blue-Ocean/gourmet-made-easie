@@ -6,7 +6,7 @@ const { getUserPublicInfoById,
         addToUserFavorites,
         removeRecipeFromUserFavorites
  } = require('../controllers/user');
- const {verifySession} = require('../middleware/authentication');
+const {verifySession} = require('../middleware/authentication');
 
 /*
 GET /user/:userId
@@ -20,6 +20,7 @@ userRouter.get('/:userId', getUserPublicInfoById);
 userRouter.get('/session/:sessionId', getUserPublicInfoBySession);
 userRouter.get('/:userId/favorites', getUserFavorites);
 userRouter.get('/:userId/recipes', getUserRecipes);
+// protected routes:
 userRouter.patch('/:userId/favorites/:recipeId', verifySession, addToUserFavorites); // TODO: potential issue when verified user patch other user's
 userRouter.delete('/:userId/favorites/:recipeId', verifySession, removeRecipeFromUserFavorites);
 

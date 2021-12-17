@@ -17,7 +17,7 @@ const createSessionWithNewHash = () => {
 }
 
 const updateSessionByHashWithNewUserId = (hash, userId) => {
-  let query = `UPDATE base_schema.sessions SET user_id = $1 WHERE hash = $2`;
+  let query = `UPDATE base_schema.sessions SET user_id = $1 WHERE hash = $2 RETURNING hash`;
   return db.query(query, [userId, hash]);
 }
 
