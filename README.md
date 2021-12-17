@@ -1,7 +1,5 @@
 # gourmet-made-easie
 
-# Red Paperclip
-
 <br />
 
 <br>
