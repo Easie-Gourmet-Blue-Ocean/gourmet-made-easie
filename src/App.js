@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { hot } from "react-hot-loader/root";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Redirect, Navigate } from "react-router-dom";
 import Navbar from "./sharedComponents/Navbar.js";
 import Search from "./pages/Search/index.js";
 import Profile from "./pages/Profile/index.js";
@@ -44,11 +45,11 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={!username ?  <Navigate to='/login'/> : <Profile /> }/>
             <Route path='/recipe' element={<RecipePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/addRecipe" element={<AddRecipe/>}/>
+            <Route path="/addRecipe" element={!username ?  <Navigate to='/login'/> : <AddRecipe />}/>
           </Routes>
 
         </UserContext.Provider>
