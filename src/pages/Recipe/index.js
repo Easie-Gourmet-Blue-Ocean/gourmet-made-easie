@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Title from './components/title.js';
 import Instructions from './components/instructions.js';
 import Ingredients from './components/ingredients.js';
-import Description from './components/description.js'
+import Description from './components/description.js';
+import {useLocation} from 'react-router-dom';
+import routes from '../../requests'
 
 const RecipePage = () => {
 
@@ -24,6 +26,21 @@ const RecipePage = () => {
     servingSize: 0,
     createdAt: ''
   })
+
+  const location = useLocation();
+  const { recipeId } = location.state;
+
+  const getRecipe = () => {
+    routes.getRecipe(recipeId)
+     .then(response => {
+       setRecipe(response);
+     })
+     .catch(err => console.error(err))
+  }
+
+  useEffect(() => {
+    getRecipe();
+  }, [recipeId])
 
   return (
     <div>
