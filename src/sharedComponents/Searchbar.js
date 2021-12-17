@@ -6,7 +6,6 @@ const Searchbar = () => {
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-    console.log(searchTerm)
   };
 
   return (
@@ -23,7 +22,7 @@ const Searchbar = () => {
             to='/search'
             state={{searchTerm2: searchTerm}}
           >
-            <button>Submit</button>
+            <button className="button-class">Submit</button>
           </Link>
         </div>
     </div>

@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import routes from '../../requests.js';
+import {Navigate} from 'react-router-dom';
 
 const AddRecipe = () => {
 
@@ -19,11 +21,38 @@ const AddRecipe = () => {
   const [instructions, setInstructions] = useState(['']);
   const [photo, setPhoto] = useState('');
 
-  //Methods to handle changes of input
+ //handle Redirecting on submit
+
+  const [redirect, setRedirect] = useState(false);
+  if (redirect) {
+    return <Navigate to='/profile'/>
+  }
+  //Submit Method
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    const config = {
+      recipeName: name,
+      description: description,
+      activeTime: activeTime,
+      totalTime: totalTime,
+      photo: photo,
+      instructions: instructions,
+      ingredients: ingredients,
+      mealType: mealType,
+      protein: proteinType,
+      servingSize: servingSize
+    }
+    routes.postRecipe(config)
+    .then(result => {
+      setRedirect(true);
+    })
+    .catch (err => console.error(err))
   }
+
+  //Methods to handle changes of input
+
 
   const updateMealChange = index => e => {
     let newArr = [...mealType];
@@ -79,32 +108,42 @@ const AddRecipe = () => {
   let measurementUnitTypes = ['pound(s)', 'ounce(s)', 'gram(s)', 'teaspoon(s)', 'tablespoon(s)', 'fluid ounce(s)', 'cup(s)', 'pint(s)', 'quart(s)', 'gallon(s)', 'ml(s)', 'item(s)']
 
   return (
-    <div className="form-container">
+    <div className='form'>
     <form>
       {/* Name of Recipe Form Element */}
-      <div className="form-name">
+      <div className='form-recipe-name'>
       <label>
         Name of Recipe:
+        <div className='recipe-name-input-div'>
         <input
+          className='recipe-name-input'
           type='text'
           value={name}
           onChange={e => setName(e.target.value)}
           placeholder='Name of Recipe'
         ></input>
+        </div>
       </label>
       </div>
       {/* description of Recipe Form Element */}
+      <div className='form-recipe-description'>
       <label>
         Description:
+        <div className='recipe-desc-input-div'>
         <input
+          className='recipe-desc-input'
           type='text'
           value={description}
           onChange={e => setDescription(e.target.value)}
           maxLength={10000}
           placeholder='Description of your Recipe'
         />
+        </div>
       </label>
+      </div>
       {/* Active Time Form Element */}
+      <div className='form-time-wrapper'>
+      <div className='form-active-time'>
       <label>
         Active Time
         <select onChange={e => setActiveTime(Number(e.target.value))}>
@@ -116,9 +155,11 @@ const AddRecipe = () => {
         </select>
         Minutes
       </label>
+      </div>
       {/* Total Time Form Element */}
+      <div className='form-total-time'>
       <label>
-        Inactive Time
+        Total Time
         <select onChange={e => setTotalTime(Number(e.target.value))}>
           {
             time.map((value, index) => {
@@ -128,7 +169,11 @@ const AddRecipe = () => {
         </select>
         Minutes
       </label>
+      </div>
+      </div>
       {/* Meal Type Picker */}
+      <div className='form-select-wrapper'>
+      <div className='form-meal-type'>
       <label>
         Meal Type
         <div>
@@ -156,7 +201,9 @@ const AddRecipe = () => {
           <label>Dessert</label>
         </div>
       </label>
+      </div>
       {/* Protein Type Picker */}
+      <div className='form-protein-type'>
       <label>
         Protein Type
         <div>
@@ -184,6 +231,8 @@ const AddRecipe = () => {
           <label>Vegan</label>
         </div>
       </label>
+      </div>
+      <div className='form-serving-size'>
       <label>
         Serving Size
         <select onChange={(e) => setServingSize(Number(e.target.value))}>
@@ -194,9 +243,12 @@ const AddRecipe = () => {
           })}
         </select>
       </label>
+      </div>
+      </div>
       {/* Add Ingredients Form */}
+      <div className='form-add-ingredients'>
       <label>
-        Add Ingerdients
+        Add Ingredients
         {ingredients.map((value, index) => {
           return (
             <div key={index}>
@@ -213,25 +265,30 @@ const AddRecipe = () => {
         })}
         <button onClick={(e) => addIngredients(e)}>+</button>
       </label>
+      </div>
       {/* Add instructions Form */}
+      <div className='form-add-instructions'>
       <label>
         Add Instructions
         {instructions.map((value, index) => {
           return (
           <div key={index}>
-            Step {index + 1}<input type='text' value={instructions[index]} onChange={updateInstructions(index)} placeholder='Add your instructions here!'></input>
+            Step {index + 1}<input className='add-instructions' type='text' value={instructions[index]} onChange={updateInstructions(index)} placeholder='Add your instructions here!'></input>
           </div>
           )
         })}
         <button onClick={(e) => addInstructions(e)}>+</button>
       </label>
+      </div>
       {/* photos portion of form */}
+      <div className='form-photos'>
       <label>
         Photos
-        <input type='text' value={photo} onChange={e => setPhoto(e.target.value)} placeholder='Insert Photo URL here' maxLength={500}></input>
+        <input type='url' value={photo} onChange={e => setPhoto(e.target.value)} placeholder='Insert Photo URL here' maxLength={500}></input>
       </label>
+      </div>
       <div>
-        <button type='submit' onClick={e => {onSubmit(e)}}>Submit</button>
+        <button className='button-class form-submit' type='submit' onClick={e => {onSubmit(e)}}>Submit</button>
       </div>
     </form>
     </div>

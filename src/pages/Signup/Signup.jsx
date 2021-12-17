@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import UserContext from '../../UserContext';
+
 
 const Signup = () => {
   let navigate = useNavigate();
   const [email, setEmail] = useState('');
-  const [username, setName] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const {user, setUser} = useContext(UserContext);
+
 
   let onEmailChange = (e) => {
     setEmail(e.target.value);
@@ -22,14 +26,14 @@ const Signup = () => {
 
   let onSubmit = (e) => {
     e.preventDefault();
-    axios.post('auth/signup', {username, email, password})
+    axios.post('auth/signup', {username: name, email, password})
       .then(response => {
         if (response.status === 200) {
+          setUser({email: ''})
           navigate('/');
         }
       })
       .catch(err => {
-        console.log(err);
         document.getElementById('crediential-err-signup').innerHTML = 'Email already exist';
       })
   }
