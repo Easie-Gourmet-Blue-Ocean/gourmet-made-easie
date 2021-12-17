@@ -33,7 +33,7 @@ const Search = () => {
 
     return (
         <>
-            <Searchbar/>
+            <Searchbar />
             <SortMenu setStateHook={setStatus} />
             <RecipeList recipes={recipes}/>
         </>

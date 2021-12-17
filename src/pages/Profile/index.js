@@ -13,16 +13,16 @@ const Profile = () => {
     const [recipeSwitch, setRecipeSwitch] = useState(true);
 
     return (
-        <>
+        <div className="profile-page">
         {/* FOR SAM:Possibly change the tag for the profile while styling */}
         <h1>My Profile</h1>
         <Link to='/addRecipe'>
-        <button type='button'>Add Recipe</button>
+        <button className="button-class" type='button'>Add Recipe</button>
         </Link>
-        <button type='button' onClick={() => setRecipeSwitch(true)}>My Recipes</button>
-        <button type='button' onClick={() => setRecipeSwitch(false)}>My Favorites</button>
+        <button className="button-class" type='button' onClick={() => setRecipeSwitch(true)}>My Recipes</button>
+        <button className="button-class" type='button' onClick={() => setRecipeSwitch(false)}>My Favorites</button>
         <RecipeList recipes={recipeSwitch ? userRecipes : favoriteRecipes}/>
-        </>
+        </div>
     )
 }
 
