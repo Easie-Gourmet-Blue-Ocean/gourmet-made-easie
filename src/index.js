@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState, useMemo} from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./assets/styles.css";
 import "./assets/styles.scss";
 
-ReactDOM.render(<App />,document.getElementById("app"));
+
+ReactDOM.render(
+  <App />,
+  document.getElementById("app")
+);

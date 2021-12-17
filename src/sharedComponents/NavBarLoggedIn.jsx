@@ -1,20 +1,25 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import UserContext from '../UserContext';
 
 
-const NavbarLoggedIn = ({name}) => {
+const NavbarLoggedIn = () => {
+
+  const {username, setUsername} = useContext(UserContext);
 
   let navigate = useNavigate();
+
   let onLogout = (e) => {
     axios.post('/auth/logout')
       .then(response => {
-        console.log(response);
+        setUsername('');
         navigate('/');
       })
   }
+
   return (
     <div className="navbar">
       <div className="navlinks">
@@ -39,7 +44,7 @@ const NavbarLoggedIn = ({name}) => {
         </Link>
       </div>
       <div className="search">
-          <li>Hello, {name}</li>
+          <li>Hello, {username}</li>
           <li><a onClick={onLogout}>Logout</a></li>
         <Link to="/search">
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
