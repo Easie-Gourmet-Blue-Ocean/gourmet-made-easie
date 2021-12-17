@@ -56,7 +56,7 @@ const getRandomRecipe = () => {
 
 // pending login to test
 const postRecipe = (body) => {
-  return axios.post('/recipe', {body: body})
+  return axios.post('/recipe', body)
   .then(result => {
     console.log('recipe posted')
   })
@@ -64,6 +64,10 @@ const postRecipe = (body) => {
     console.error(err);
   })
 }
+
+// const getUserRecipes = () => {
+//   return axios.get('/')
+// }
 
 const routes = {
   homeCardFilter,

@@ -40,13 +40,16 @@ const NavbarLoggedIn = () => {
       </div>
       <div className="logo">
         <Link to="/">
-          <h1>Gourmet Made Easy</h1>
+          <h1>Gourmet Made Easie</h1>
         </Link>
       </div>
       <div className="search">
           <li>Hello, {username}</li>
           <li><a onClick={onLogout}>Logout</a></li>
-        <Link to="/search">
+          <Link
+          to="/search"
+          state={{searchTerm2: ''}}
+        >
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </Link>
       </div>
