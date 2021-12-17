@@ -35,31 +35,33 @@ const Login = () => {
   }
 
   return (
-    <>
-      <h1>Login</h1>
+    <div className="form-container">
+      <div className='form-prompt'>Log in to your account</div>
       <div id='crediential-err-login'></div>
-      <div style={{height: "500px"}}>
+      <div className="login-form">
         <form onSubmit={onSubmit}>
           <input 
+            className="form-input-text"
             onChange={onEmailInputChange}
             required 
             type="email" 
             placeholder="Email" 
-            autoComplete='username'
+            autoComplete="off" 
           />
           <input
+            className="form-input-text"
             onChange={onPasswordInputChange}
             required
             type="password"
             placeholder="password"
-            autoComplete="password"
+            autoComplete="new-password"
           />
-          <button >Log In</button>
+          <button className='form-btn' >Log In</button>
 
-          <Link to='/signup'>Don't have an account? Sign Up</Link>
+          <Link to='/signup' className='form-redirect-link'>Don't have an account? Sign Up</Link>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import RecipeList from '../../sharedComponents/RecipeList.js';
 import {Link} from 'react-router-dom';
-
+import UserContext from '../../UserContext';
 
 // will need a redirect to add a recipe
 // will need to get users recipe cards and a favorite cards
@@ -12,6 +12,7 @@ const Profile = () => {
     //True means show userRecipes, false means showFavorite Recipes
     const [recipeSwitch, setRecipeSwitch] = useState(true);
 
+    const {user, setUser} = useContext(UserContext);
     return (
         <>
         {/* FOR SAM:Possibly change the tag for the profile while styling */}

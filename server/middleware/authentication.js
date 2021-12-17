@@ -42,7 +42,7 @@ const verifySession = (req, res, next) => {
   console.log(req.session);
   if (!req.session.user_id) {
     console.log('bye');
-    res.redirect('/login');
+    res.redirect('/');
   } else {
     console.log('clear');
     next();

@@ -347,3 +347,79 @@ footer {
     grid-area: 2 / 1 / 4 / 2;
   }
 }
+
+/* login */
+.form-container {
+  padding-top: 25%;
+  height: 100vh;
+}
+.form-prompt,
+#crediential-err-login,
+.login-form,
+.form-input-text,
+#crediential-err-login,
+#crediential-err-signup {
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+#crediential-err-login,
+#crediential-err-signup {
+  margin-top: 3%;
+  text-align: center;
+  display: block;
+  color:red;
+  font-size: 16px;
+}
+
+
+.form-prompt {
+  margin-bottom: 2%;
+}
+
+.form-btn {
+  width: 25%;
+}
+
+.form-input-text {
+  background-color: #edf2f7;
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 25%;
+  height: 25%;
+  margin-top: 1%;
+}
+
+.form-btn {
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 46px;
+  text-align: center;
+  height: 46px;
+  margin: 32px 0 0;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 24px;
+  cursor: pointer;
+  display: block;
+  transition: all 100ms ease-out;
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+
+.form-redirect-link {
+  color: #2B99D8;
+  font-size: large;
+}
+
+#crediential-err-login {
+
+}
