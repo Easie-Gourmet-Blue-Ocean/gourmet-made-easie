@@ -1,11 +1,13 @@
 import React from "react";
 import RecipeCard from "../../../sharedComponents/RecipeCard.js";
 import RecipeList from "../../../sharedComponents/RecipeList.js";
+import routes from '../../../requests.js';
 
 const TopRecipes = () => {
 
 
   const [dinnerRecipes, setDinnerRecipes] = React.useState([{
+    recipeId:1,
     recipeName: "chicken and rice",
     userName: "tester1",
     description: "this is a great dish that I make after the gym",
@@ -84,6 +86,22 @@ const TopRecipes = () => {
     photo: "",
   },]);
 
+  const testFunc = () => {
+    let test = {
+      "mealType": ["breakfast", "brunch"],
+      "protein": [""],
+      "amount": 10,
+      "sort": "relevant"
+    };
+
+    routes.homeCardFilter(test)
+    .then((test) => {
+      console.log('SUCCESS', test)
+    })
+    .catch((err) => {
+      console.log('ERROR' + err)
+    })
+  }
 
   return (
     <div className="top-recipes-container">
@@ -92,7 +110,7 @@ const TopRecipes = () => {
         <div className="tr-type">
           <div className="title-button-row">
             <h3>Dinner</h3>
-            <button>See More &#8594;</button>
+            <button type='button' onClick={() => testFunc()}>See More &#8594;</button>
           </div>
           <RecipeList recipes={dinnerRecipes}/>
         </div>

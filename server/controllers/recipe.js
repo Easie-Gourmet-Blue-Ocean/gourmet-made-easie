@@ -13,7 +13,7 @@ const mealType = {
   3: 'appetizer',
   4: 'dinner',
   5: 'dessert'
-} 
+}
 
 const proteinType = {
   0: 'poultry',
@@ -21,12 +21,12 @@ const proteinType = {
   2: 'pork',
   3: 'seafood',
   4: 'vegetarian',
-  5: 'vegan'   
+  5: 'vegan'
 }
 
 const getRecipeBySearchString = (req, res) => {
   // let searchStirng = `%${req.body.search}%`;
-  recipeModel.recipeSearch(req.body.search)
+  recipeModel.recipeSearch(req.query.search)
   .then(response => {
     for (var i = 0; i < response.rows.length; i++) {
       response.rows[i] = snakeToCamelCase(response.rows[i]);
@@ -58,7 +58,7 @@ const getDetailedRecipes = (req, res) => {
       servingSize: getDetailedRecipesResult.rows[0].servingsize,
       createdAt: getDetailedRecipesResult.rows[0].createdat
     };
-      
+
     detailedRecipe.mealType = detailedRecipe.mealType.reduce((meals, meal, index) => {
       if (meal === true) {
         meals.push(mealType[index])
@@ -76,11 +76,11 @@ const getDetailedRecipes = (req, res) => {
     getDetailedRecipesResult.rows.forEach(recipe => {
       detailedRecipe.ingredients.push({ ingredientName: recipe.ingredientname, amount: recipe.amount, measurementUnit: recipe.measurementunit })
     });
-  
+
     res.status(200).send(detailedRecipe)
   })
   .catch(err => {
-    
+
     res.status(404).send(err)
   })
 }
@@ -88,28 +88,28 @@ const getDetailedRecipes = (req, res) => {
 const getRecipeCards = (req, res) => {
   let mealTypeFilter = [0, 0, 0, 0, 0, 0]
   let protienTypeFilter = [0, 0, 0, 0, 0, 0]
-  let sort = req.body.sort || 'relevant'
-  let count = req.body.count
-  
-  if (req.body.mealType ) {
+  let sort = req.query.sort || 'relevant'
+  let count = req.query.count
+
+  if (req.query.mealType ) {
     for(let key in mealType) {
-      req.body.mealType.forEach(meal => {
+      req.query.mealType.forEach(meal => {
         if (mealType[key] === meal) {
           mealTypeFilter[key] = 1
         }
       })
     }
   }
-  if (req.body.protein) {
+  if (req.query.protein) {
     for(let key in proteinType) {
-      req.body.protein.forEach(protein => {
+      req.query.protein.forEach(protein => {
         if (proteinType[key] === protein) {
           protienTypeFilter[key] = 1
         }
       })
     }
   }
- 
+
   recipeModel.findRecipeCards(mealTypeFilter, protienTypeFilter, sort, count)
   .then(recipeCards => {
     for (var i = 0; i < recipeCards.rows.length; i++) {

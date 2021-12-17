@@ -6,10 +6,12 @@ import Search from "./pages/Search/index.js";
 import Profile from "./pages/Profile/index.js";
 import Home from "./pages/Home/index.js";
 import Footer from "./sharedComponents/Footer.js";
+import RecipePage from './pages/Recipe'
 import Login from "./pages/Login/Login.jsx";
 import Signup from "./pages/Signup/Signup.jsx"
 import axios from 'axios';
 import NavbarLoggedIn from "./sharedComponents/NavBarLoggedIn.jsx";
+
 
 const App = () => {
   const [username, setUsername] = useState(undefined);
@@ -40,6 +42,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path='/recipe' element={<RecipePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>

@@ -6,6 +6,8 @@ const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const recipeRouter = require('./routes/recipeRouter');
+const path = require('path');
+
 const app = express();
 const port = 3000
 
@@ -31,6 +33,11 @@ app.use('/recipe', recipeRouter);
 /************************************************************/
 // catch all route
 /************************************************************/
+// app.get('/*', function(req, res) {
+//   res.redirect('/');
+//   // ideally it should redirect to "page not found" page
+// })
+
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, '/../dist/index.html'), function(err) {
     if (err) {
