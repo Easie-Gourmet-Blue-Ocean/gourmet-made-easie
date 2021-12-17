@@ -560,3 +560,15 @@ footer {
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
 }
+
+select {
+  width: 100px;
+  height: 25px;
+  border-bottom: solid 2px $grey;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: 'Nanum Myeongjo', serif;
+  background-color: $bg;
+  font-size: 16px;
+}
