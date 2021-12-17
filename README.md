@@ -38,7 +38,6 @@
 
 
 ## Frontend Design
-<img src="docs/home.png" alt="Red Paperclip Logo"/>
 <img src="docs/search.png" alt="Red Paperclip Logo"/>
 
 
