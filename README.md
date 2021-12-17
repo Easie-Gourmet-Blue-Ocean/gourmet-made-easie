@@ -66,7 +66,7 @@ UI Owner/Software Engineer
 <img src="ReadmeImages/RebekahCruz.jpg" alt="Rebekah Cruz headshot" width="210">
 
 [![linkedin-shield]][Matthew-linkedin]
-[![github-shield]][rebekah-github]
+[![github-shield]][Matthew-github]
 
 <br>
 
@@ -240,7 +240,7 @@ To explore the project, follow the instructions below.
 <!-- Contributor Links -->
 
 [Matthew-linkedin]: https://www.linkedin.com/in/matthewzipkes/
-[rebekah-github]: https://github.com/bexter89
+[Matthew-github]: https://github.com/MatthewZipkes
 [cory-linkedin]: https://www.linkedin.com/in/coryellerbroek/
 [cory-github]: https://github.com/LrBrK33
 [william-linkedin]: https://www.linkedin.com/in/william-w-fink/
