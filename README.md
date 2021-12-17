@@ -15,17 +15,6 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#contributors">Contributors</a>
-      <ul>
-        <li><a href="#rebekah-cruz">Rebekah Cruz</a></li>
-        <li><a href="#cory-ellerbroek">Cory Ellerbroek</a></li>
-        <li><a href="#william-fink">William Fink</a></li>
-        <li><a href="#blake-hughes">Blake Hughes</a></li>
-        <li><a href="#travis-morse">Travis Morse</a></li>
-        <li><a href="#mathhew-sewell">Matthew Sewell</a></li>
-        <li><a href="#pingping-xiao">Pingping Xiao</a></li>
-      </ul>
-    </li>
     <li>
       <a href="#about-the-project">Project Overview</a>
       <ul>
@@ -53,105 +42,6 @@ Red Paperclip was a collaborative Full-Stack project between the 7 collaborators
 
 <br>
 
-<!-- Contributors -->
-
-# Contributors
-
-## Rebekah Cruz
-
-rebekah.cruz702@gmail.com
-
-UI Owner/Software Engineer
-
-<img src="ReadmeImages/RebekahCruz.jpg" alt="Rebekah Cruz headshot" width="210">
-
-[![linkedin-shield]][Matthew-linkedin]
-[![github-shield]][Matthew-github]
-
-<br>
-
-## Cory Ellerbroek
-
-cory.ellerbroek@gmail.com
-
-Project Manager/Software Engineer
-
- <img src="ReadmeImages/CoryEllerbroek.jpeg" alt="Cory Ellerbroek Headshot" width="210">
-
-[![linkedin-shield]][cory-linkedin]
-[![github-shield]][cory-github]
-
-<br>
-
-## William Fink
-
-wwfink30@gmail.com
-
- <img src="ReadmeImages/WilliamFink.jpg" alt="William Fink Headshot" height="200">
-
-[![linkedin-shield]][william-linkedin]
-[![github-shield]][william-github]
-
-<br>
-
-## Blake Hughes
-
-blake.ed.hughes@gmail.com
-
-UI Owner/Software Engineer
-
- <img src="ReadmeImages/BlakeHughes.png" alt="Blake Hughes Headshot" width="210">
-
-[![linkedin-shield]][blake-linkedin]
-[![github-shield]][blake-github]
-
-<br>
-
-### Travis Morse
-
-travis503@gmail.com
-
-UI Owner/Software Engineer
-
-<img src="ReadmeImages/TravisMorse.jpg" alt="Travis Morse Headshot" width="210">
-
-[![linkedin-shield]][travis-linkedin]
-[![github-shield]][travis-github]
-
-<br>
-
-## Matthew Sewell
-
-sewell.matthewm@gmail.com
-
-Architecture Owner/Software Engineer
-
- <img src="ReadmeImages/MatthewSewell.png" alt="Matthew Sewell Headshot" width="210">
-
-[![linkedin-shield]][matthew-linkedin]
-[![github-shield]][matthew-github]
-
-<br>
-
-## Pingping Xiao
-
-xiaopingping1994@gmail.com
-
-Architecture Owner/Software Engineer
-
- <img src="ReadmeImages/PingpingXiao.jpg" alt="Pingping Xiao Headshot" width="210">
-
-[![linkedin-shield]][pingping-linkedin]
-[![github-shield]][pingping-github]
-
-<br>
-Team Member Expectations and Workflow:
-
-- Communicated their progress in daily standups
-- Created and completed their task tickets using Trello
-- Brainstormed and reflected the teams work in 2 day mini-sprints
-
-<br>
 
 # Project Overview
 
