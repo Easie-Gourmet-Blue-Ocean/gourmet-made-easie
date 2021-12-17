@@ -32,11 +32,19 @@ const RecipePage = () => {
   const { recipeId } = location.state;
 
   const getRecipe = () => {
-    routes.getRecipe(recipeId)
-     .then(response => {
-       setRecipe(response);
-     })
-     .catch(err => console.error(err))
+    if (recipeId === 'random') {
+      routes.getRandomRecipe()
+        .then(response => {
+          setRecipe(response);
+        })
+        .catch(err => console.error(err))
+    } else {
+      routes.getRecipe(recipeId)
+       .then(response => {
+         setRecipe(response);
+       })
+       .catch(err => console.error(err))
+    }
   }
 
   useEffect(() => {
