@@ -6,7 +6,7 @@
 
 <br>
 <div align="center">
-<img src="doc/logo.png" alt="Red Paperclip Logo"/>
+<img src="docs/logo.png" alt="Red Paperclip Logo"/>
 </div><br>
 
 <br>
