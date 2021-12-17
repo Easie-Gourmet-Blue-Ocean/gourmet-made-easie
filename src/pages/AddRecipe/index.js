@@ -79,8 +79,10 @@ const AddRecipe = () => {
   let measurementUnitTypes = ['pound(s)', 'ounce(s)', 'gram(s)', 'teaspoon(s)', 'tablespoon(s)', 'fluid ounce(s)', 'cup(s)', 'pint(s)', 'quart(s)', 'gallon(s)', 'ml(s)', 'item(s)']
 
   return (
+    <div className="form-container">
     <form>
       {/* Name of Recipe Form Element */}
+      <div className="form-name">
       <label>
         Name of Recipe:
         <input
@@ -90,6 +92,7 @@ const AddRecipe = () => {
           placeholder='Name of Recipe'
         ></input>
       </label>
+      </div>
       {/* description of Recipe Form Element */}
       <label>
         Description:
@@ -231,6 +234,7 @@ const AddRecipe = () => {
         <button type='submit' onClick={e => {onSubmit(e)}}>Submit</button>
       </div>
     </form>
+    </div>
   )
 };
 

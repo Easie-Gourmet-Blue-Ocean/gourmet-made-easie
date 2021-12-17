@@ -3,13 +3,20 @@ $green: #819c92;
 $yellow: #f8d848;
 $grey: #333333;
 $ltgrey: #999999;
+$lttgrey: #dbdbdb;
+$bg: #f5f5f7;
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap');
 
 html,
 body {
-  font-family: Trebuchet;
-  min-height: 100%;
-  margin: 0;
+  font-family: 'Nanum Myeongjo', serif;  margin: 0;
   padding: 0;
+  background-color: $bg;
+}
+
+div {
+  font-size: 20px;
 }
 
 ul,
@@ -21,6 +28,13 @@ a:visited {
   list-style-type: none;
 }
 
+.searchbar-container{
+  display: flex;
+  flex-direction: row;
+  .searchbar {
+    width: inherit;
+  }
+}
 .navbar {
   color: $grey;
   display: flex;
@@ -28,6 +42,9 @@ a:visited {
   padding: 20px;
   justify-content: space-between;
   position: relative;
+  background-color: $white;
+  height: 40px;
+  box-shadow: 2px 4px 12px #00000014;
   ul {
     margin: 0;
     padding-left: 20px;
@@ -52,6 +69,7 @@ a:visited {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    font-size: 100%;
   }
 }
 
@@ -108,8 +126,8 @@ footer {
 
 .home {
   .header-container {
-    padding-left: 20px;
-    padding-right: 20px;
+    // padding-left: 20px;
+    // padding-right: 20px;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -149,9 +167,11 @@ footer {
     }
   }
   .top-recipes-container {
+    margin-left: 5%;
+    margin-right: 5%;
     padding: 20px;
     color: $grey;
-    background-color: $white;
+    background-color: $bg;
     width: auto;
     .tr-list {
       display: grid;
@@ -159,17 +179,18 @@ footer {
       grid-template-columns: auto auto;
       grid-row: fit;
       grid-column-gap: 20px;
-      grid-row-gap: 20px;
+      grid-row-gap: 0px;
+      background-color: $bg;
     }
     .tr-type {
       flex-direction: column;
-      background-color: $white;
+      background-color: $bg;
       color: $grey;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      height: 100%;
+      // height: 100%;
       .title-button-row {
         display: flex;
         flex-direction: row;
@@ -201,20 +222,18 @@ footer {
     }
   }
   .recipe-card-container {
-    width: 400px;
-    height: auto;
+    width: 600px;
+    height: 200px;
+    margin-bottom: 20px;
   }
 }
 
 .recipe-card-container {
   width: inherit;
-  background-color: $green;
-  margin-bottom: 1%;
-  margin-top: 1%;
+  padding: 2%;
   color: $grey;
-  border: solid;
-  border-width: 1px;
-  height: 30%;
+  background-color: $white;
+  height: auto;
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
@@ -223,6 +242,10 @@ footer {
   text-align: center;
   align-items: center;
   justify-items: center;
+  border-radius: 5px;
+  box-shadow: rgba(9, 30, 66, 0.135) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  box-shadow: 2px 4px 12px #00000014;
+
   .rc-image {
     grid-area: 1 / 1 / 2 / 2;
     color: $grey;
@@ -263,13 +286,15 @@ footer {
     margin: 0;
     padding: 0;
   }
-  width: 100vw;
+
   color: $grey;
   .rp-title-container {
+
     background-color: $grey;
     color: $white;
     grid-area: 1 / 1 / 2 / 4;
     height: 200px;
+    width: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -315,7 +340,7 @@ footer {
     .rp-ingredients-container {
       grid-area: 1 / 2 / 2 / 3;
       height: 100%;
-      background-color: $green;
+      background-color: $white;
     }
     .rp-instructions-container, .rp-ingredients-container {
       display: grid;
@@ -347,3 +372,79 @@ footer {
     grid-area: 2 / 1 / 4 / 2;
   }
 }
+
+.search-page-container {
+
+  margin-top: 40px;
+  .sps{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+  .sp-searchbar {
+    margin-top: 10px;
+    width: fit-content;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+
+    .searchbar {
+      width: 600px;
+      height: 20px;
+      background: white;
+      box-sizing: border-box;
+      border: 4px solid white;
+    }
+  }
+}
+.sp-list-container {
+
+  height: auto;
+  min-height: 1000px;
+  margin-left: 10%;
+  margin-right: 10%;
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+
+  .recipe-card-container {
+    width:600px;
+    height: 200px;
+    // border-radius: 20  px
+  }
+  .sp-list {
+      .sp-top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 80px;
+        padding-right: 80px;
+
+      }
+      padding-top: 40px;
+      padding-bottom: 40px;
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      row-gap: 40px;
+
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+// search-page-container
+// sp-search-bar
+// sp-num
+// sp-sort-menu
+// sp-list

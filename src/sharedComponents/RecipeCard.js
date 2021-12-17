@@ -21,7 +21,7 @@ const RecipeCard = (recipe) => {
           <div className="rc-info">
             <div className="rc-info-top">
               <div className="rc-recipe-name">{recipeName}</div>
-              <div className="rc-username">by: {username}</div>
+              <div className="rc-username">by {username}</div>
             </div>
             <div className="rc-info-bottom">{description}</div>
           </div>
