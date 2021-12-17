@@ -39,26 +39,37 @@ const Signup = () => {
   }
 
   return (
-    <>
-      <h1>Signup</h1>
+    <div className="form-container">
+      <div className='form-prompt'>Create your account</div>
       <div id='crediential-err-signup'></div>
-      <div style={{height: "500px"}}>
-
+      <div className="login-form">
         <form onSubmit={onSubmit}>
-          <input onChange={onNameChange} type="text" placeholder="Name" autoComplete='name'/>
-          <input onChange={onEmailChange} type="email" placeholder="email" autoComplete='username'/>
+          <input 
+            className="form-input-text"
+            onChange={onNameChange} 
+            type="text" 
+            placeholder="Name" 
+            autoComplete="off" 
+          />
+          <input 
+            className="form-input-text"
+            onChange={onEmailChange} 
+            type="email" 
+            placeholder="email" 
+            autoComplete='username'/>
           <input
+            className="form-input-text"
             onChange={onPasswordChange} 
             type="password"
             placeholder="password"
-            autoComplete="password"
+            autoComplete="new-password"
           />
-          <button>Sign Up</button>
+          <button className='form-btn'>Sign Up</button>
 
-          <Link to='/login'>Have an account? Log in</Link>
+          <Link to='/login' className='form-redirect-link'>Have an account? Log in</Link>
         </form>
       </div>
-    </>
+    </div>
   )
 }
 
