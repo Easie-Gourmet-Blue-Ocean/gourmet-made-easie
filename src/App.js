@@ -19,7 +19,6 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
-          <RecipePage />
             <Footer />
         </>
       </Router>
