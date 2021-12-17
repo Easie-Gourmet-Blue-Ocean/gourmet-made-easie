@@ -15,6 +15,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
+	  <li><a href=" ## Frontend Facing API Documentation ">Frontend Design</a></li>
     <li>
       <a href=" ## Frontend Facing API Documentation ">API Documentation</a>
 	          <ul>
@@ -34,6 +35,12 @@
   </ol>
 </details>
 <br>
+
+
+## Frontend Design
+<img src="docs/home.png" alt="Red Paperclip Logo"/>
+<img src="docs/search.png" alt="Red Paperclip Logo"/>
+
 
 ## Frontend Facing API Documentation
 ### Summary
@@ -423,4 +430,8 @@ npm run build-dev
 
 ## Running
 
-go to http://localhost:3000
+Open the file `dist/index.html` in your browser
+
+## Credits
+
+Made with [createapp.dev](https://createapp.dev/)
