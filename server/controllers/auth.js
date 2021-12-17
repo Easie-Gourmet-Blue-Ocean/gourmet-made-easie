@@ -28,19 +28,20 @@ const handleSignup = (req, res) => {
     })
     .then(result => {
       // console.log('updated session signup:', result);
-      res.redirect('/');
+      res.status(200).send();
     })
     .catch(err => {
       console.error(err);
       // TODO: redirect with error message
       // res.redirect('/login?error=' + encodeURIComponent('Email has already exisited'));
-      res.redirect('/signup'); 
+      res.status(403).send('Email already used')
     })
 }
 
-const handleLogin = (req, res) => {
+const handleLogin = (req, res, next) => {
   let email = req.body.email;
   let password = req.body.password;
+  console.log(email, password);
 
   models.User.getUserPrivateInfoByEmail(email)
     .then(user => {
@@ -52,13 +53,16 @@ const handleLogin = (req, res) => {
         return models.Session.updateSessionByHashWithNewUserId(req.session.hash, id);
       }
     })
-    .then(() => {
+    .then((h) => {
       console.log('login success');
-      res.redirect('/');
+      res.status(200).send(h.rows[0]);
     })
     .catch(err => {
+      console.log('login fail');
+      console.log(err.message);
       if (err.message === 'Email or password does not match') {
-        res.redirect('/login'); // TODO: add error message
+        // res.redirect(401, '/login'); // TODO: add error message
+        res.status(401).send(err);
       } else {
         res.status(500).send(err);
       }
@@ -71,7 +75,7 @@ const handleLogout = (req, res) => {
     .then(() => {
       res.clearCookie('boid');
       console.log('logout success');
-      res.redirect('/login');
+      res.status(200).send('logged out');
     })
     .catch(err => {
       res.status(500).send(err);
