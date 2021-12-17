@@ -5,6 +5,7 @@ const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const recipeRouter = require('./routes/recipeRouter');
+const path = require('path');
 
 const app = express();
 const port = 3000
@@ -34,9 +35,16 @@ app.get('/signup', (req, res) => {
 // catch all route
 /************************************************************/
 // app.get('/*', function(req, res) {
-//   res.redirect('/'); 
+//   res.redirect('/');
 //   // ideally it should redirect to "page not found" page
 // })
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, '/../dist/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`)

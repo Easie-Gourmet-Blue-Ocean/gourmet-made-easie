@@ -11,7 +11,10 @@ const Navbar = () => {
           <Link to="/">
             <li>Home</li>
           </Link>
-          <Link to="/search">
+          <Link
+            to='/search'
+            state={{searchTerm2: ''}}
+            >
             <li>Search</li>
           </Link>
           <Link to="/profile">
@@ -28,7 +31,10 @@ const Navbar = () => {
         <Link to="/login">
           <li>Login</li>
         </Link>
-        <Link to="/search">
+        <Link
+          to="/search"
+          state={{searchTerm2: ''}}
+        >
           <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
         </Link>
       </div>

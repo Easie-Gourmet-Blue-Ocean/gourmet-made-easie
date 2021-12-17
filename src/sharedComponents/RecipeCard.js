@@ -5,12 +5,20 @@ import RecipeList from "../sharedComponents/RecipeList.js";
 const RecipeCard = (recipe) => {
 
     let photo = recipe.value.photo;
-    let recipeName = recipe.value.recipeName.charAt(0).toUpperCase() + recipe.value.recipeName.slice(1);;
-    let username = recipe.value.userName.charAt(0).toUpperCase() + recipe.value.userName.slice(1);
-    let description = recipe.value.description.charAt(0).toUpperCase() + recipe.value.description.slice(1);
+    let recipeName = recipe.value.recipeName?.charAt(0).toUpperCase() + recipe.value.recipeName?.slice(1);;
+    let username = recipe.value.userName?.charAt(0).toUpperCase() + recipe.value.userName?.slice(1);
+    let description = recipe.value.description?.charAt(0).toUpperCase() + recipe.value.description?.slice(1);
+    let id= recipe.value.recipeId || 0;
+
+    const clickHandler = (e) => {
+      e.preventDefault();
+      console.log(id);
+    }
 
     return (
-      <div className="recipe-card-container" >
+      <div className="recipe-card-container" value={id} onClick={e => {
+        clickHandler(e);
+      }}>
         <div className="rc-image">
             <img src={photo}></img>
         </div>

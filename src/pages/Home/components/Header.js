@@ -3,6 +3,7 @@ import img from "../../../assets/images/bg.jpeg";
 import Searchbar from "../../../sharedComponents/Searchbar.js";
 
 const Header = () => {
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <div className="header-container">
