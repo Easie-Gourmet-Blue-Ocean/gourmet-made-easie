@@ -34,7 +34,7 @@ const TopRecipes = () => {
     let config = {
       "mealType": [mealTypeString],
       "protein": ['poultry', 'vegan'],
-      "amount": 2,
+      "count": 2,
       "sort": "relevant"
     };
 
@@ -48,7 +48,7 @@ const TopRecipes = () => {
           setBreakfastRecipes(test);
         }else if (mealTypeString === 'dessert') {
           setDessertRecipes(test);
-        }else if (mealTypeString === 'appetizers') {
+        }else if (mealTypeString === 'appetizer') {
           setAppetizerRecipes(test);
         }else if (mealTypeString === 'brunch') {
           setBrunchRecipes(test);
@@ -64,7 +64,7 @@ const TopRecipes = () => {
     getTopRecipes('lunch');
     getTopRecipes('breakfast');
     getTopRecipes('dessert');
-    getTopRecipes('appetizers');
+    getTopRecipes('appetizer');
     getTopRecipes('brunch');
   }, [])
 

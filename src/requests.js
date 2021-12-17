@@ -14,6 +14,9 @@ const homeCardFilter = (mealString) => {
   // }
   return axios.get('/recipe/cards', {params: mealString})
   .then(recipeTiles => {
+    if (mealString.mealType === 'appetizer') {
+      console.log(recipeTiles);
+    }
     return recipeTiles.data
   })
   .catch(error => {
