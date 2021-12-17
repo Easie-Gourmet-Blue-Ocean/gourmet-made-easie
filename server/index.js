@@ -6,7 +6,6 @@ const authentication = require('./middleware/authentication');
 const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const recipeRouter = require('./routes/recipeRouter');
-const path = require('path');
 
 const app = express();
 const port = 3000
