@@ -11,8 +11,8 @@ const Search = () => {
 
  const [status, setStatus] = useState('');
  const [recipes, setRecipes] = useState([{}]);
-//  const [searchTerm, setSearchTerm] = useState('');
-//  const [renderSearch, setRenderSeatch] = useState(false)
+ const [searchTerm, setSearchTerm] = useState('');
+ const [renderSearch, setRenderSeatch] = useState(false)
  const location = useLocation();
  const {searchTerm2} = location.state
 
@@ -33,9 +33,19 @@ const Search = () => {
 
     return (
         <>
-            <Searchbar />
-            <SortMenu setStateHook={setStatus} />
-            <RecipeList recipes={recipes}/>
+            <div className="search-page-container">
+                <div className="sps">
+                    <div className="sp-searchbar"><Searchbar/></div>
+                    </div>
+                <div className="sp-list-container">
+                <div className="sp-list">
+                <div className="sp-top">
+                    <h3 className="sp-num">Showing {recipes.length} results </h3>
+                    <div className="sp-sort-menu">Sort by: <SortMenu setStateHook={setStatus} /></div>
+                </div>
+                        <RecipeList recipes={recipes}/></div>
+                </div>
+            </div>
         </>
     )
 }
