@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login.jsx";
 import Signup from "./pages/Signup/Signup.jsx"
 import axios from 'axios';
 import NavbarLoggedIn from "./sharedComponents/NavBarLoggedIn.jsx";
+import AddRecipe from './pages/AddRecipe'
 import UserContext from './UserContext';
 
 
@@ -48,6 +49,7 @@ const App = () => {
             <Route path='/recipe' element={<RecipePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/addRecipe" element={<AddRecipe/>}/>
           </Routes>
 
         </UserContext.Provider>

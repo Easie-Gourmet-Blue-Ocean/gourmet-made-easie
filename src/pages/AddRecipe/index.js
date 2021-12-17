@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import routes from '../../requests.js'
 
 const AddRecipe = () => {
 
@@ -19,11 +20,34 @@ const AddRecipe = () => {
   const [instructions, setInstructions] = useState(['']);
   const [photo, setPhoto] = useState('');
 
-  //Methods to handle changes of input
+  //Submit Method
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    const config = {
+      recipeName: name,
+      description: description,
+      activeTime: activeTime,
+      totalTime: totalTime,
+      photo: photo,
+      instructions: instructions,
+      ingredients: ingredients,
+      mealType: mealType,
+      protein: proteinType,
+      servingSize: servingSize
+    }
+    console.log(ingredients)
+    console.log(config.ingredients)
+    routes.postRecipe(config)
+    .then(result => {
+      console.log(result)
+    })
+    .catch (err => console.error(err))
   }
+
+  //Methods to handle changes of input
+
 
   const updateMealChange = index => e => {
     let newArr = [...mealType];
@@ -225,7 +249,7 @@ const AddRecipe = () => {
       {/* photos portion of form */}
       <label>
         Photos
-        <input type='text' value={photo} onChange={e => setPhoto(e.target.value)} placeholder='Insert Photo URL here' maxLength={500}></input>
+        <input type='url' value={photo} onChange={e => setPhoto(e.target.value)} placeholder='Insert Photo URL here' maxLength={500}></input>
       </label>
       <div>
         <button type='submit' onClick={e => {onSubmit(e)}}>Submit</button>
