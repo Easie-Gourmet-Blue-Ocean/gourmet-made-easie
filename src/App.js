@@ -17,7 +17,7 @@ import UserContext from './UserContext';
 
 
 const App = () => {
-  
+
   const [user, setUser] = useState({}); // user can be {}, {userId, username, email}
   const providerValue = useMemo(() => ({ user, setUser }), [user, setUser]);
 
@@ -46,11 +46,11 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/profile" element={!username ?  <Navigate to='/login'/> : <Profile /> }/>
+            <Route path="/profile" element={!user ?  <Navigate to='/login'/> : <Profile /> }/>
             <Route path='/recipe' element={<RecipePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/addRecipe" element={!username ?  <Navigate to='/login'/> : <AddRecipe />}/>
+            <Route path="/addRecipe" element={!user ?  <Navigate to='/login'/> : <AddRecipe />}/>
           </Routes>
 
         </UserContext.Provider>

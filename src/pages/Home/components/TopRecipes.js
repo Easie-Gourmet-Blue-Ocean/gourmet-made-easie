@@ -40,7 +40,6 @@ const TopRecipes = () => {
 
     routes.homeCardFilter(config)
     .then((test) => {
-      console.log('SUCCESS', test)
         if (mealTypeString === 'dinner') {
           setDinnerRecipes(test);
         } else if (mealTypeString === 'lunch') {
