@@ -136,7 +136,8 @@ const postRecipe = (req, res) => {
     })
     )
   })
-  recipeModel.addRecipe(userId, recipeName, description, activeTime, totalTime, photo, instructions, mealType, protein, servingSize)
+  // TODO: fix
+  recipeModel.addRecipe(parseInt(req.session.userId), recipeName, description, activeTime, totalTime, photo, instructions, mealType, protein, servingSize)
   .then(recipeId => {
     Promise.all(promises)
     .then(result => {
