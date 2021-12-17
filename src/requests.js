@@ -69,7 +69,8 @@ const routes = {
   homeCardFilter,
   getRecipe,
   getRandomRecipe,
-  getRecipeTilesSearch
+  getRecipeTilesSearch,
+  postRecipe
 }
 
 export default routes;
