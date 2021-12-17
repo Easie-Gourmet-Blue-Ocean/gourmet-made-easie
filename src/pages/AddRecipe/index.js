@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import routes from '../../requests.js'
+import routes from '../../requests.js';
+import {Navigate} from 'react-router-dom';
 
 const AddRecipe = () => {
 
@@ -20,6 +21,12 @@ const AddRecipe = () => {
   const [instructions, setInstructions] = useState(['']);
   const [photo, setPhoto] = useState('');
 
+ //handle Redirecting on submit
+
+  const [redirect, setRedirect] = useState(false);
+  if (redirect) {
+    return <Navigate to='/profile'/>
+  }
   //Submit Method
 
   const onSubmit = (event) => {
@@ -37,11 +44,9 @@ const AddRecipe = () => {
       protein: proteinType,
       servingSize: servingSize
     }
-    console.log(ingredients)
-    console.log(config.ingredients)
     routes.postRecipe(config)
     .then(result => {
-      console.log(result)
+      setRedirect(true);
     })
     .catch (err => console.error(err))
   }
@@ -110,7 +115,7 @@ const AddRecipe = () => {
       <label>
         Name of Recipe:
         <div className='recipe-name-input-div'>
-        <input 
+        <input
           className='recipe-name-input'
           type='text'
           value={name}
