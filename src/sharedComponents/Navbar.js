@@ -25,7 +25,7 @@ const Navbar = () => {
       </div>
       <div className="logo">
         <Link to="/">
-          <h1>Gourmet Made Easy</h1>
+          <h1>Gourmet Made Easie</h1>
         </Link>
       </div>
       <div className="search">

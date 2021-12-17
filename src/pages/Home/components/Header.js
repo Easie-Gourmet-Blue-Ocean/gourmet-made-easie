@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import img from "../../../assets/images/bg.jpeg";
 import Searchbar from "../../../sharedComponents/Searchbar.js";
+import {Link} from 'react-router-dom';
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -12,11 +13,16 @@ const Header = () => {
         <Searchbar />
         <div className="bottom-buttons">
           <div className="advanced-search-button">
-          <button className="button-class">Advanced search</button>
+         {/* <button className="button-class">Advanced search</button> */}
           </div>
-          <div className="random-recipe-button">
-            <button className="button-class">Random recipe</button>
-          </div>
+          <Link
+            to='/recipe'
+            state={{recipeId: 'random'}}
+            >
+            <div className="random-recipe-button">
+              <button className="button-class">Random recipe</button>
+            </div>
+          </Link>
         </div>
       </div>
       <div className="image">

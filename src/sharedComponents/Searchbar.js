@@ -6,7 +6,6 @@ const Searchbar = () => {
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-    console.log(searchTerm)
   };
 
   return (
