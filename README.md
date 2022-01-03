@@ -1,43 +1,5 @@
 # gourmet-made-easie
 
-<br />
-
-<br>
-<div align="center">
-<img src="docs/logo.png" alt="Red Paperclip Logo"/>
-</div><br>
-
-<br>
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href=" ## Frontend Design ">Frontend Design</a></li>
-    <li>
-      <a href=" ## Frontend Facing API Documentation ">API Documentation</a>
-	          <ul>
-        <li><a href="
-### Auth Related Routes ">Auth Related Routes</a></li>
-      </ul>
-      <ul>
-        <li><a href="
-### Users Related Routes ">User Related Routes</a></li>
-      </ul>
-      <ul>
-        <li><a href="
-### Recipe Related Routes ">Recipe Related Routes</a></li>
-      </ul>
-    </li>
-
-  </ol>
-</details>
-<br>
-
-
-## Frontend Design
-<img src="docs/search.png" alt="Red Paperclip Logo"/>
-
 
 ## Frontend Facing API Documentation
 ### Summary
@@ -45,7 +7,9 @@
   - POST /auth/signup
   - POST /auth/login
   - POST /auth/logout
+
 - user related routes
+
   - GET /user/:userId
   - GET /user/session/:sessionId
   - GET /user/:userId/favorites
@@ -105,6 +69,51 @@
 - Description: user logout
 - Status: ```200 OK``` if success and redirect to "/login"
 
+### Auth Related Routes
+#### ```POST /auth/signup```
+- Description: signup by providing your email, name (preferrably real name) and password
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Already Exists``` if failed and redirect to "/signup"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  userName | String | user's name that the user prefers to be called |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  userName: 'Alex',
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/login```
+- Description: user login
+- Status: 
+  - ```200 OK``` if success and redirect to "/"
+  - ```403 Forbidden``` if failed and redirect to "/login"
+- Request Body Parameters:
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+|  email | String | email will be unique and will server the identifier of an user |
+|  password | String | - |
+
+- Request Body Example:
+```javascript
+{
+  email: 'me@me.com',
+  password: 'password'
+}
+```
+#### ```POST /auth/logout```
+- Description: user logout
+- Status: ```200 OK``` if success and redirect to "/login"
+
 ### Users Related Routes
 #### ```GET /user/:userId```
 - Description: get a user's info
@@ -113,7 +122,7 @@
 ``` javascript
 {
 	userId: 1,
-	username: "tester",
+	userName: "tester",
 	email: "me@me.com"
 }
 ```
@@ -139,7 +148,7 @@
   {
     recipeId: 1,
     recipeName: "chicken and rice",
-    username: "tester1",
+    userName: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -156,7 +165,7 @@
   {
     recipeId: 1,
     recipeName: "chicken and rice",
-    username: "tester1",
+    userName: "tester1",
     description: "dish that I make after the gym", 
     photo: "http://photo"
   }
@@ -165,6 +174,7 @@
 ```
 
 #### ``` PATCH /user/:userId/favorites/:recipeId```
+
 - ***!!! NOTE***
   - protected route: login required
   - [***very important***] frontend needs to ensure that a user can only favorite a recipeId exactly 1 time if the user have not favorited it before
@@ -175,10 +185,12 @@
 - ***!!! NOTE***
   - protected route: login required
   - [***very important***] frontend needs to ensure that a user cannot unfavorite a recipeId more than 1 time if the user has previously favorited the recipe
+
 - Description: Remove a recipe from favorites
 - Status:  ``` 200 OK```
 
 ### Recipe Related Routes
+
 #### ``` POST /recipe``` ***!!! NOTE***
 - ***!!! NOTE***
   - protected route: login required
@@ -220,6 +232,7 @@
     servingSize: 1
 }
 ```
+
 #### ```GET /recipe/:recipeId```
 - Description: Get full detailed recipe
 - Status:  ``` 200 OK```
@@ -276,23 +289,28 @@
 
 | Parameter | Type | Description |
 | --- | --- | --- |
+
 |  mealType | [String] | full options are "breakfast", "brunch", "lunch", "appetizer", "dinner" and/or "dessert" |
 |  protein | [String] | full options are "poultry", "beef", "pork", "seafood", "vegetarian" and/or "vegan". |
 |  sort | String  | defaulted to "relavent" if not provided; other options are "newest" and "favorite" |
 | count | Integer | defaulted to maximum value (every recipe) if not provided; specify the number of results that will be fetched |
 
+
 - Request body Example:
 ```javascript
 {
+
     mealType: ["breakfast", "brunch"], // will find exact match
     protein: ["vegetarian"], // will find exact match
     count: 10, // default to max
     sort: "relevant" // default to relevant
+
 }
 ```
 - Response Example:
 ```javascript
 [
+
     {
         recipeId: 2,
         recipeName: "Alex Type of meal",
@@ -301,6 +319,7 @@
         photo: null
     }
     //...
+
 ]
 ```
 #### `GET /recipe/random`
@@ -358,11 +377,13 @@
 
 | Parameter | Type | Description |
 | --- | --- | --- |
+
 |  search | String | if empty string is provided it is equivalent to GET /recipe/cards (get all cards); on search will filter recipes containing the string you searched for |
 - Request Body Example:
 ```javascript
 {
     search: "yoGurt"
+
 }
 ```
 - Response Example
