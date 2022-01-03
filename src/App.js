@@ -46,7 +46,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            <Route path="/profile" element={!user ?  <Navigate to='/login'/> : <Profile /> }/>
+            <Route path="/profile" element={(Object.keys(user).length === 0) ?  <Navigate to='/login'/> : <Profile /> }/>
             <Route path='/recipe' element={<RecipePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
