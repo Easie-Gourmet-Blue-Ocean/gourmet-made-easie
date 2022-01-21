@@ -129,8 +129,44 @@ Team Member Expectations and Workflow:
 - [Express](https://expressjs.com/)
 - [Postgres](https://www.postgresql.org/)
 - [Webpack](https://webpack.js.org/)
-
 <br>
+
+# Getting Started
+
+To explore the project, follow the instructions below.
+
+### Instructions
+First install dependencies:
+
+```sh
+npm install
+```
+
+To run in hot module reloading mode:
+
+```sh
+npm start
+```
+
+To create a production build:
+
+```sh
+npm run build-prod
+```
+
+To create a development build:
+
+```sh
+npm run build-dev
+```
+
+### Running
+
+Open the file `dist/index.html` in your browser
+
+<br><br>
+
+<br><br>
 
 ## API Documentation
 ### Summary
@@ -552,34 +588,6 @@ Team Member Expectations and Workflow:
  5: vegan 
 ```
 
-## Instructions
-First install dependencies:
-
-```sh
-npm install
-```
-
-To run in hot module reloading mode:
-
-```sh
-npm start
-```
-
-To create a production build:
-
-```sh
-npm run build-prod
-```
-
-To create a development build:
-
-```sh
-npm run build-dev
-```
-
-## Running
-
-Open the file `dist/index.html` in your browser
 
 
 <!-- Contributor Links -->
