@@ -21,6 +21,7 @@
         <li><a href="#sam-martin">Sam Martin</a></li>
       </ul>
     </li>
+    <li><a href="#introduction">Introduction</a></li>
     <li>
       <a href="#project-overview">Project Overview</a>
       <ul>
