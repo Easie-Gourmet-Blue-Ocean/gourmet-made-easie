@@ -1,4 +1,4 @@
-# gourmet-made-easie
+# gourmet-made-easie Gourmet Made Easie
 
 <br />
 
