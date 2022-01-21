@@ -85,7 +85,7 @@ Co-Architecture Owner/Software Engineer
 
 ## Sam Martin
 
-email here
+martin110sam@gmail.com
 
 UI Owner/Software Engineer
 
