@@ -15,13 +15,10 @@
   <ol>
     <li><a href="#contributors">Contributors</a>
       <ul>
-        <li><a href="#rebekah-cruz">Rebekah Cruz</a></li>
-        <li><a href="#cory-ellerbroek">Cory Ellerbroek</a></li>
-        <li><a href="#william-fink">William Fink</a></li>
-        <li><a href="#blake-hughes">Blake Hughes</a></li>
-        <li><a href="#travis-morse">Travis Morse</a></li>
-        <li><a href="#mathhew-sewell">Matthew Sewell</a></li>
-        <li><a href="#pingping-xiao">Pingping Xiao</a></li>
+        <li><a href="#patrick-lorden">Patrick Lorden</a></li>
+        <li><a href="#matthew-zipkes">Matthew Zipkes</a></li>
+        <li><a href="#alex-ni">Alex Ni</a></li>
+        <li><a href="#sam-martin">Sam Martin</a></li>
       </ul>
     </li>
     <li>
@@ -33,11 +30,11 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#module-break-down">Module Break Down</a></li>
+    <li><a href="#applcation-demo">Application Demo</a></li>
+    <li><a href="#api-documentation">API Documentation</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -123,7 +120,7 @@ Architecture Owner/Software Engineer
 
 <br>
 
-## Frontend Facing API Documentation
+## API Documentation
 ### Summary
 - auth related routes
   - POST /auth/signup
