@@ -1,5 +1,127 @@
 # gourmet-made-easie
 
+<br />
+
+<br>
+<div align="center">
+<img src="ReadmeImages/RedPaperclipLogo.png" alt="Red Paperclip Logo"/>
+</div><br>
+
+<br>
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li><a href="#contributors">Contributors</a>
+      <ul>
+        <li><a href="#rebekah-cruz">Rebekah Cruz</a></li>
+        <li><a href="#cory-ellerbroek">Cory Ellerbroek</a></li>
+        <li><a href="#william-fink">William Fink</a></li>
+        <li><a href="#blake-hughes">Blake Hughes</a></li>
+        <li><a href="#travis-morse">Travis Morse</a></li>
+        <li><a href="#mathhew-sewell">Matthew Sewell</a></li>
+        <li><a href="#pingping-xiao">Pingping Xiao</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#about-the-project">Project Overview</a>
+      <ul>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#module-break-down">Module Break Down</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+<br>
+
+<!-- Contributors -->
+
+# Contributors
+
+## Rebekah Cruz
+
+email here
+
+UI Owner/Software Engineer
+
+<img src="ReadmeImages/RebekahCruz.jpeg" alt="Rebekah Cruz headshot" height="150">
+
+[![linkedin-shield]][rebekah-linkedin]
+[![github-shield]][rebekah-github]
+
+<br>
+
+## Cory Ellerbroek
+
+cory.ellerbroek@gmail.com
+
+UI Owner/Software Engineer
+
+ <img src="ReadmeImages/CoryEllerbroek.jpeg" alt="Cory Ellerbroek Headshot" height="200">
+
+[![linkedin-shield]][cory-linkedin]
+[![github-shield]][cory-github]
+
+<br>
+
+## William Fink
+
+email here
+
+ <img src="ReadmeImages/WilliamFink.jpeg" alt="William Fink Headshot" height="150">
+
+[![linkedin-shield]][william-linkedin]
+[![github-shield]][william-github]
+
+<br>
+
+### Travis Morse
+
+travis503@gmail.com
+
+UI Owner/Software Engineer
+
+<img src="ReadmeImages/TravisMorse.jpeg" alt="Travis Morse Headshot" height="150">
+
+[![linkedin-shield]][travis-linkedin]
+[![github-shield]][travis-github]
+
+<br>
+
+## Matthew Sewell
+
+email here
+
+Architecture Owner/Software Engineer
+
+ <img src="ReadmeImages/MatthewSewell.jpeg" alt="Matthew Sewell Headshot" height="150">
+
+[![linkedin-shield]][matthew-linkedin]
+[![github-shield]][matthew-github]
+
+<br>
+
+## Pinping Xiao
+
+email here
+
+Architecture Owner/Software Engineer
+
+ <img src="ReadmeImages/PingpingXiao.jpeg" alt="Pingping Xiao Headshot" height="150">
+
+[![linkedin-shield]][pingping-linkedin]
+[![github-shield]][pingping-github]
+
+<br>
 
 ## Frontend Facing API Documentation
 ### Summary
