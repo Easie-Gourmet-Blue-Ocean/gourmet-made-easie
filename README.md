@@ -95,6 +95,33 @@ UI Owner/Software Engineer
 [![github-shield]][sam-github]
 <br>
 
+# Introduction
+
+<br>
+<div align="center">
+<img src="ReadmeImages/RedPaperclipLogo.png" alt="Red Paperclip Logo"/>
+</div><br>
+
+Red Paperclip was a collaborative Full-Stack capstone between the 7 collaborators. This was a brief 1-week sprint that simulated the real-world development of a Full-Stack web application to the demands provided by the client.
+
+<br>
+
+# Project Overview
+
+<br>
+
+This project was a brief 1-week sprint where our team tried to complete an MVP for an external user.
+
+> "I’d like to create an app that’s called "Red Paperclip", where users can post the item that they have to trade in exchange for an item that they currently have on hand (ie. A user has a red paperclip, and hopefully someone else has something they're willing to trade for that red paperclip) This would mean that multiple users should be able to post their item, but there should be both 1) a feed that exists for anyone to offer their item and 2) a personal page that tracks everything you’ve traded so far, and to update what you now have on hand (incl. Photos and description, and even whether they want their item to be public or not).In order for this to be more legitimate, users can only respond to other’s posts by offering the item they have (and all offers can be publicly viewed in the main feed), and if the other person agrees, then they both need to receive a notification to exchange addresses (fake addresses, of course) OR to meet in person and so then they’d move from a public exchange to private messages.For the feed itself, the user should be able to search for keywords so that they’re not scrolling through an endless feed of offers in case they’re really looking for something in particular."
+
+Team Member Expectations and Workflow:
+
+- Oversaw their own module while working in collaboration with teammates to ensure interactive functionality
+- Communicated their progress in daily standups
+- Created and completed their task tickets using Trello
+- Brainstormed and reflected the teams work in 2 day mini-sprints
+<br>
+
 ## API Documentation
 ### Summary
 - auth related routes
@@ -544,7 +571,15 @@ npm run build-dev
 
 Open the file `dist/index.html` in your browser
 
-## Credits
+## Tech Stack
+
+- [React](https://reactjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Axios](https://axios-http.com/)
+- [Express](https://expressjs.com/)
+- [Postgres](https://www.postgresql.org/)
+- [Webpack](https://webpack.js.org/)
+
 
 <!-- Contributor Links -->
 [patrick-linkedin]: https://www.linkedin.com/in/patrick-lorden/
