@@ -83,7 +83,7 @@ Co-Architecture Owner/Software Engineer
 
 <br>
 
-### Sam Martin
+## Sam Martin
 
 email here
 
