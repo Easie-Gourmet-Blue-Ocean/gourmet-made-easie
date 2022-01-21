@@ -78,7 +78,7 @@ Co-Architecture Owner/Software Engineer
 
  <img src="ReadmeImages/WilliamFink.jpeg" alt="William Fink Headshot" height="150">
 
-[![linkedin-shield]][alex-linkedin]
+<!-- [![linkedin-shield]][alex-linkedin] -->
 [![github-shield]][alex-github]
 
 <br>
@@ -547,13 +547,13 @@ Open the file `dist/index.html` in your browser
 ## Credits
 
 <!-- Contributor Links -->
-[patrick-linkedin]: https://www.linkedin.com/in/rebekah-cruz/
-[patrick-github]: https://github.com/bexter89
-[matthew-linkedin]: https://www.linkedin.com/in/coryellerbroek/
-[matthew-github]: https://github.com/LrBrK33
-[alex-linkedin]: https://www.linkedin.com/in/william-w-fink/
-[alex-github]: https://github.com/wwfink30
-[sam-linkedin]: https://www.linkedin.com/in/travis-morse-7574107a/
-[sam-github]: https://github.com/travis503
+[patrick-linkedin]: https://www.linkedin.com/in/patrick-lorden/
+[patrick-github]: https://github.com/Hellequin5
+[matthew-linkedin]: https://www.linkedin.com/in/matthewzipkes/
+[matthew-github]: https://github.com/MatthewZipkes
+<!-- [alex-linkedin]: https://www.linkedin.com/in/william-w-fink/ -->
+[alex-github]: https://github.com/clalexni
+[sam-linkedin]: https://www.linkedin.com/in/martin110sam/
+[sam-github]: https://github.com/martin110sam
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-grey?style=for-the-badge&logo=linkedin
 [github-shield]: https://img.shields.io/badge/-GitHub-grey?style=for-the-badge&logo=github
