@@ -165,7 +165,9 @@ npm run build-dev
 Open the file `dist/index.html` in your browser
 
 <br><br>
+
 ## Application Demo
+<br>
 
 ## API Documentation
 ### Summary
