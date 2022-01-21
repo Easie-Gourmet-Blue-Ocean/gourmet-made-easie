@@ -22,7 +22,7 @@
       </ul>
     </li>
     <li>
-      <a href="#about-the-project">Project Overview</a>
+      <a href="#project-overview">Project Overview</a>
       <ul>
         <li><a href="#tech-stack">Tech Stack</a></li>
       </ul>
