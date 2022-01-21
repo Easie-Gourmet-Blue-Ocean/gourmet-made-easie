@@ -33,7 +33,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#applcation-demo">Application Demo</a></li>
+    <li><a href="#app-demo">Application Demo</a></li>
     <li><a href="#api-documentation">API Documentation</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
