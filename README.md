@@ -44,11 +44,11 @@
 
 # Contributors
 
-## Rebekah Cruz
+## Patrick Lorden
 
-email here
+pjlorden@gmail.com
 
-UI Owner/Software Engineer
+Product Manager/Software Engineer
 
 <img src="ReadmeImages/RebekahCruz.jpeg" alt="Rebekah Cruz headshot" height="150">
 
@@ -57,11 +57,11 @@ UI Owner/Software Engineer
 
 <br>
 
-## Cory Ellerbroek
+## Matthew Zipkes
 
-cory.ellerbroek@gmail.com
+MatthewZipkes@gmail.com
 
-UI Owner/Software Engineer
+Co-Architecture Owner/Software Engineer
 
  <img src="ReadmeImages/CoryEllerbroek.jpeg" alt="Cory Ellerbroek Headshot" height="200">
 
@@ -70,9 +70,11 @@ UI Owner/Software Engineer
 
 <br>
 
-## William Fink
+## Alex Ni
 
 email here
+
+Co-Architecture Owner/Software Engineer
 
  <img src="ReadmeImages/WilliamFink.jpeg" alt="William Fink Headshot" height="150">
 
@@ -81,9 +83,9 @@ email here
 
 <br>
 
-### Travis Morse
+### Sam Martin
 
-travis503@gmail.com
+email here
 
 UI Owner/Software Engineer
 
@@ -91,33 +93,6 @@ UI Owner/Software Engineer
 
 [![linkedin-shield]][travis-linkedin]
 [![github-shield]][travis-github]
-
-<br>
-
-## Matthew Sewell
-
-email here
-
-Architecture Owner/Software Engineer
-
- <img src="ReadmeImages/MatthewSewell.jpeg" alt="Matthew Sewell Headshot" height="150">
-
-[![linkedin-shield]][matthew-linkedin]
-[![github-shield]][matthew-github]
-
-<br>
-
-## Pinping Xiao
-
-email here
-
-Architecture Owner/Software Engineer
-
- <img src="ReadmeImages/PingpingXiao.jpeg" alt="Pingping Xiao Headshot" height="150">
-
-[![linkedin-shield]][pingping-linkedin]
-[![github-shield]][pingping-github]
-
 <br>
 
 ## API Documentation
