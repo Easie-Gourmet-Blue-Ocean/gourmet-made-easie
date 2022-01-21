@@ -120,6 +120,16 @@ Team Member Expectations and Workflow:
 - Communicated their progress in daily standups
 - Created and completed their task tickets using Trello
 - Brainstormed and reflected the teams work in 2 day mini-sprints
+
+### Tech Stack
+
+- [React](https://reactjs.org/)
+- [Sass](https://sass-lang.com/)
+- [Axios](https://axios-http.com/)
+- [Express](https://expressjs.com/)
+- [Postgres](https://www.postgresql.org/)
+- [Webpack](https://webpack.js.org/)
+
 <br>
 
 ## API Documentation
@@ -570,15 +580,6 @@ npm run build-dev
 ## Running
 
 Open the file `dist/index.html` in your browser
-
-## Tech Stack
-
-- [React](https://reactjs.org/)
-- [Sass](https://sass-lang.com/)
-- [Axios](https://axios-http.com/)
-- [Express](https://expressjs.com/)
-- [Postgres](https://www.postgresql.org/)
-- [Webpack](https://webpack.js.org/)
 
 
 <!-- Contributor Links -->
