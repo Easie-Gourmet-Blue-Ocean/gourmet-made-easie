@@ -166,8 +166,6 @@ Open the file `dist/index.html` in your browser
 
 <br><br>
 
-<br><br>
-
 ## API Documentation
 ### Summary
 - auth related routes
