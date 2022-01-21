@@ -52,8 +52,8 @@ Product Manager/Software Engineer
 
 <img src="ReadmeImages/RebekahCruz.jpeg" alt="Rebekah Cruz headshot" height="150">
 
-[![linkedin-shield]][rebekah-linkedin]
-[![github-shield]][rebekah-github]
+[![linkedin-shield]][patrick-linkedin]
+[![github-shield]][patrick-github]
 
 <br>
 
@@ -65,8 +65,8 @@ Co-Architecture Owner/Software Engineer
 
  <img src="ReadmeImages/CoryEllerbroek.jpeg" alt="Cory Ellerbroek Headshot" height="200">
 
-[![linkedin-shield]][cory-linkedin]
-[![github-shield]][cory-github]
+[![linkedin-shield]][matthew-linkedin]
+[![github-shield]][matthew-github]
 
 <br>
 
@@ -78,8 +78,8 @@ Co-Architecture Owner/Software Engineer
 
  <img src="ReadmeImages/WilliamFink.jpeg" alt="William Fink Headshot" height="150">
 
-[![linkedin-shield]][william-linkedin]
-[![github-shield]][william-github]
+[![linkedin-shield]][alex-linkedin]
+[![github-shield]][alex-github]
 
 <br>
 
@@ -91,8 +91,8 @@ UI Owner/Software Engineer
 
 <img src="ReadmeImages/TravisMorse.jpeg" alt="Travis Morse Headshot" height="150">
 
-[![linkedin-shield]][travis-linkedin]
-[![github-shield]][travis-github]
+[![linkedin-shield]][sam-linkedin]
+[![github-shield]][sam-github]
 <br>
 
 ## API Documentation
@@ -546,4 +546,14 @@ Open the file `dist/index.html` in your browser
 
 ## Credits
 
-Made with [createapp.dev](https://createapp.dev/)
+<!-- Contributor Links -->
+[patrick-linkedin]: https://www.linkedin.com/in/rebekah-cruz/
+[patrick-github]: https://github.com/bexter89
+[matthew-linkedin]: https://www.linkedin.com/in/coryellerbroek/
+[matthew-github]: https://github.com/LrBrK33
+[alex-linkedin]: https://www.linkedin.com/in/william-w-fink/
+[alex-github]: https://github.com/wwfink30
+[sam-linkedin]: https://www.linkedin.com/in/travis-morse-7574107a/
+[sam-github]: https://github.com/travis503
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-grey?style=for-the-badge&logo=linkedin
+[github-shield]: https://img.shields.io/badge/-GitHub-grey?style=for-the-badge&logo=github
