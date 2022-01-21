@@ -27,15 +27,15 @@
         <li><a href="#tech-stack">Tech Stack</a></li>
       </ul>
     </li>
+    <li><a href="#application-demo">Application Demo</a></li>
+    <li><a href="#api-documentation">API Documentation</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#application-demo">Application Demo</a></li>
-    <li><a href="#api-documentation">API Documentation</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 <br>
