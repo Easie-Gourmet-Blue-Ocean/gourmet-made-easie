@@ -4,7 +4,7 @@
 
 <br>
 <div align="center">
-<img src="ReadmeImages/RedPaperclipLogo.png" alt="Gourmet Made Easie Logo"/>
+<img src="https://i.imgur.com/NtLqnXr.png" alt="Gourmet Made Easie Logo"/>
 </div><br>
 
 <br>
@@ -96,7 +96,7 @@ UI Owner/Software Engineer
 
 <br>
 <div align="center">
-<img src="ReadmeImages/RedPaperclipLogo.png" alt="Gourmet Made Easie Logo"/>
+<img src="https://i.imgur.com/NtLqnXr.png" alt="Gourmet Made Easie Logo"/>
 </div><br>
 
 Gourmet Made Easie was a collaborative Full-Stack capstone between the 4 collaborators. This was a brief 1-week sprint that simulated the real-world development of a Full-Stack web application to the demands provided by the client.
@@ -129,6 +129,7 @@ Team Member Expectations and Workflow:
 <br>
 
 ## Application Demo
+<br>
 <br>
 
 ## API Documentation
