@@ -85,8 +85,7 @@ Co-Architecture Owner/Software Engineer
 martin110sam@gmail.com
 
 UI Owner/Software Engineer
-
-<img src="ReadmeImages/TravisMorse.jpeg" alt="Sam Martin Headshot" height="150">
+<a href="https://imgur.com/AJS8ZVK"><img src="https://i.imgur.com/AJS8ZVK.jpg" height='200px' title="source: imgur.com" /></a>
 
 [![linkedin-shield]][sam-linkedin]
 [![github-shield]][sam-github]
