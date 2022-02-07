@@ -73,8 +73,6 @@ cl.alexni@gmail.com
 
 Co-Architecture Owner/Software Engineer
 
- <img src="ReadmeImages/WilliamFink.jpeg" alt="Alex Ni Headshot" height="150">
-
 [![linkedin-shield]][alex-linkedin]
 [![github-shield]][alex-github]
 
