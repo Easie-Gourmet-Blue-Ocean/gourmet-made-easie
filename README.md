@@ -47,7 +47,7 @@ pjlorden@gmail.com
 
 Product Manager/Software Engineer
 
-<img src="ReadmeImages/RebekahCruz.jpeg" alt="Patrick Lorden Headshot" height="150">
+<a href="https://imgur.com/5Uoh0yj"><img src="https://i.imgur.com/5Uoh0yj.png" height='200px' title="source: imgur.com" /></a>
 
 [![linkedin-shield]][patrick-linkedin]
 [![github-shield]][patrick-github]
