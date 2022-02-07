@@ -75,7 +75,7 @@ Co-Architecture Owner/Software Engineer
 
  <img src="ReadmeImages/WilliamFink.jpeg" alt="Alex Ni Headshot" height="150">
 
-<!-- [![linkedin-shield]][alex-linkedin] -->
+[![linkedin-shield]][alex-linkedin]
 [![github-shield]][alex-github]
 
 <br>
@@ -610,7 +610,7 @@ Open the file `dist/index.html` in your browser
 [patrick-github]: https://github.com/Hellequin5
 [matthew-linkedin]: https://www.linkedin.com/in/matthewzipkes/
 [matthew-github]: https://github.com/MatthewZipkes
-<!-- [alex-linkedin]: https://www.linkedin.com/in/william-w-fink/ -->
+[alex-linkedin]: https://www.linkedin.com/in/alex-ni-46269b22b/
 [alex-github]: https://github.com/clalexni
 [sam-linkedin]: https://www.linkedin.com/in/martin110sam/
 [sam-github]: https://github.com/martin110sam
