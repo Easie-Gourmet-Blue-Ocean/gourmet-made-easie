@@ -60,7 +60,7 @@ MatthewZipkes@gmail.com
 
 Co-Architecture Owner/Software Engineer
 
- <img src="ReadmeImages/CoryEllerbroek.jpeg" alt="Matthew Zipkes Headshot" height="200">
+<a href="https://imgur.com/tegDTCR"><img src="https://i.imgur.com/tegDTCR.jpg" height='200px' title="source: imgur.com" /></a>
 
 [![linkedin-shield]][matthew-linkedin]
 [![github-shield]][matthew-github]
