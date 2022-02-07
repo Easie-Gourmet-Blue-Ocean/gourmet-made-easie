@@ -69,7 +69,7 @@ Co-Architecture Owner/Software Engineer
 
 ## Alex Ni
 
-email here
+cl.alexni@gmail.com
 
 Co-Architecture Owner/Software Engineer
 
