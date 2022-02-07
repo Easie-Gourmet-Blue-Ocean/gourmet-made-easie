@@ -130,6 +130,24 @@ Team Member Expectations and Workflow:
 
 ## Application Demo
 <br>
+<div align="center">
+<img src="./docs/home_page.gif" alt="Gourmet Made Easie Logo"/>
+</div>
+<br>
+<br>
+<div align="center">
+<img src="./docs/search.gif" alt="Gourmet Made Easie Logo"/>
+</div>
+<br>
+<br>
+<div align="center">
+<img src="./docs/random.gif" alt="Gourmet Made Easie Logo"/>
+</div>
+<br>
+<br>
+<div align="center">
+<img src="./docs/profile.gif" alt="Gourmet Made Easie Logo" width='600'/>
+</div>
 <br>
 
 ## API Documentation
